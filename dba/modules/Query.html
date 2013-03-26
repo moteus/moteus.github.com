@@ -1,0 +1,730 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_Query_">Class Query </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul>
+  <li><a href="../modules/Connection.html">Connection</a></li>
+  <li><a href="../modules/Environment.html">Environment</a></li>
+  <li><strong>Query</strong></li>
+  <li><a href="../modules/dba.html">dba</a></li>
+  <li><a href="../modules/odbc.Connection.html">odbc.Connection</a></li>
+  <li><a href="../modules/odbc.Environment.html">odbc.Environment</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Query</code></h1>
+
+<p>Implement query class</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_Query_">Class Query </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Query:new">Query:new&nbsp;(cnn [, sql [, params]])</a></td>
+	<td class="summary">Создается новый объект <a href="../modules/Query.html#">Query</a> .</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:destroy">Query:destroy&nbsp;()</a></td>
+	<td class="summary">Уничтожает объект <a href="../modules/Query.html#">Query</a> </td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:close">Query:close&nbsp;()</a></td>
+	<td class="summary">Закрывает открытый курсор.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:closed">Query:closed&nbsp;()</a></td>
+	<td class="summary">Возвращает статус курсора.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:opened">Query:opened&nbsp;()</a></td>
+	<td class="summary">Возвращает статус курсора.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:handle">Query:handle&nbsp;()</a></td>
+	<td class="summary">Возвращает плотформозависимый дескриптор.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:prepare">Query:prepare&nbsp;( [sql])</a></td>
+	<td class="summary">Prepare query.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:prepared">Query:prepared&nbsp;()</a></td>
+	<td class="summary">Возвращает признак того что запрос подготовлен.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:unprepare">Query:unprepare&nbsp;()</a></td>
+	<td class="summary">Unprepare query.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:supports_prepare">Query:supports_prepare&nbsp;()</a></td>
+	<td class="summary">Does this query native support prepared queryes</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:set_sql">Query:set_sql&nbsp;(sql)</a></td>
+	<td class="summary">Устанавливает текст запроса.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:bind">Query:bind&nbsp;(paramID, value)</a></td>
+	<td class="summary">Присваивает значение параметру.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:bind">Query:bind&nbsp;(paramID, func [, len])</a></td>
+	<td class="summary">Присваивает значение параметру.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:bind">Query:bind&nbsp;(params)</a></td>
+	<td class="summary">Присваивает значение параметрам.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:open">Query:open&nbsp;( [sql [, param]])</a></td>
+	<td class="summary">Открывает курсор.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:exec">Query:exec&nbsp;( [sql [, params]])</a></td>
+	<td class="summary">Выполняет запрос который не должен возвращать Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:each">Query:each&nbsp;( [sql] [, params] [, autoclose=true], callback)</a></td>
+	<td class="summary">Итератор для перебора Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:rows">Query:rows&nbsp;( [sql [, params]])</a></td>
+	<td class="summary">Итератор для перебора Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:first_row">Query:first_row&nbsp;()</a></td>
+	<td class="summary">Возвращает первую строку Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:first_value">Query:first_value&nbsp;(...)</a></td>
+	<td class="summary">Возвращает первое значение первой записи.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:fetch_all">Query:fetch_all&nbsp;(fetch_mode, sql, params)</a></td>
+	<td class="summary">Возвращает полный результат запроса</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:next_resultset">Query:next_resultset&nbsp;()</a></td>
+	<td class="summary">Переключает курсор не следующий Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:set_autoclose">Query:set_autoclose&nbsp;(value)</a></td>
+	<td class="summary">Устанавливает режим закрытия курсора при достижениии конца Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Query:get_autoclose">Query:get_autoclose&nbsp;()</a></td>
+	<td class="summary">Возвращает режим закрытия курсора при достижениии конца Recordset.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Class_Query_"></a>Class Query </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Query:new"></a>
+    <strong>Query:new&nbsp;(cnn [, sql [, params]])</strong>
+    </dt>
+    <dd>
+    Создается новый объект <a href="../modules/Query.html#">Query</a> .
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">cnn</span>
+            <span class="types"><a class="type" href="../modules/Connection.html#">Connection</a></span>
+         открытый объект Connection</li>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         таблица параметров для запроса</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="../modules/Query.html#">Query</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:destroy"></a>
+    <strong>Query:destroy&nbsp;()</strong>
+    </dt>
+    <dd>
+    Уничтожает объект <a href="../modules/Query.html#">Query</a>
+
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Connection.html#Connection:query">Connection.Connection:query</a></li>
+         <li><a href="../modules/Connection.html#Connection:prepare">Connection.Connection:prepare</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Query:close"></a>
+    <strong>Query:close&nbsp;()</strong>
+    </dt>
+    <dd>
+    Закрывает открытый курсор.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:closed"></a>
+    <strong>Query:closed&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает статус курсора.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:opened"></a>
+    <strong>Query:opened&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает статус курсора.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:handle"></a>
+    <strong>Query:handle&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает плотформозависимый дескриптор.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        handle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:prepare"></a>
+    <strong>Query:prepare&nbsp;( [sql])</strong>
+    </dt>
+    <dd>
+    Prepare query. </p>
+
+<p> <br>Если библиотека или драйвер не поддерживают подготовленные запросы, то
+ используется подстановка параметров в текст при выполнении. При этом
+ функция возвращает успех, но Query:prepared возвращает false.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><span class="type">boolean</span></span>
+        true в случае удачи
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:prepared"></a>
+    <strong>Query:prepared&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает признак того что запрос подготовлен.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:unprepare"></a>
+    <strong>Query:unprepare&nbsp;()</strong>
+    </dt>
+    <dd>
+    Unprepare query.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:supports_prepare"></a>
+    <strong>Query:supports_prepare&nbsp;()</strong>
+    </dt>
+    <dd>
+    Does this query native support prepared queryes
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:set_sql"></a>
+    <strong>Query:set_sql&nbsp;(sql)</strong>
+    </dt>
+    <dd>
+    Устанавливает текст запроса. </p>
+
+<p> <br> После изменения SQL все параметры становятся невалидными.
+ <br> Запрос не должен быть открыт или подготовлен.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><span class="type">boolean</span></span>
+        true в случае удачи
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:bind"></a>
+    <strong>Query:bind&nbsp;(paramID, value)</strong>
+    </dt>
+    <dd>
+    Присваивает значение параметру. </p>
+
+<p> <br> В качестве значения можно указывать 2 специальные константы PARAM<em>NULL и PARAM</em>DEFAULT.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">paramID</span>
+            <span class="types"><span class="type">number</span> or <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         номер параметра (начиная с 1) или имя параметра</li>
+        <li><span class="parameter">value</span>
+           значение параметра.</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:bind"></a>
+    <strong>Query:bind&nbsp;(paramID, func [, len])</strong>
+    </dt>
+    <dd>
+    Присваивает значение параметру. </p>
+
+<p> <br> Эта функция может использоватся только если параметризованные запросы поддерживается драйвером.
+ <br> В качестве значения можно указывать 2 специальные константы PARAM<em>NULL и PARAM</em>DEFAULT.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">paramID</span>
+            <span class="types"><span class="type">number</span> or <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         номер параметра (начиная с 1) или имя параметра</li>
+        <li><span class="parameter">func</span>
+          Функция используется для получения данных в момент выполнения запроса.
+ <br>Для строк может выдавать данные порциями. Конец данных наступает либо в момент возврата nil если
+ не использовался параметр len, либо после передачи len байт если был указан параметр len.</li>
+        <li><span class="parameter">len</span>
+         реальная длинна данных.</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:bind"></a>
+    <strong>Query:bind&nbsp;(params)</strong>
+    </dt>
+    <dd>
+    Присваивает значение параметрам.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+<ul>
+    <li>таблица параметров(название/номер => значение)</li>
+</ul>
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:open"></a>
+    <strong>Query:open&nbsp;( [sql [, param]])</strong>
+    </dt>
+    <dd>
+    Открывает курсор. </p>
+
+<p> <br> Если параметр sql опущен, то используется значение установленное ранее.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">param</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         параметры запроса</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Query.html#Query:prepare">Query:prepare</a></li>
+         <li><a href="../modules/Connection.html#Connection:query">Connection.Connection:query</a></li>
+         <li><a href="../modules/Connection.html#Connection:prepare">Connection.Connection:prepare</a></li>
+         <li><a href="../modules/Query.html#Query:close">Query:close</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Query:exec"></a>
+    <strong>Query:exec&nbsp;( [sql [, params]])</strong>
+    </dt>
+    <dd>
+    Выполняет запрос который не должен возвращать Recordset. </p>
+
+<p> <br> Если запрос вернул курсор, то он закрывается, но не производится откат транзакции
+ <br> Если параметр sql опущен, то используется значение установленное ранее.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         параметры для запроса</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><span class="type">number</span></span>
+        количество записей задействованных в запросе,
+    </ol>
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Query.html#Query:set_sql">Query:set_sql</a></li>
+         <li><a href="../modules/Query.html#Query:prepare">Query:prepare</a></li>
+         <li><a href="../modules/Connection.html#Connection:query">Connection.Connection:query</a></li>
+         <li><a href="../modules/Connection.html#Connection:prepare">Connection.Connection:prepare</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Query:each"></a>
+    <strong>Query:each&nbsp;( [sql] [, params] [, autoclose=true], callback)</strong>
+    </dt>
+    <dd>
+    Итератор для перебора Recordset. </p>
+
+<p> <br>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         параметры для запроса</li>
+        <li><span class="parameter">autoclose</span>
+            <span class="types"><span class="type">boolean</span></span>
+         признак того что запрос должен быть закрыт перед завершением функции.</li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:rows"></a>
+    <strong>Query:rows&nbsp;( [sql [, params]])</strong>
+    </dt>
+    <dd>
+    Итератор для перебора Recordset. </p>
+
+<p> <br> Итератор для generic for
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         параметры для запроса</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:first_row"></a>
+    <strong>Query:first_row&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает первую строку Recordset. </p>
+
+<p> <br> Эквивалентна Query:each(sql,params,function(...) return ... end)
+
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/Query.html#Query:rows">Query:rows</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Query:first_value"></a>
+    <strong>Query:first_value&nbsp;(...)</strong>
+    </dt>
+    <dd>
+    Возвращает первое значение первой записи. </p>
+
+<p> <br> Эквивалентна (Query:first_row(sql,params)) с учетом проверки на ошибки
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+
+
+</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/Query.html#Query:first_row">Query:first_row</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Query:fetch_all"></a>
+    <strong>Query:fetch_all&nbsp;(fetch_mode, sql, params)</strong>
+    </dt>
+    <dd>
+    Возвращает полный результат запроса
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fetch_mode</span>
+         [required] 'a' - именованные записи 'n' - нимерованные записи</li>
+        <li><span class="parameter">sql</span>
+         [optional] текст запроса</li>
+        <li><span class="parameter">params</span>
+         [optional] таблица параметров для запроса</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        массив записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Query:next_resultset"></a>
+    <strong>Query:next_resultset&nbsp;()</strong>
+    </dt>
+    <dd>
+    Переключает курсор не следующий Recordset.
+ <br>Курсор должен быть открыт.
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+        ничего если нет следующего Recordset</li>
+        <li>
+        курсор если есть следующий Recordset</li>
+    </ol>
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Query.html#Query:open">Query:open</a></li>
+         <li><a href="../modules/Query.html#Query:closed">Query:closed</a></li>
+         <li><a href="../modules/Query.html#Query:close">Query:close</a></li>
+         <li><a href="../modules/Query.html#Query:each">Query:each</a></li>
+         <li><a href="../modules/Query.html#Query:rows">Query:rows</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Query:set_autoclose"></a>
+    <strong>Query:set_autoclose&nbsp;(value)</strong>
+    </dt>
+    <dd>
+    Устанавливает режим закрытия курсора при достижениии конца Recordset.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+
+
+</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Query.html#Query:each">Query:each</a></li>
+         <li><a href="../modules/Query.html#Query:rows">Query:rows</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Query:get_autoclose"></a>
+    <strong>Query:get_autoclose&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает режим закрытия курсора при достижениии конца Recordset.
+
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Query.html#Query:each">Query:each</a></li>
+         <li><a href="../modules/Query.html#Query:rows">Query:rows</a></li>
+    </ul>
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.3</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

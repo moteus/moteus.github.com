@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_Connection_">Class Connection </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul>
+  <li><strong>Connection</strong></li>
+  <li><a href="../modules/Environment.html">Environment</a></li>
+  <li><a href="../modules/Query.html">Query</a></li>
+  <li><a href="../modules/dba.html">dba</a></li>
+  <li><a href="../modules/odbc.Connection.html">odbc.Connection</a></li>
+  <li><a href="../modules/odbc.Environment.html">odbc.Environment</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Connection</code></h1>
+
+<p>Implement Connection class</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_Connection_">Class Connection </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Connection:new">Connection:new&nbsp;(env, own [, ...])</a></td>
+	<td class="summary">Создает новый объект Connection.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:destroy">Connection:destroy&nbsp;()</a></td>
+	<td class="summary">Уничтожает объект Connection.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:handle">Connection:handle&nbsp;()</a></td>
+	<td class="summary">Возвращает плотформозависимый дескриптор.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:connect">Connection:connect&nbsp;( [...])</a></td>
+	<td class="summary">Открывает подключение к БД.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:disconnect">Connection:disconnect&nbsp;()</a></td>
+	<td class="summary">Закрывает подключение к БД.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:connected">Connection:connected&nbsp;()</a></td>
+	<td class="summary">Возвращает признак подключения к БД.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:query">Connection:query&nbsp;( [sql [, params]])</a></td>
+	<td class="summary">Создает новый объект <a href="../modules/Query.html#">Query</a> .</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:prepare">Connection:prepare&nbsp;(sql [, params])</a></td>
+	<td class="summary">Создает новый подготовленный объект <a href="../modules/Query.html#">Query</a> .</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:commit">Connection:commit&nbsp;()</a></td>
+	<td class="summary">Подтверждает текущую транзакцию.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:rollback">Connection:rollback&nbsp;()</a></td>
+	<td class="summary">Отменяет текущую транзакцию.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:set_autocommit">Connection:set_autocommit&nbsp;(value)</a></td>
+	<td class="summary">Устанавливает режим автоматической фиксации транзакций.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:get_autocommit">Connection:get_autocommit&nbsp;()</a></td>
+	<td class="summary">Возвращает значение режима автоматической фиксации транзакций.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:exec">Connection:exec&nbsp;(sql [, table])</a></td>
+	<td class="summary">Выполняет запрос который не должен возвращать Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:each">Connection:each&nbsp;(sql [, params], callback)</a></td>
+	<td class="summary">Итератор для перебора Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:rows">Connection:rows&nbsp;(sql [, params])</a></td>
+	<td class="summary">Итератор для перебора Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:first_row">Connection:first_row&nbsp;(sql [, params])</a></td>
+	<td class="summary">Возвращает первую строку Recordset.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:first_value">Connection:first_value&nbsp;(sql [, params])</a></td>
+	<td class="summary">Возвращает первое значение первой записи.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:fetch_all">Connection:fetch_all&nbsp;(fetch_mode, sql [, params])</a></td>
+	<td class="summary">Возвращает полный результат запроса</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Class_Connection_"></a>Class Connection </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Connection:new"></a>
+    <strong>Connection:new&nbsp;(env, own [, ...])</strong>
+    </dt>
+    <dd>
+    Создает новый объект Connection.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">env</span>
+            <span class="types"><a class="type" href="../modules/Environment.html#">Environment</a></span>
+
+
+</li>
+        <li><span class="parameter">own</span>
+            <span class="types"><span class="type">boolean</span></span>
+         если true, то передается владение на env.
+  (Этот объект уничтожается вместе с объектом Connection.)</li>
+        <li><span class="parameter">...</span>
+          параметры для подключения к БД.</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="../modules/Connection.html#">Connection</a></span>
+
+
+
+    </ol>
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Environment.html#Environment:connection">Environment.Environment:connection</a></li>
+         <li><a href="../modules/Environment.html#Environment:connect">Environment.Environment:connect</a></li>
+         <li><a href="../modules/Connection.html#Connection:connect">Connection.Connection:connect</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:destroy"></a>
+    <strong>Connection:destroy&nbsp;()</strong>
+    </dt>
+    <dd>
+    Уничтожает объект Connection. </p>
+
+<p> <br> Если уничтожаемый объект использовался для распределения
+ запросов и они не уничтожены, то вызывается исключение
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:handle"></a>
+    <strong>Connection:handle&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает плотформозависимый дескриптор.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        handle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:connect"></a>
+    <strong>Connection:connect&nbsp;( [...])</strong>
+    </dt>
+    <dd>
+    Открывает подключение к БД. </p>
+
+<p> Параметры должны быть предоставлены в одном месте. Нельзя указать название БД в конструкторе,
+ а логин/пароль при открытии.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         параметры для подключения к БД.</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><span class="type">boolean</span></span>
+        признак успешности подключения
+    </ol>
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Environment.html#Environment:connection">Environment.Environment:connection</a></li>
+         <li><a href="../modules/Environment.html#Environment:connect">Environment.Environment:connect</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:disconnect"></a>
+    <strong>Connection:disconnect&nbsp;()</strong>
+    </dt>
+    <dd>
+    Закрывает подключение к БД. </p>
+
+<p> Объект остается доступным для дальнейшего использования
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:connected"></a>
+    <strong>Connection:connected&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает признак подключения к БД.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><span class="type">boolean</span></span>
+        признак наличия активного подключения
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:query"></a>
+    <strong>Connection:query&nbsp;( [sql [, params]])</strong>
+    </dt>
+    <dd>
+    Создает новый объект <a href="../modules/Query.html#">Query</a> .
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="../modules/Query.html#">Query</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:prepare"></a>
+    <strong>Connection:prepare&nbsp;(sql [, params])</strong>
+    </dt>
+    <dd>
+    Создает новый подготовленный объект <a href="../modules/Query.html#">Query</a> . </p>
+
+<p> <br>Если prepare завершается с ошибкой - бъект <a href="../modules/Query.html#">Query</a>  уничтожается
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         таблица параметров для запроса</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="../modules/Query.html#">Query</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:commit"></a>
+    <strong>Connection:commit&nbsp;()</strong>
+    </dt>
+    <dd>
+    Подтверждает текущую транзакцию. </p>
+
+<p> <br> не имеет смысла если autocommit=true
+
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Connection.html#Connection:rollback">Connection:rollback</a></li>
+         <li><a href="../modules/Connection.html#Connection:connect">Connection:connect</a></li>
+         <li><a href="../modules/Environment.html#Environment:connection">Environment.Environment:connection</a></li>
+         <li><a href="../modules/Environment.html#Environment:connect">Environment.Environment:connect</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:rollback"></a>
+    <strong>Connection:rollback&nbsp;()</strong>
+    </dt>
+    <dd>
+    Отменяет текущую транзакцию. </p>
+
+<p> <br> не имеет смысла если autocommit=true
+
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Connection.html#Connection:commit">Connection:commit</a></li>
+         <li><a href="../modules/Connection.html#Connection:connect">Connection:connect</a></li>
+         <li><a href="../modules/Environment.html#Environment:connection">Environment.Environment:connection</a></li>
+         <li><a href="../modules/Environment.html#Environment:connect">Environment.Environment:connect</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:set_autocommit"></a>
+    <strong>Connection:set_autocommit&nbsp;(value)</strong>
+    </dt>
+    <dd>
+    Устанавливает режим автоматической фиксации транзакций.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:get_autocommit"></a>
+    <strong>Connection:get_autocommit&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает значение режима автоматической фиксации транзакций.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:exec"></a>
+    <strong>Connection:exec&nbsp;(sql [, table])</strong>
+    </dt>
+    <dd>
+    Выполняет запрос который не должен возвращать Recordset. </p>
+
+<p> Если запрос вернул курсор, то он закрывается, но не производится откат транзакции
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">table</span>
+         params таблица параметров для запроса</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        количество записей задействованных в запросе
+    </ol>
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Connection.html#Connection:commit">Connection:commit</a></li>
+         <li><a href="../modules/Connection.html#Connection:rollback">Connection:rollback</a></li>
+         <li><a href="../modules/Connection.html#Connection:set_autocommit">Connection:set_autocommit</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:each"></a>
+    <strong>Connection:each&nbsp;(sql [, params], callback)</strong>
+    </dt>
+    <dd>
+    Итератор для перебора Recordset. </p>
+
+<p> Гарантируется закрытие курсора перед завершением вызова
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         параметры для запроса</li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">
+ <span class="keyword">local</span> sql = <span class="string">'select ID, NAME from Clients where NAME = :NAME'</span>
+ db:each(sql, {NAME=<span class="string">'ALEX'</span>}, <span class="global">print</span>)
+ db:ieach(sql, {NAME=<span class="string">'ALEX'</span>}, <span class="keyword">function</span>(r)<span class="global">print</span>(r[<span class="number">1</span>],r[<span class="number">2</span>])<span class="keyword">end</span>)
+ db:neach(sql, {NAME=<span class="string">'ALEX'</span>}, <span class="keyword">function</span>(r)<span class="global">print</span>(r.ID,r.NAME)<span class="keyword">end</span>)</pre></li>
+        <li><pre class="example">
+ <span class="keyword">local</span> alex_id = db:each(<span class="string">'select ID, NAME from Clients'</span>, <span class="keyword">function</span>(ID, NAME)
+   <span class="keyword">if</span> NAME == <span class="string">'ALEX'</span> <span class="keyword">then</span> <span class="keyword">return</span> ID <span class="keyword">end</span>
+ <span class="keyword">end</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Connection:rows"></a>
+    <strong>Connection:rows&nbsp;(sql [, params])</strong>
+    </dt>
+    <dd>
+    Итератор для перебора Recordset. </p>
+
+<p> <br> Итератор для generic for
+ <br> Гарантируется закрытие курсора по достижении конца или при закрытии подключения.
+ <br> Перебор продолжается до конца курсора или пока первое поле не будет равно NULL.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         параметры для запроса</li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> sql = <span class="string">'select ID, NAME from Clients where NAME = :NAME'</span>
+ <span class="keyword">local</span> params = {NAME=<span class="string">'ALEX'</span>}
+ <span class="keyword">for</span> ID,NAME <span class="keyword">in</span> db:rows(sql,params) <span class="keyword">do</span> <span class="global">print</span>(ID,NAME) <span class="keyword">end</span>
+ <span class="keyword">for</span> r <span class="keyword">in</span> db:irows(sql,params) <span class="keyword">do</span> <span class="global">print</span>(r[<span class="number">1</span>],r[<span class="number">2</span>]) <span class="keyword">end</span>
+ <span class="keyword">for</span> r <span class="keyword">in</span> db:nrows(sql,params) <span class="keyword">do</span> <span class="global">print</span>(r.ID,r.NAME) <span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Connection:first_row"></a>
+    <strong>Connection:first_row&nbsp;(sql [, params])</strong>
+    </dt>
+    <dd>
+    Возвращает первую строку Recordset. </p>
+
+<p> <br> Эквивалентна Connection:each(sql,params,function(...) return ... end)
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         параметры для запроса</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Connection.html#Connection:rows">Connection:rows</a></li>
+         <li><a href="../modules/Connection.html#Connection:each">Connection:each</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:first_value"></a>
+    <strong>Connection:first_value&nbsp;(sql [, params])</strong>
+    </dt>
+    <dd>
+    Возвращает первое значение первой записи. </p>
+
+<p> <br> Эквивалентна (Connection:first_row(sql,params)) с учетом проверки на ошибки
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         параметры для запроса</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/Connection.html#Connection:first_row">Connection:first_row</a>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> cnt, err = db:first_value(<span class="string">'select count(*) from Clients'</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Connection:fetch_all"></a>
+    <strong>Connection:fetch_all&nbsp;(fetch_mode, sql [, params])</strong>
+    </dt>
+    <dd>
+    Возвращает полный результат запроса
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fetch_mode</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+<ul>
+    <li>'a' именованные записи</li>
+    <li>'n' нумерованные записи</li>
+</ul>
+</li>
+        <li><span class="parameter">sql</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         текст запроса</li>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         таблица параметров для запроса</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        массив записей
+    </ol>
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/Connection.html#Connection:each">Connection:each</a>
+    </ul>
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.3</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

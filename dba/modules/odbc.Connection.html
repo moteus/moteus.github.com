@@ -1,0 +1,1215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul>
+  <li><a href="../modules/Connection.html">Connection</a></li>
+  <li><a href="../modules/Environment.html">Environment</a></li>
+  <li><a href="../modules/Query.html">Query</a></li>
+  <li><a href="../modules/dba.html">dba</a></li>
+  <li><strong>odbc.Connection</strong></li>
+  <li><a href="../modules/odbc.Environment.html">odbc.Environment</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>odbc.Connection</code></h1>
+
+<p>Extend <a href="../modules/Connection.html#Class_Connection">Connection</a> class with ODBC specific function</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Connection:typeinfo">Connection:typeinfo&nbsp;( [tcode [, fn]])</a></td>
+	<td class="summary">Возвращает список поддерживаемых типов данных.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:tabletypes">Connection:tabletypes&nbsp;( [fn])</a></td>
+	<td class="summary">Возвращает список поддерживаемых типов таблиц.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:schemas">Connection:schemas&nbsp;( [fn])</a></td>
+	<td class="summary">Возвращает список схем БД.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:catalogs">Connection:catalogs&nbsp;( [fn])</a></td>
+	<td class="summary">Возвращает список каталогов.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:statistics">Connection:statistics&nbsp;( [catalog [, schema [, tableName [, unique [, reserved [, fn]]]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:tables">Connection:tables&nbsp;( [catalog [, schema [, tableName [, types [, fn]]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:table_privileges">Connection:table_privileges&nbsp;( [catalog [, schema [, tableName [, fn]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:primary_keys">Connection:primary_keys&nbsp;( [catalog [, schema [, tableName [, fn]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:index_info">Connection:index_info&nbsp;( [catalog [, schema [, tableName [, fn]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:crossreference">Connection:crossreference&nbsp;( [pc [, ps [, pt [, fc [, fs [, ft [, fn]]]]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:columns">Connection:columns&nbsp;( [catalog [, schema [, tableName [, columnName [, fn]]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:special_columns">Connection:special_columns&nbsp;( [catalog [, schema [, tableName [, fn]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:procedures">Connection:procedures&nbsp;( [string [, string [, string [, fn]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:procedure_columns">Connection:procedure_columns&nbsp;( [string [, string [, string [, string [, fn]]]]])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:column_privileges">Connection:column_privileges&nbsp;( [string] [, string] [, string] [, string], fn [, fn])</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:dbmsname">Connection:dbmsname&nbsp;()</a></td>
+	<td class="summary">Возвращает название СУБД.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:drvname">Connection:drvname&nbsp;()</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:drvver">Connection:drvver&nbsp;()</a></td>
+	<td class="summary">Возвращает версию драйвера.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:odbcver">Connection:odbcver&nbsp;()</a></td>
+	<td class="summary">Возвращает версию ODBC в виде строки.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:odbcvermm">Connection:odbcvermm&nbsp;()</a></td>
+	<td class="summary">Возвращает версию ODBC в виде двух чисел.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:username">Connection:username&nbsp;()</a></td>
+	<td class="summary">Возвращает текущего пользователя.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:set_catalog">Connection:set_catalog&nbsp;(value)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:get_catalog">Connection:get_catalog&nbsp;()</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:set_readonly">Connection:set_readonly&nbsp;(value)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:get_readonly">Connection:get_readonly&nbsp;()</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:set_trace_file">Connection:set_trace_file&nbsp;(value)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:get_trace_file">Connection:get_trace_file&nbsp;()</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:set_trace">Connection:set_trace&nbsp;(value)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:get_trace">Connection:get_trace&nbsp;()</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:supports_catalg_name">Connection:supports_catalg_name&nbsp;()</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:supports_transaction">Connection:supports_transaction&nbsp;( [lvl])</a></td>
+	<td class="summary">Проверяет поддерживает ли драйвер транзакции.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:default_transaction">Connection:default_transaction&nbsp;()</a></td>
+	<td class="summary">Возвращает уровень транзакций по умолчанию для прдключения.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:set_transaction_level">Connection:set_transaction_level&nbsp;( [lvl])</a></td>
+	<td class="summary">Устанавливает текущий уровень транзакции для прдключения.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:get_transaction_level">Connection:get_transaction_level&nbsp;()</a></td>
+	<td class="summary">Возвращает текущий уровень транзакции для прдключения.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:supports_bind_param">Connection:supports_bind_param&nbsp;()</a></td>
+	<td class="summary">Проверяет поддерживает ли драйвер привязку параметров запросов.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:supports_prepare">Connection:supports_prepare&nbsp;()</a></td>
+	<td class="summary">Проверяет поддерживает ли драйвер подготовленные запросы.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:set_login_timeout">Connection:set_login_timeout&nbsp;( [ms])</a></td>
+	<td class="summary">Устанавливает таймоут для подключения к БД</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:get_login_timeout">Connection:get_login_timeout&nbsp;()</a></td>
+	<td class="summary">Возвращает таймоут для подключения к БД</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "Connection:typeinfo"></a>
+    <strong>Connection:typeinfo&nbsp;( [tcode [, fn]])</strong>
+    </dt>
+    <dd>
+    Возвращает список поддерживаемых типов данных.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tcode</span>
+            <span class="types"><span class="type">number</span></span>
+         type code</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:tabletypes"></a>
+    <strong>Connection:tabletypes&nbsp;( [fn])</strong>
+    </dt>
+    <dd>
+    Возвращает список поддерживаемых типов таблиц.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:schemas"></a>
+    <strong>Connection:schemas&nbsp;( [fn])</strong>
+    </dt>
+    <dd>
+    Возвращает список схем БД.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:catalogs"></a>
+    <strong>Connection:catalogs&nbsp;( [fn])</strong>
+    </dt>
+    <dd>
+    Возвращает список каталогов.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:statistics"></a>
+    <strong>Connection:statistics&nbsp;( [catalog [, schema [, tableName [, unique [, reserved [, fn]]]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">catalog</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         только если драйвер поддерживат каталоги</li>
+        <li><span class="parameter">schema</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">tableName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">unique</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">reserved</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:tables"></a>
+    <strong>Connection:tables&nbsp;( [catalog [, schema [, tableName [, types [, fn]]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">catalog</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         только если драйвер поддерживат каталоги</li>
+        <li><span class="parameter">schema</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">tableName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">types</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:table_privileges"></a>
+    <strong>Connection:table_privileges&nbsp;( [catalog [, schema [, tableName [, fn]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">catalog</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        только если драйвер поддерживат каталоги</li>
+        <li><span class="parameter">schema</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">tableName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">fdba.callback_function</span></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:primary_keys"></a>
+    <strong>Connection:primary_keys&nbsp;( [catalog [, schema [, tableName [, fn]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">catalog</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         только если драйвер поддерживат каталоги</li>
+        <li><span class="parameter">schema</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">tableName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:index_info"></a>
+    <strong>Connection:index_info&nbsp;( [catalog [, schema [, tableName [, fn]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">catalog</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         только если драйвер поддерживат каталоги</li>
+        <li><span class="parameter">schema</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">tableName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:crossreference"></a>
+    <strong>Connection:crossreference&nbsp;( [pc [, ps [, pt [, fc [, fs [, ft [, fn]]]]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pc</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         primary catalog (только если драйвер поддерживат каталоги)</li>
+        <li><span class="parameter">ps</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         primary schema</li>
+        <li><span class="parameter">pt</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         primary table</li>
+        <li><span class="parameter">fc</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         foreign catalog (только если драйвер поддерживат каталоги)</li>
+        <li><span class="parameter">fs</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         foreign schema</li>
+        <li><span class="parameter">ft</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         foreign table</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:columns"></a>
+    <strong>Connection:columns&nbsp;( [catalog [, schema [, tableName [, columnName [, fn]]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">catalog</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         только если драйвер поддерживат каталоги</li>
+        <li><span class="parameter">schema</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">tableName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">columnName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:special_columns"></a>
+    <strong>Connection:special_columns&nbsp;( [catalog [, schema [, tableName [, fn]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">catalog</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         только если драйвер поддерживат каталоги</li>
+        <li><span class="parameter">schema</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">tableName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:procedures"></a>
+    <strong>Connection:procedures&nbsp;( [string [, string [, string [, fn]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">string</span>
+         procName</li>
+        <li><span class="parameter">string</span>
+         procName</li>
+        <li><span class="parameter">string</span>
+         procName</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:procedure_columns"></a>
+    <strong>Connection:procedure_columns&nbsp;( [string [, string [, string [, string [, fn]]]]])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">string</span>
+         colName</li>
+        <li><span class="parameter">string</span>
+         colName</li>
+        <li><span class="parameter">string</span>
+         colName</li>
+        <li><span class="parameter">string</span>
+         colName</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:column_privileges"></a>
+    <strong>Connection:column_privileges&nbsp;( [string] [, string] [, string] [, string], fn [, fn])</strong>
+    </dt>
+    <dd>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">string</span>
+         columnName</li>
+        <li><span class="parameter">string</span>
+         columnName</li>
+        <li><span class="parameter">string</span>
+         columnName</li>
+        <li><span class="parameter">string</span>
+         columnName</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><a class="type" href="../modules/dba.html#callback_function">dba.callback_function</a></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        список записей
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:dbmsname"></a>
+    <strong>Connection:dbmsname&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает название СУБД.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:drvname"></a>
+    <strong>Connection:drvname&nbsp;()</strong>
+    </dt>
+    <dd>
+    ???
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:drvver"></a>
+    <strong>Connection:drvver&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает версию драйвера.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:odbcver"></a>
+    <strong>Connection:odbcver&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает версию ODBC в виде строки.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:odbcvermm"></a>
+    <strong>Connection:odbcvermm&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает версию ODBC в виде двух чисел.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:username"></a>
+    <strong>Connection:username&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает текущего пользователя.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:set_catalog"></a>
+    <strong>Connection:set_catalog&nbsp;(value)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:get_catalog"></a>
+    <strong>Connection:get_catalog&nbsp;()</strong>
+    </dt>
+    <dd>
+    ???
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:set_readonly"></a>
+    <strong>Connection:set_readonly&nbsp;(value)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:get_readonly"></a>
+    <strong>Connection:get_readonly&nbsp;()</strong>
+    </dt>
+    <dd>
+    ???
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:set_trace_file"></a>
+    <strong>Connection:set_trace_file&nbsp;(value)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:get_trace_file"></a>
+    <strong>Connection:get_trace_file&nbsp;()</strong>
+    </dt>
+    <dd>
+    ???
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:set_trace"></a>
+    <strong>Connection:set_trace&nbsp;(value)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:get_trace"></a>
+    <strong>Connection:get_trace&nbsp;()</strong>
+    </dt>
+    <dd>
+    ???
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:supports_catalg_name"></a>
+    <strong>Connection:supports_catalg_name&nbsp;()</strong>
+    </dt>
+    <dd>
+    ???
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:supports_transaction"></a>
+    <strong>Connection:supports_transaction&nbsp;( [lvl])</strong>
+    </dt>
+    <dd>
+    Проверяет поддерживает ли драйвер транзакции. </p>
+
+<p> <br> Возможна проверка определенного уровня изоляции
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lvl</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
+         уровень изоляции транзакции</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/dba.html#transaction_level">dba.transaction_level</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:default_transaction"></a>
+    <strong>Connection:default_transaction&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает уровень транзакций по умолчанию для прдключения.
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+          <span class="types"><span class="type">number</span></span>
+        значение</li>
+        <li>
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        название</li>
+    </ol>
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/dba.html#transaction_level">dba.transaction_level</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:set_transaction_level"></a>
+    <strong>Connection:set_transaction_level&nbsp;( [lvl])</strong>
+    </dt>
+    <dd>
+    Устанавливает текущий уровень транзакции для прдключения.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lvl</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
+         уровень изоляции транзакции</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/dba.html#transaction_level">dba.transaction_level</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:get_transaction_level"></a>
+    <strong>Connection:get_transaction_level&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает текущий уровень транзакции для прдключения.
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+          <span class="types"><span class="type">number</span></span>
+        значение</li>
+        <li>
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        название</li>
+    </ol>
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/dba.html#transaction_level">dba.transaction_level</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Connection:supports_bind_param"></a>
+    <strong>Connection:supports_bind_param&nbsp;()</strong>
+    </dt>
+    <dd>
+    Проверяет поддерживает ли драйвер привязку параметров запросов.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:supports_prepare"></a>
+    <strong>Connection:supports_prepare&nbsp;()</strong>
+    </dt>
+    <dd>
+    Проверяет поддерживает ли драйвер подготовленные запросы.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:set_login_timeout"></a>
+    <strong>Connection:set_login_timeout&nbsp;( [ms])</strong>
+    </dt>
+    <dd>
+    Устанавливает таймоут для подключения к БД
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ms</span>
+            <span class="types"><span class="type">number</span></span>
+         интервал в миллисекундах. nil не устанавливать.</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+
+<ul>
+    <li>true</li>
+</ul>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:get_login_timeout"></a>
+    <strong>Connection:get_login_timeout&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает таймоут для подключения к БД
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><span class="type">number</span></span>
+        интервал в миллисекундах. nil не устанавленно.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.3</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

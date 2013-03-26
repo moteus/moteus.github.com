@@ -1,0 +1,1296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul>
+  <li><strong>path</strong></li>
+  <li><a href="../modules/path.fs.html">path.fs</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>path</code></h1>
+
+<p>
+
+</p>
+<p>
+
+</p>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ local PATH = require &quot;path&quot;
+
+ -- suppose we run on windows
+ assert(PATH.IS_WINDOWS)
+
+ -- we can use system dependet function
+ print(PATH.user_home())  -- C:\Documents and Settings\Admin
+ print(PATH.currentdir()) -- C:\lua\5.1
+
+ -- but we can use specific system path notation
+ local ftp_path = PATH.new(&apos;/&apos;)
+ print(ftp_path.join(&quot;/root&quot;, &quot;some&quot;, &quot;dir&quot;)) -- /root/some/dir
+
+ -- All functions specific to system will fail
+ assert(not pcall( function() ftp_path.currentdir() end) )</pre>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#has_dir_end">has_dir_end&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#remove_dir_end">remove_dir_end&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ensure_dir_end">ensure_dir_end&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#normolize">normolize&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#join">join&nbsp;(...)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#splitext">splitext&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#splitpath">splitpath&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#splitroot">splitroot&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#basename">basename&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#dirname">dirname&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#extension">extension&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#root">root&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isfullpath">isfullpath&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#user_home">user_home&nbsp;()</a></td>
+	<td class="summary">return user_home dir</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#flags">flags&nbsp;(P)</a></td>
+	<td class="summary">Return file attributes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tmpdir">tmpdir&nbsp;()</a></td>
+	<td class="summary">Return path to temp directory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tmpname">tmpname&nbsp;()</a></td>
+	<td class="summary">Return full path for temp file.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#size">size&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#fullpath">fullpath&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#exists">exists&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isdir">isdir&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isfile">isfile&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#islink">islink&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ctime">ctime&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mtime">mtime&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#atime">atime&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cdate">cdate&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mdate">mdate&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#adate">adate&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mkdir">mkdir&nbsp;(P)</a></td>
+	<td class="summary">Create new directory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rmdir">rmdir&nbsp;(P)</a></td>
+	<td class="summary">Remove empty directory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#remove">remove&nbsp;(P, opt)</a></td>
+	<td class="summary">Remove empty directory or file.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rename">rename&nbsp;(from, to, force)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#copy">copy&nbsp;(from, to, opt)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#currentdir">currentdir&nbsp;()</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#chdir">chdir&nbsp;(P)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#each">each&nbsp;(str_file, str_params, func_callback, tbl_option)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#each">each&nbsp;(str_file, str_params, tbl_option)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#each">each&nbsp;(str_file, func_callback, tbl_option)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#each">each&nbsp;(str_file, tbl_option)</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#each">each&nbsp;(func_callback, tbl_option)</a></td>
+	<td class="summary">???</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#copy_opt">copy_opt</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#remove_opt">remove_opt</a></td>
+	<td class="summary">???</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#DIR_SEP">DIR_SEP</a></td>
+	<td class="summary">???</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#IS_WINDOWS">IS_WINDOWS</a></td>
+	<td class="summary">???</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "has_dir_end"></a>
+    <strong>has_dir_end&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "remove_dir_end"></a>
+    <strong>remove_dir_end&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ensure_dir_end"></a>
+    <strong>ensure_dir_end&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "normolize"></a>
+    <strong>normolize&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "join"></a>
+    <strong>join&nbsp;(...)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "splitext"></a>
+    <strong>splitext&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "splitpath"></a>
+    <strong>splitpath&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "splitroot"></a>
+    <strong>splitroot&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "basename"></a>
+    <strong>basename&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "dirname"></a>
+    <strong>dirname&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "extension"></a>
+    <strong>extension&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "root"></a>
+    <strong>root&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isfullpath"></a>
+    <strong>isfullpath&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "user_home"></a>
+    <strong>user_home&nbsp;()</strong>
+    </dt>
+    <dd>
+    return user_home dir
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "flags"></a>
+    <strong>flags&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    Return file attributes. </p>
+
+<p> On Windows it is result of GetFileAttributesEx
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tmpdir"></a>
+    <strong>tmpdir&nbsp;()</strong>
+    </dt>
+    <dd>
+    Return path to temp directory.
+ On Windows can use GetTempPath if Alien/FFI/afx have been found
+ On Windows use TMP/TEMP environment variables
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tmpname"></a>
+    <strong>tmpname&nbsp;()</strong>
+    </dt>
+    <dd>
+    Return full path for temp file.
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "size"></a>
+    <strong>size&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "fullpath"></a>
+    <strong>fullpath&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "exists"></a>
+    <strong>exists&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isdir"></a>
+    <strong>isdir&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isfile"></a>
+    <strong>isfile&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "islink"></a>
+    <strong>islink&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ctime"></a>
+    <strong>ctime&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mtime"></a>
+    <strong>mtime&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "atime"></a>
+    <strong>atime&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cdate"></a>
+    <strong>cdate&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>  and LuaDate
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mdate"></a>
+    <strong>mdate&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>  and LuaDate
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "adate"></a>
+    <strong>adate&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>  and LuaDate
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mkdir"></a>
+    <strong>mkdir&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    Create new directory.
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rmdir"></a>
+    <strong>rmdir&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    Remove empty directory.
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "remove"></a>
+    <strong>remove&nbsp;(P, opt)</strong>
+    </dt>
+    <dd>
+    Remove empty directory or file.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">opt</span>
+            <span class="types">optional <a class="type" href="../modules/path.html#remove_opt">remove_opt</a></span>
+         <br/>depends on <a href="../modules/path.fs.html#">path.fs</a> </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rename"></a>
+    <strong>rename&nbsp;(from, to, force)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">from</span>
+
+
+</li>
+        <li><span class="parameter">to</span>
+
+
+</li>
+        <li><span class="parameter">force</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "copy"></a>
+    <strong>copy&nbsp;(from, to, opt)</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">from</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">to</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">opt</span>
+            <span class="types"><a class="type" href="../modules/path.html#copy_opt">copy_opt</a> or <span class="type">boolean</span></span>
+         <br/>depends on <a href="../modules/path.fs.html#">path.fs</a> </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "currentdir"></a>
+    <strong>currentdir&nbsp;()</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "chdir"></a>
+    <strong>chdir&nbsp;(P)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "each"></a>
+    <strong>each&nbsp;(str_file, str_params, func_callback, tbl_option)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str_file</span>
+
+
+</li>
+        <li><span class="parameter">str_params</span>
+
+
+</li>
+        <li><span class="parameter">func_callback</span>
+
+
+</li>
+        <li><span class="parameter">tbl_option</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "each"></a>
+    <strong>each&nbsp;(str_file, str_params, tbl_option)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str_file</span>
+
+
+</li>
+        <li><span class="parameter">str_params</span>
+
+
+</li>
+        <li><span class="parameter">tbl_option</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "each"></a>
+    <strong>each&nbsp;(str_file, func_callback, tbl_option)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str_file</span>
+
+
+</li>
+        <li><span class="parameter">func_callback</span>
+
+
+</li>
+        <li><span class="parameter">tbl_option</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "each"></a>
+    <strong>each&nbsp;(str_file, tbl_option)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str_file</span>
+
+
+</li>
+        <li><span class="parameter">tbl_option</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "each"></a>
+    <strong>each&nbsp;(func_callback, tbl_option)</strong>
+    </dt>
+    <dd>
+    ???
+ <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">func_callback</span>
+
+
+</li>
+        <li><span class="parameter">tbl_option</span>
+
+
+</li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Tables"></a>Tables</h2>
+    <dl class="function">
+    <dt>
+    <a name = "copy_opt"></a>
+    <strong>copy_opt</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">recurse</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">skipdirs</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">skipfiles</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">accept</span>
+            <span class="types"><span class="type">callable</span></span>
+
+
+</li>
+        <li><span class="parameter">error</span>
+            <span class="types"><span class="type">callable</span></span>
+
+
+</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/path.fs.html#each_options">path.fs.each_options</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "remove_opt"></a>
+    <strong>remove_opt</strong>
+    </dt>
+    <dd>
+    ???
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">recurse</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">skipdirs</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">skipfiles</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+        <li><span class="parameter">accept</span>
+            <span class="types"><span class="type">callable</span></span>
+
+
+</li>
+        <li><span class="parameter">error</span>
+            <span class="types"><span class="type">callable</span></span>
+
+
+</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/path.fs.html#each_options">path.fs.each_options</a>
+    </ul>
+
+
+</dd>
+</dl>
+    <h2><a name="Fields"></a>Fields</h2>
+    <dl class="function">
+    <dt>
+    <a name = "DIR_SEP"></a>
+    <strong>DIR_SEP</strong>
+    </dt>
+    <dd>
+    ???
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "IS_WINDOWS"></a>
+    <strong>IS_WINDOWS</strong>
+    </dt>
+    <dd>
+    ???
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.3</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

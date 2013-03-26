@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_Environment_">Class Environment </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul>
+  <li><a href="../modules/Connection.html">Connection</a></li>
+  <li><strong>Environment</strong></li>
+  <li><a href="../modules/Query.html">Query</a></li>
+  <li><a href="../modules/dba.html">dba</a></li>
+  <li><a href="../modules/odbc.Connection.html">odbc.Connection</a></li>
+  <li><a href="../modules/odbc.Environment.html">odbc.Environment</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Environment</code></h1>
+
+<p>Implement environment class</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_Environment_">Class Environment </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Environment:new">Environment:new&nbsp;(env)</a></td>
+	<td class="summary">Создает новый объект <a href="../modules/Environment.html#">Environment</a> .</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Environment:destroy">Environment:destroy&nbsp;()</a></td>
+	<td class="summary">Уничтожает объект <a href="../modules/Environment.html#">Environment</a> .</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Environment:handle">Environment:handle&nbsp;()</a></td>
+	<td class="summary">Возвращает плотформозависимый дескриптор.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Environment:connection">Environment:connection&nbsp;(dbname [, login [, password [, autocommit=true]]])</a></td>
+	<td class="summary">Создает новый объект Connection.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Environment:connection">Environment:connection&nbsp;(params [, autocommit=true])</a></td>
+	<td class="summary">Создает новый объект Connection.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Environment:connect">Environment:connect&nbsp;()</a></td>
+	<td class="summary">Создает новый объект Connection и открывает подключение.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Class_Environment_"></a>Class Environment </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Environment:new"></a>
+    <strong>Environment:new&nbsp;(env)</strong>
+    </dt>
+    <dd>
+    Создает новый объект <a href="../modules/Environment.html#">Environment</a> .
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">env</span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        объект <a href="../modules/Environment.html#">Environment</a>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Environment:destroy"></a>
+    <strong>Environment:destroy&nbsp;()</strong>
+    </dt>
+    <dd>
+    Уничтожает объект <a href="../modules/Environment.html#">Environment</a> . </p>
+
+<p> <br> Если уничтожаемый объект использовался для распределения
+ подключений и они не уничтожены, то вызывается исключение
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Environment:handle"></a>
+    <strong>Environment:handle&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает плотформозависимый дескриптор.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        handle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Environment:connection"></a>
+    <strong>Environment:connection&nbsp;(dbname [, login [, password [, autocommit=true]]])</strong>
+    </dt>
+    <dd>
+    Создает новый объект Connection.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dbname</span>
+         название БД. (для ODBC это DSN)</li>
+        <li><span class="parameter">login</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">password</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+</li>
+        <li><span class="parameter">autocommit</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+          <span class="types"><a class="type" href="../modules/Connection.html#">Connection</a></span>
+
+
+
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="keyword">local</span> db = env:connection(<span class="string">'demo'</span>,<span class="string">'DBA'</span>,<span class="string">'sql'</span>,<span class="keyword">false</span>)</pre></li>
+        <li><pre class="example"><span class="keyword">local</span> db = env:connection(<span class="string">'demo'</span>,<span class="keyword">false</span>) --Логин и пароль опущены, но autocommit установлен</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Environment:connection"></a>
+    <strong>Environment:connection&nbsp;(params [, autocommit=true])</strong>
+    </dt>
+    <dd>
+    Создает новый объект Connection.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">params</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         таблица для формирования строки подключения</li>
+        <li><span class="parameter">autocommit</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+
+</li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+          <span class="types"><a class="type" href="../modules/Connection.html#">Connection</a></span>
+
+
+</li>
+        <li>
+          <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        строка подключения</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> db = env:connection{DSN=<span class="string">'demo'</span>,UID=<span class="string">'DBA'</span>,PWD=<span class="string">'sql'</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Environment:connect"></a>
+    <strong>Environment:connect&nbsp;()</strong>
+    </dt>
+    <dd>
+    Создает новый объект Connection и открывает подключение.
+ <br>Эквивалентно cnn = env:connection(...) cnn:open().
+ <br>Если не удалось подключится к БД, то объект Connection уничтожается.
+
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Environment.html#Environment:connection">Environment:connection</a></li>
+         <li><a href="../modules/Environment.html#Environment:connection">Environment:connection</a></li>
+         <li><a href="../modules/Connection.html#Connection:connect">Connection.Connection:connect</a></li>
+    </ul>
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.3</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

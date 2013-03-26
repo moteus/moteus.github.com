@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul>
+  <li><a href="../modules/Connection.html">Connection</a></li>
+  <li><a href="../modules/Environment.html">Environment</a></li>
+  <li><a href="../modules/Query.html">Query</a></li>
+  <li><strong>dba</strong></li>
+  <li><a href="../modules/odbc.Connection.html">odbc.Connection</a></li>
+  <li><a href="../modules/odbc.Environment.html">odbc.Environment</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>dba</code></h1>
+
+<p>Модуль lua-dba</p>
+<p>
+
+</p>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ local odbc = require &quot;dba.odbc&quot;
+ local db = assert(odbc.Connect{dsn=&apos;demodb&apos;})
+
+ sql_text = [[...]]
+ params = { ... }
+ db:each(sql_text,params,function(row) ... end)
+
+
+ local qry = db:prepare([[insert ...]])
+ for ... do
+   qry:exec{ some params }
+ end
+ qry:destroy()
+
+
+ db:destroy()
+</pre>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Environment">Environment&nbsp;()</a></td>
+	<td class="summary">Создает объект <a href="../modules/Environment.html#Class_Environment">Environment</a>.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection">Connection&nbsp;()</a></td>
+	<td class="summary">Создает объект <a href="../modules/Connection.html#Class_Connection">Connection</a>.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connect">Connect&nbsp;()</a></td>
+	<td class="summary">Создает объект <a href="../modules/Connection.html#Class_Connection">Connection</a> и подключает его к БД.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#callback_function">callback_function&nbsp;(row)</a></td>
+	<td class="summary">callback функция для перебора запесей набора.</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#OPTIONS">OPTIONS</a></td>
+	<td class="summary">Таблица параметров библиотеки.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#driverinfo">driverinfo</a></td>
+	<td class="summary">Структура, описывающая отдельный драйвер.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#dsninfo">dsninfo</a></td>
+	<td class="summary">Структура, описывающая отдельный драйвер</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#transaction_level">transaction_level</a></td>
+	<td class="summary">Уровни изоляции транзакций</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "Environment"></a>
+    <strong>Environment&nbsp;()</strong>
+    </dt>
+    <dd>
+    Создает объект <a href="../modules/Environment.html#Class_Environment">Environment</a>.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection"></a>
+    <strong>Connection&nbsp;()</strong>
+    </dt>
+    <dd>
+    Создает объект <a href="../modules/Connection.html#Class_Connection">Connection</a>. </p>
+
+<p> При этом для этого подключения создается собственный объект <a href="../modules/Environment.html#Class_Environment">Environment</a>
+ который уничтажается вместе с объектом <a href="../modules/Connection.html#Class_Connection">Connection</a>.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connect"></a>
+    <strong>Connect&nbsp;()</strong>
+    </dt>
+    <dd>
+    Создает объект <a href="../modules/Connection.html#Class_Connection">Connection</a> и подключает его к БД. </p>
+
+<p> Если не удалось подключится к БД то объeкт <a href="../modules/Connection.html#Class_Connection">Connection</a> уничтожается.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "callback_function"></a>
+    <strong>callback_function&nbsp;(row)</strong>
+    </dt>
+    <dd>
+    callback функция для перебора запесей набора.
+ <br> Если функция возвращает любое значение, то перебор прекращается
+ и возвращенные(все) значения становятся результатом функции, которая осуществляет перебор.
+ <br> Запись в функцию передается либо в виде набора параметров либо в виде таблицы.
+ <br> В функцию может передаватся одна и таже таблица с разными значениями.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">row</span>
+         or list - очередная запись</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/Connection.html#Connection:each">Connection.Connection:each</a></li>
+         <li><a href="../modules/Query.html#Query:each">Query.Query:each</a></li>
+    </ul>
+
+
+</dd>
+</dl>
+    <h2><a name="Tables"></a>Tables</h2>
+    <dl class="function">
+    <dt>
+    <a name = "OPTIONS"></a>
+    <strong>OPTIONS</strong>
+    </dt>
+    <dd>
+    Таблица параметров библиотеки.
+ Каждый параметр может быть установлен на уровне Environment, Connection или Query</p>
+
+<p> это необходимо для предотвращения изменения текста SQL перед выполнением
+ при этом параметры будут поддерживатся только если проддерживается bind(будут использоваться только '?')
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">FORCE_REPLACE_PARAMS</span>
+         всегда заменять параметры подстановкой строки.
+ Этот параметр может использоватся например для выполнения batch запросов с параметрами.</li>
+        <li><span class="parameter">IGNORE_NAMED_PARAMS</span>
+          не пытатся преобразовывать именованные параметры</li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">
+ <span class="keyword">local</span> sql = <span class="string">[[begin if :ID &gt; 5 then select 5 else selct 0 end if end]]</span>
+ qry:set_config(<span class="string">'FORCE_REPLACE_PARAMS'</span>, <span class="keyword">true</span>)
+ qry:rows({ID=<span class="number">10</span>}, <span class="global">print</span>)</pre></li>
+        <li><pre class="example">
+ <span class="keyword">local</span> sql = <span class="string">[[select 'hello :world']]</span>
+ qry:set_config(<span class="string">'IGNORE_NAMED_PARAMS'</span>, <span class="keyword">true</span>)
+ qry:rows(<span class="global">print</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "driverinfo"></a>
+    <strong>driverinfo</strong>
+    </dt>
+    <dd>
+    Структура, описывающая отдельный драйвер.
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">1</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         название драйвера</li>
+        <li><span class="parameter">2</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         набор параметров</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/odbc.Environment.html#Environment:drivers">odbc.Environment.Environment:drivers</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "dsninfo"></a>
+    <strong>dsninfo</strong>
+    </dt>
+    <dd>
+    Структура, описывающая отдельный драйвер
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">1</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         название DSN</li>
+        <li><span class="parameter">2</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         название драйвера</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <a href="../modules/odbc.Environment.html#Environment:datasources">odbc.Environment.Environment:datasources</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "transaction_level"></a>
+    <strong>transaction_level</strong>
+    </dt>
+    <dd>
+    Уровни изоляции транзакций
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">1</span>
+         "TRANSACTION_NONE"</li>
+        <li><span class="parameter">2</span>
+         "TRANSACTION<em>READ</em>UNCOMMITTED"</li>
+        <li><span class="parameter">3</span>
+         "TRANSACTION<em>READ</em>COMMITTED"</li>
+        <li><span class="parameter">4</span>
+         "TRANSACTION<em>REPEATABLE</em>READ"</li>
+        <li><span class="parameter">5</span>
+         "TRANSACTION_SERIALIZABLE"</li>
+    </ul>
+
+
+
+    <h3>see also:</h3>
+    <ul>
+         <li><a href="../modules/odbc.Connection.html#Connection:supports_transaction">odbc.Connection.Connection:supports_transaction</a></li>
+         <li><a href="../modules/odbc.Connection.html#Connection:set_transaction_level">odbc.Connection.Connection:set_transaction_level</a></li>
+         <li><a href="../modules/odbc.Connection.html#Connection:get_transaction_level">odbc.Connection.Connection:get_transaction_level</a></li>
+    </ul>
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.3</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

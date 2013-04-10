@@ -32,7 +32,7 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Class_Connection_">Class Connection </a></li>
+<li><a href="#Class_Connection">Class Connection </a></li>
 </ul>
 
 
@@ -58,7 +58,7 @@
 </p>
 
 
-<h2><a href="#Class_Connection_">Class Connection </a></h2>
+<h2><a href="#Class_Connection">Class Connection </a></h2>
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#Connection:new">Connection:new&nbsp;(env, own [, ...])</a></td>
@@ -67,6 +67,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Connection:destroy">Connection:destroy&nbsp;()</a></td>
 	<td class="summary">Уничтожает объект Connection.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Connection:destroyed">Connection:destroyed&nbsp;()</a></td>
+	<td class="summary">Возвращает статус объекта.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Connection:handle">Connection:handle&nbsp;()</a></td>
@@ -142,7 +146,7 @@
 <br/>
 
 
-    <h2><a name="Class_Connection_"></a>Class Connection </h2>
+    <h2><a name="Class_Connection"></a>Class Connection </h2>
 
     <dl class="function">
     <dt>
@@ -196,6 +200,20 @@
 
 <p> <br> Если уничтожаемый объект использовался для распределения
  запросов и они не уничтожены, то вызывается исключение
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Connection:destroyed"></a>
+    <strong>Connection:destroyed&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает статус объекта.
+
 
 
 

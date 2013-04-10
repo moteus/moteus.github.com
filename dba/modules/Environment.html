@@ -32,7 +32,7 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Class_Environment_">Class Environment </a></li>
+<li><a href="#Class_Environment">Class Environment </a></li>
 </ul>
 
 
@@ -58,7 +58,7 @@
 </p>
 
 
-<h2><a href="#Class_Environment_">Class Environment </a></h2>
+<h2><a href="#Class_Environment">Class Environment </a></h2>
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#Environment:new">Environment:new&nbsp;(env)</a></td>
@@ -67,6 +67,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#Environment:destroy">Environment:destroy&nbsp;()</a></td>
 	<td class="summary">Уничтожает объект <a href="../modules/Environment.html#">Environment</a> .</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Environment:destroyed">Environment:destroyed&nbsp;()</a></td>
+	<td class="summary">Возвращает статус объекта.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Environment:handle">Environment:handle&nbsp;()</a></td>
@@ -90,7 +94,7 @@
 <br/>
 
 
-    <h2><a name="Class_Environment_"></a>Class Environment </h2>
+    <h2><a name="Class_Environment"></a>Class Environment </h2>
 
     <dl class="function">
     <dt>
@@ -128,6 +132,20 @@
 
 <p> <br> Если уничтожаемый объект использовался для распределения
  подключений и они не уничтожены, то вызывается исключение
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Environment:destroyed"></a>
+    <strong>Environment:destroyed&nbsp;()</strong>
+    </dt>
+    <dd>
+    Возвращает статус объекта.
+
 
 
 

@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Class_timer">Class timer </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/lzmq.html">lzmq</a></li>
+  <li><a href="../modules/lzmq.poller.html">poller</a></li>
+  <li><a href="../modules/lzmq.threads.html">threads</a></li>
+  <li><strong>timer</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>lzmq.timer</code></h1>
+
+<p>Working with time intervals.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#sleep">sleep (ms)</a></td>
+	<td class="summary">Sleep current thread.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#monotonic">monotonic ([duration])</a></td>
+	<td class="summary">Create monotonic timer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#absolute">absolute ([time])</a></td>
+	<td class="summary">Create absolute timer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#absolute_time">absolute_time ()</a></td>
+	<td class="summary">Get absolute time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#absolute_delta">absolute_delta (start, finish)</a></td>
+	<td class="summary">Get duration between two absolute times.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#absolute_elapsed">absolute_elapsed (start)</a></td>
+	<td class="summary">Get duration since specific absolute time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#monotonic_time">monotonic_time ()</a></td>
+	<td class="summary">Get monotonic time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#monotonic_delta">monotonic_delta (start, finish)</a></td>
+	<td class="summary">Get duration between two monotonic times.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#monotonic_elapsed">monotonic_elapsed (start)</a></td>
+	<td class="summary">Get duration since specific monotonic time.</td>
+	</tr>
+</table>
+<h2><a href="#Class_timer">Class timer </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#timer:close">timer:close ()</a></td>
+	<td class="summary">Close timer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:closed">timer:closed ()</a></td>
+	<td class="summary">Check if this timer has been closed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:set">timer:set (time)</a></td>
+	<td class="summary">Set fire time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:get">timer:get ()</a></td>
+	<td class="summary">Get fire time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:reset">timer:reset ()</a></td>
+	<td class="summary">Clear fire time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:setted">timer:setted ()</a></td>
+	<td class="summary">Check if timer has setted fire time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:start">timer:start ([time])</a></td>
+	<td class="summary">Start/Restart the timer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:started">timer:started ()</a></td>
+	<td class="summary">Check if this timer has been started.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:elapsed">timer:elapsed ()</a></td>
+	<td class="summary">Get duration since start.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:rest">timer:rest ()</a></td>
+	<td class="summary">Get rest time to fire.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:stop">timer:stop ()</a></td>
+	<td class="summary">Stop timer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:is_absolute">timer:is_absolute ()</a></td>
+	<td class="summary">Chick if this timer is absolute</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#timer:is_monotonic">timer:is_monotonic ()</a></td>
+	<td class="summary">Chick if this timer is monotonic</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "sleep"></a>
+    <strong>sleep (ms)</strong>
+    </dt>
+    <dd>
+    Sleep current thread.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ms</span>
+            <span class="types"><span class="type">number</span></span>
+         timeout in milliseconds.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "monotonic"></a>
+    <strong>monotonic ([duration])</strong>
+    </dt>
+    <dd>
+    Create monotonic timer.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+         milliseconds to fire
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.timer.html#Class_timer">timer</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "absolute"></a>
+    <strong>absolute ([time])</strong>
+    </dt>
+    <dd>
+    Create absolute timer.
+ Absolute timer works with UTC unix time.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">time</span>
+            <span class="types"><span class="type">number</span></span>
+         fire time.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.timer.html#Class_timer">timer</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "absolute_time"></a>
+    <strong>absolute_time ()</strong>
+    </dt>
+    <dd>
+    Get absolute time.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        time
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "absolute_delta"></a>
+    <strong>absolute_delta (start, finish)</strong>
+    </dt>
+    <dd>
+    Get duration between two absolute times.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">finish</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        duration in milliseconds
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "absolute_elapsed"></a>
+    <strong>absolute_elapsed (start)</strong>
+    </dt>
+    <dd>
+    Get duration since specific absolute time.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        duration in milliseconds
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "monotonic_time"></a>
+    <strong>monotonic_time ()</strong>
+    </dt>
+    <dd>
+    Get monotonic time.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        time
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "monotonic_delta"></a>
+    <strong>monotonic_delta (start, finish)</strong>
+    </dt>
+    <dd>
+    Get duration between two monotonic times.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">finish</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        duration in milliseconds
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "monotonic_elapsed"></a>
+    <strong>monotonic_elapsed (start)</strong>
+    </dt>
+    <dd>
+    Get duration since specific monotonic time.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        duration in milliseconds
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_timer"></a>Class timer </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "timer:close"></a>
+    <strong>timer:close ()</strong>
+    </dt>
+    <dd>
+    Close timer
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:closed"></a>
+    <strong>timer:closed ()</strong>
+    </dt>
+    <dd>
+    Check if this timer has been closed.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:set"></a>
+    <strong>timer:set (time)</strong>
+    </dt>
+    <dd>
+    Set fire time.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">time</span>
+            <span class="types"><span class="type">number</span></span>
+         For absolute timer this is UTC unix time.
+  For monotonic timer this is duration in milliseconds.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:get"></a>
+    <strong>timer:get ()</strong>
+    </dt>
+    <dd>
+    Get fire time.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        time
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:reset"></a>
+    <strong>timer:reset ()</strong>
+    </dt>
+    <dd>
+    Clear fire time.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:setted"></a>
+    <strong>timer:setted ()</strong>
+    </dt>
+    <dd>
+    Check if timer has setted fire time.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:start"></a>
+    <strong>timer:start ([time])</strong>
+    </dt>
+    <dd>
+    Start/Restart the timer.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">time</span>
+            <span class="types"><span class="type">number</span></span>
+         fire time
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:started"></a>
+    <strong>timer:started ()</strong>
+    </dt>
+    <dd>
+    Check if this timer has been started.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:elapsed"></a>
+    <strong>timer:elapsed ()</strong>
+    </dt>
+    <dd>
+    Get duration since start.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        duration in milliseconds
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:rest"></a>
+    <strong>timer:rest ()</strong>
+    </dt>
+    <dd>
+    Get rest time to fire.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        duration in milliseconds
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:stop"></a>
+    <strong>timer:stop ()</strong>
+    </dt>
+    <dd>
+    Stop timer.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        duration in milliseconds
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:is_absolute"></a>
+    <strong>timer:is_absolute ()</strong>
+    </dt>
+    <dd>
+    Chick if this timer is absolute
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "timer:is_monotonic"></a>
+    <strong>timer:is_monotonic ()</strong>
+    </dt>
+    <dd>
+    Chick if this timer is monotonic
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.0</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

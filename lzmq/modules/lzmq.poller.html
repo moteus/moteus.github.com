@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Class_poller">Class poller </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/lzmq.html">lzmq</a></li>
+  <li><strong>poller</strong></li>
+  <li><a href="../modules/lzmq.threads.html">threads</a></li>
+  <li><a href="../modules/lzmq.timer.html">timer</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>lzmq.poller</code></h1>
+
+<p>ZMQ Socket poller.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new ([pre_alloc])</a></td>
+	<td class="summary">Create new poller object.</td>
+	</tr>
+</table>
+<h2><a href="#Class_poller">Class poller </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#poller:add">poller:add (socket, events, callback)</a></td>
+	<td class="summary">Add a ZMQ Socket or fd to the poller.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poller:modify">poller:modify (socket, events, callback)</a></td>
+	<td class="summary">Change the events or callback for a socket/fd.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poller:remove">poller:remove (socket)</a></td>
+	<td class="summary">Remove a socket/fd from the poller.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poller:poll">poller:poll ([timeout=-1])</a></td>
+	<td class="summary">Wait for events on the registered sockets.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poller:start">poller:start ()</a></td>
+	<td class="summary">Start an event loop waiting for and dispatching events.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poller:stop">poller:stop ()</a></td>
+	<td class="summary">Stop the event loop.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new ([pre_alloc])</strong>
+    </dt>
+    <dd>
+    Create new poller object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pre_alloc</span>
+            <span class="types"><span class="type">number</span></span>
+         pre-size the poller for the number of sockets it will handle.
+  The size can grow dynamically as-needed.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.poller.html#Class_poller">poller</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_poller"></a>Class poller </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "poller:add"></a>
+    <strong>poller:add (socket, events, callback)</strong>
+    </dt>
+    <dd>
+    Add a ZMQ Socket or fd to the poller.
+ You can add one socket multiple times.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a> or <span class="type">number)</span></span>
+         ZMQ socket or fd
+        </li>
+        <li><span class="parameter">events</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq poll events bitmask
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">callable</span></span>
+         called when event is raised
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ poller:add(sock, zmq.POLLIN, <span class="keyword">function</span>(sock) <span class="global">print</span>(sock, <span class="string">" is readable."</span>) <span class="keyword">end</span>)
+ poller:add(sock, zmq.POLLOUT, <span class="keyword">function</span>(sock) <span class="global">print</span>(sock, <span class="string">" is writable."</span>) <span class="keyword">end</span>)
+ poller:add(sock, zmq.POLLIN+zmq.POLLOUT, <span class="keyword">function</span>(sock, revents)
+     <span class="global">print</span>(sock, <span class="string">" has events:"</span>, revents)
+ <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "poller:modify"></a>
+    <strong>poller:modify (socket, events, callback)</strong>
+    </dt>
+    <dd>
+    Change the events or callback for a socket/fd.
+ Note. You can modify only `last` socket.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a> or <span class="type">number)</span></span>
+         ZMQ socket or fd
+        </li>
+        <li><span class="parameter">events</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq poll events bitmask
+  if this parameter is 0 then socket will be removed.
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">callable</span></span>
+         called when event is raised
+  if this parameter is absent then socket will be removed.
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="comment">-- first wait for read event.
+</span> poller:add(sock, zmq.POLLIN, <span class="keyword">function</span>(sock) <span class="global">print</span>(sock, <span class="string">" is readable."</span>) <span class="keyword">end</span>)
+ <span class="comment">-- now wait for write event.
+</span> poller:modify(sock, zmq.POLLOUT, <span class="keyword">function</span>(sock) <span class="global">print</span>(sock, <span class="string">" is writable."</span>) <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "poller:remove"></a>
+    <strong>poller:remove (socket)</strong>
+    </dt>
+    <dd>
+    Remove a socket/fd from the poller.
+ Note. You can remove only `last` socket.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a> or <span class="type">number)</span></span>
+         ZMQ socket or fd
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ poller:add(sock, zmq.POLLIN, <span class="keyword">function</span>(sock) <span class="global">print</span>(sock, <span class="string">" is readable."</span>) <span class="keyword">end</span>)
+ poller:add(sock, zmq.POLLOUT, <span class="keyword">function</span>(sock) <span class="global">print</span>(sock, <span class="string">" is writable."</span>) <span class="keyword">end</span>)
+ <span class="comment">-- remove socket from poller (POLLIN)
+</span> poller:remove(sock)
+ <span class="comment">-- remove socket from poller (POLLOUT)
+</span> poller:remove(sock)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "poller:poll"></a>
+    <strong>poller:poll ([timeout=-1])</strong>
+    </dt>
+    <dd>
+    Wait for events on the registered sockets.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeout</span>
+            <span class="types"><span class="type">number</span></span>
+         msec to wait events. -1 - wait indefinitely.
+         (<em>default</em> -1)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        of events that has been dispatched.
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">lzmq.error</a></span>
+        error object</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "poller:start"></a>
+    <strong>poller:start ()</strong>
+    </dt>
+    <dd>
+    Start an event loop waiting for and dispatching events.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "poller:stop"></a>
+    <strong>poller:stop ()</strong>
+    </dt>
+    <dd>
+    Stop the event loop.
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.0</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,1719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Class_error">Class error </a></li>
+<li><a href="#Class_context">Class context </a></li>
+<li><a href="#Class_socket">Class socket </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>lzmq</strong></li>
+  <li><a href="../modules/lzmq.poller.html">poller</a></li>
+  <li><a href="../modules/lzmq.threads.html">threads</a></li>
+  <li><a href="../modules/lzmq.timer.html">timer</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>lzmq</code></h1>
+
+<p>lzmq is the Lua bindings for ZeroMQ.</p>
+<p>
+<p> lzmq supports ZMQ >=3.2.2, >=4.0.0
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#version">version ([unpack=false])</a></td>
+	<td class="summary">return the version of libzmq as a array</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context">context ([options])</a></td>
+	<td class="summary">Create a zmq Context</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#init_ctx">init_ctx ()</a></td>
+	<td class="summary">Create a zmq Context based on lightuserdata.</td>
+	</tr>
+</table>
+<h2><a href="#Class_error">Class error </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#error:no">error:no ()</a></td>
+	<td class="summary">Get the number value of error</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#error:mnemo">error:mnemo ()</a></td>
+	<td class="summary">Get the error name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#error:msg">error:msg ()</a></td>
+	<td class="summary">Get the error description</td>
+	</tr>
+</table>
+<h2><a href="#Class_context">Class context </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#context:destroy">context:destroy ()</a></td>
+	<td class="summary">Close all sockets associated with this context, and then terminate the context.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:term">context:term ()</a></td>
+	<td class="summary">This is alias for @{context.destroy}</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:closed">context:closed ()</a></td>
+	<td class="summary">Check if this Context has been terminated</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:get">context:get (option)</a></td>
+	<td class="summary">Get the value of a Context option.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:set">context:set (option, value)</a></td>
+	<td class="summary">Set the value of a Context option.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:lightuserdata">context:lightuserdata ()</a></td>
+	<td class="summary">Get internal value of zmq Context as lightuser data.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:socket_count">context:socket_count ()</a></td>
+	<td class="summary">Return number of sockets associated with this context</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:shutdown">context:shutdown ()</a></td>
+	<td class="summary">Shutdown a zmq Context</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:shutdowned">context:shutdowned ()</a></td>
+	<td class="summary">Check if this Context has been shutdowned</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:socket">context:socket (socket_type[, socket_options])</a></td>
+	<td class="summary">Create a Socket associated with this Context.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#context:socket">context:socket (socket_options)</a></td>
+	<td class="summary">Create a Socket associated with this Context.</td>
+	</tr>
+</table>
+<h2><a href="#Class_socket">Class socket </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#socket:close">socket:close ()</a></td>
+	<td class="summary">Close the socket</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:closed">socket:closed ()</a></td>
+	<td class="summary">Check if this Socket has been closed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:connect">socket:connect (address)</a></td>
+	<td class="summary">Connect Socket to a remote zmq Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:connect">socket:connect (addresses)</a></td>
+	<td class="summary">Connect Socket to a remote zmq Sockets.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:disconnect">socket:disconnect (address)</a></td>
+	<td class="summary">Disconnect Socket from a remote zmq Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:disconnect">socket:disconnect (addresses)</a></td>
+	<td class="summary">Disconnect Socket from a remote zmq Sockets.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:bind">socket:bind (address)</a></td>
+	<td class="summary">Bind Socket to a local address.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:bind">socket:bind (addresses)</a></td>
+	<td class="summary">Bind Socket to a local addresses.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:unbind">socket:unbind (address)</a></td>
+	<td class="summary">Unbind Socket from a local address.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:unbind">socket:unbind (addresses)</a></td>
+	<td class="summary">Unbind Socket from a local addresses.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:send">socket:send (message[, flags=0])</a></td>
+	<td class="summary">Send message over Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:send_more">socket:send_more (message[, flags=zmq.SNDMORE])</a></td>
+	<td class="summary">Send message over Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:send_msg">socket:send_msg (message[, flags=0])</a></td>
+	<td class="summary">Send message over Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:send_all">socket:send_all (message[, flags=0[, begin_pos=1[, end_pos=#message]]])</a></td>
+	<td class="summary">Send a multipart message over Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:sendx">socket:sendx (...)</a></td>
+	<td class="summary">Send a multipart message over Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:sendx_more">socket:sendx_more (...)</a></td>
+	<td class="summary">Send a multipart message over Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:recv">socket:recv ([flags=0])</a></td>
+	<td class="summary">Receive a message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:recv_len">socket:recv_len (len[, flags=0])</a></td>
+	<td class="summary">Receive first bytes from message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:recv_msg">socket:recv_msg (number[, flags=0])</a></td>
+	<td class="summary">Receive a message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:recv_new_msg">socket:recv_new_msg ([flags=0])</a></td>
+	<td class="summary">Receive a message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:recv_all">socket:recv_all ([flags=0])</a></td>
+	<td class="summary">Receive multipart message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:recvx">socket:recvx ([flags=0])</a></td>
+	<td class="summary">Receive multipart message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:recv_event">socket:recv_event ([flags=0])</a></td>
+	<td class="summary">Receive zmq event message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:monitor">socket:monitor ([address[, enents=zmq.EVENT_ALL]])</a></td>
+	<td class="summary">Start publishing socket events on inproc.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "version"></a>
+    <strong>version ([unpack=false])</strong>
+    </dt>
+    <dd>
+    return the version of libzmq as a array
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">unpack</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#pdf-unpack">unpack</a></span>
+         zmq version
+         (<em>default</em> false)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">{major,minor,patch}</span></span>
+        version of libzmq if unpack=false
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        major version of libzmq if unpack=true</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        minor version of libzmq if unpack=true</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        patch version of libzmq if unpack=true</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "context"></a>
+    <strong>context ([options])</strong>
+    </dt>
+    <dd>
+    Create a zmq Context  This function ignores unknown options.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {opt_name=opt_value, ...} map of options
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_context">context</a></span>
+        new zmq context
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        error object</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ctx = zmq.context{io_threads = <span class="number">1</span>, max_sockets = <span class="number">255</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "init_ctx"></a>
+    <strong>init_ctx ()</strong>
+    </dt>
+    <dd>
+    Create a zmq Context based on lightuserdata.
+ For this context @{context.destroy} does not call `zmq_ctx_term`.
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_error"></a>Class error </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "error:no"></a>
+    <strong>error:no ()</strong>
+    </dt>
+    <dd>
+    Get the number value of error
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        number of error (e.g. zmq.errors.ETERM).
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "error:mnemo"></a>
+    <strong>error:mnemo ()</strong>
+    </dt>
+    <dd>
+    Get the error name
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        error name (e.g. "ETERM").
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "error:msg"></a>
+    <strong>error:msg ()</strong>
+    </dt>
+    <dd>
+    Get the error description
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        result from `zmq_strerror`(e.g. "Context was terminated").
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_context"></a>Class context </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "context:destroy"></a>
+    <strong>context:destroy ()</strong>
+    </dt>
+    <dd>
+    Close all sockets associated with this context, and then terminate the context.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "context:term"></a>
+    <strong>context:term ()</strong>
+    </dt>
+    <dd>
+    This is alias for @{context.destroy}
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "context:closed"></a>
+    <strong>context:closed ()</strong>
+    </dt>
+    <dd>
+    Check if this Context has been terminated
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true - you can no longer use this Context
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "context:get"></a>
+    <strong>context:get (option)</strong>
+    </dt>
+    <dd>
+    Get the value of a Context option.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">option</span>
+            <span class="types"><span class="type">number</span></span>
+         the option to get
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the option value
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">iot = ctx:get(zmq.IO_THREADS)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "context:set"></a>
+    <strong>context:set (option, value)</strong>
+    </dt>
+    <dd>
+    Set the value of a Context option.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">option</span>
+            <span class="types"><span class="type">number</span></span>
+         the option to get
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">number</span></span>
+         the option value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">ctx:set(zmq.MAX_SOCKETS, <span class="number">255</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "context:lightuserdata"></a>
+    <strong>context:lightuserdata ()</strong>
+    </dt>
+    <dd>
+    Get internal value of zmq Context as lightuser data.
+ You can use this value to pass a zmq Context to another lua_State.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">lightuserdata</span></span>
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/lzmq.html#init_ctx">lzmq.init_ctx</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "context:socket_count"></a>
+    <strong>context:socket_count ()</strong>
+    </dt>
+    <dd>
+    Return number of sockets associated with this context
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        number of sockets
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "context:shutdown"></a>
+    <strong>context:shutdown ()</strong>
+    </dt>
+    <dd>
+    Shutdown a zmq Context
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "context:shutdowned"></a>
+    <strong>context:shutdowned ()</strong>
+    </dt>
+    <dd>
+    Check if this Context has been shutdowned
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true - you can only destroy this Context
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "context:socket"></a>
+    <strong>context:socket (socket_type[, socket_options])</strong>
+    </dt>
+    <dd>
+    Create a Socket associated with this Context.
+ Ignores unknown options.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket_type</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">socket_options</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {opt_name=opt_value,...}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"> skt = ctx:socket(zmq.PUB,{bind = {
+    <span class="string">"tcp://*:5555"</span>;
+    <span class="string">"ipc://test.pub.ipc"</span>;
+ }})</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "context:socket"></a>
+    <strong>context:socket (socket_options)</strong>
+    </dt>
+    <dd>
+    Create a Socket associated with this Context.
+ Ignores unknown options.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket_options</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {socket_type, opt_name=opt_value, ...}
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"> skt = ctx:socket{zmq.SUB,
+    subscribe = {<span class="string">"101:"</span>, <span class="string">"102:"</span>};
+    connect = <span class="string">"tcp://127.0.0.1:5555"</span>;
+ }</pre>
+    </ul>
+
+</dd>
+</dl>
+    <h2><a name="Class_socket"></a>Class socket </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "socket:close"></a>
+    <strong>socket:close ()</strong>
+    </dt>
+    <dd>
+    Close the socket
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:closed"></a>
+    <strong>socket:closed ()</strong>
+    </dt>
+    <dd>
+    Check if this Socket has been closed.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true - you can no longer use this Socket
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:connect"></a>
+    <strong>socket:connect (address)</strong>
+    </dt>
+    <dd>
+    Connect Socket to a remote zmq Socket.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">address</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         zmq address
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:connect(<span class="string">"tcp://127.0.0.1:5555"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:connect"></a>
+    <strong>socket:connect (addresses)</strong>
+    </dt>
+    <dd>
+    Connect Socket to a remote zmq Sockets.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">addresses</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {address, ...} array of zmq address
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        error address. Socket connected to previews addresses.</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:connect{<span class="string">"tcp://127.0.0.1:5555"</span>,<span class="string">"ipc://test.pub.ipc"</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:disconnect"></a>
+    <strong>socket:disconnect (address)</strong>
+    </dt>
+    <dd>
+    Disconnect Socket from a remote zmq Socket.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">address</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         zmq address
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:disconnect(<span class="string">"tcp://127.0.0.1:5555"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:disconnect"></a>
+    <strong>socket:disconnect (addresses)</strong>
+    </dt>
+    <dd>
+    Disconnect Socket from a remote zmq Sockets.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">addresses</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {address, ...} array of zmq address
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        error address. Socket disconnected from previews addresses.</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:disconnect{<span class="string">"tcp://127.0.0.1:5555"</span>,<span class="string">"ipc://test.pub.ipc"</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:bind"></a>
+    <strong>socket:bind (address)</strong>
+    </dt>
+    <dd>
+    Bind Socket to a local address.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">address</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         zmq address
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:bind(<span class="string">"tcp://*:5555"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:bind"></a>
+    <strong>socket:bind (addresses)</strong>
+    </dt>
+    <dd>
+    Bind Socket to a local addresses.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">addresses</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {address, ...} array of zmq address
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        error address. Socket binded to previews addresses.</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:bind{<span class="string">"tcp://*:5555"</span>,<span class="string">"ipc://test.pub.ipc"</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:unbind"></a>
+    <strong>socket:unbind (address)</strong>
+    </dt>
+    <dd>
+    Unbind Socket from a local address.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">address</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         zmq address
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:unbind(<span class="string">"tcp://*:5555"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:unbind"></a>
+    <strong>socket:unbind (addresses)</strong>
+    </dt>
+    <dd>
+    Unbind Socket from a local addresses.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">addresses</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {address, ...} array of zmq address
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        error address. Socket unbinded from previews addresses.</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:bind{<span class="string">"tcp://*:5555"</span>,<span class="string">"ipc://test.pub.ipc"</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:send"></a>
+    <strong>socket:send (message[, flags=0])</strong>
+    </dt>
+    <dd>
+    Send message over Socket.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         content of message.
+        </li>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq send flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ skt:send(<span class="string">"Hello"</span>, zmq.SNDMORE)
+ skt:send(<span class="string">"World"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:send_more"></a>
+    <strong>socket:send_more (message[, flags=zmq.SNDMORE])</strong>
+    </dt>
+    <dd>
+    Send message over Socket.
+ This function always set flag zmq.SNDMORE to message
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         content of message.
+        </li>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq send flags.
+         (<em>default</em> zmq.SNDMORE)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ skt:send_more(<span class="string">"Hello"</span>)
+ skt:send_more(<span class="string">"World"</span>, zmq.DONTWAIT) -- zmq.SNDMORE also setted</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:send_msg"></a>
+    <strong>socket:send_msg (message[, flags=0])</strong>
+    </dt>
+    <dd>
+    Send message over Socket.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+         content of message.
+        </li>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq send flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:send_all"></a>
+    <strong>socket:send_all (message[, flags=0[, begin_pos=1[, end_pos=#message]]])</strong>
+    </dt>
+    <dd>
+    Send a multipart message over Socket.
+ This function always set flag zmq.SNDMORE to message
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {string,...} parts of message.
+        </li>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq send flags.
+    Support only zmq.SNDMORE flag. Any other flag cause error ENOTSUP.
+         (<em>default</em> 0)
+        </li>
+        <li><span class="parameter">begin_pos</span>
+            <span class="types"><span class="type">number</span></span>
+         position of first part in message
+         (<em>default</em> 1)
+        </li>
+        <li><span class="parameter">end_pos</span>
+            <span class="types"><span class="type">number</span></span>
+         position of last part in message
+         (<em>default</em> #message)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        index of error part</li>
+    </ol>
+
+    <h3>Raises:</h3>
+    "invalid internal"
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:send_multipart{<span class="string">"Hello"</span>,<span class="string">"World"</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:sendx"></a>
+    <strong>socket:sendx (...)</strong>
+    </dt>
+    <dd>
+    Send a multipart message over Socket.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         string parts of message.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        index of error part</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:sendx(<span class="string">"Hello"</span>,<span class="string">"World"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:sendx_more"></a>
+    <strong>socket:sendx_more (...)</strong>
+    </dt>
+    <dd>
+    Send a multipart message over Socket.
+ This function always set flag zmq.SNDMORE to message
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         string parts of message.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        index of error part</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:recv"></a>
+    <strong>socket:recv ([flags=0])</strong>
+    </dt>
+    <dd>
+    Receive a message.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq receive flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        message</li>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        more flag</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ more = <span class="keyword">true</span>
+ <span class="keyword">while</span> more <span class="keyword">do</span>
+   msg, more = skt:recv()
+   ...
+ emd</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:recv_len"></a>
+    <strong>socket:recv_len (len[, flags=0])</strong>
+    </dt>
+    <dd>
+    Receive first bytes from message.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">len</span>
+            <span class="types"><span class="type">number</span></span>
+         number of bytes to receive
+        </li>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq receive flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">first</span></span>
+        bytes from message</li>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        more flag</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        full size of message</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:recv_msg"></a>
+    <strong>socket:recv_msg (number[, flags=0])</strong>
+    </dt>
+    <dd>
+    Receive a message.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">number</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+         flags zmq receive flags.
+        </li>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq receive flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+        message</li>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        more flag</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:recv_new_msg"></a>
+    <strong>socket:recv_new_msg ([flags=0])</strong>
+    </dt>
+    <dd>
+    Receive a message.
+ This function create new `message` object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq receive flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+        message</li>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        more flag</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:recv_all"></a>
+    <strong>socket:recv_all ([flags=0])</strong>
+    </dt>
+    <dd>
+    Receive multipart message.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq receive flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        array of parts of message
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        received part of message</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:recvx"></a>
+    <strong>socket:recvx ([flags=0])</strong>
+    </dt>
+    <dd>
+    Receive multipart message.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq receive flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">...</span></span>
+        parts of message
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><span class="type">...</span></span>
+        received parts of message</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:recv_event"></a>
+    <strong>socket:recv_event ([flags=0])</strong>
+    </dt>
+    <dd>
+    Receive zmq event message.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq receive flags.
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        envet</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        value</li>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        address</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:monitor"></a>
+    <strong>socket:monitor ([address[, enents=zmq.EVENT_ALL]])</strong>
+    </dt>
+    <dd>
+    Start publishing socket events on inproc.
+ This function generate unique address if it not provided.
+ Also you could provide only event bitmask.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">address</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         address used for monitoring
+        </li>
+        <li><span class="parameter">enents</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq envent bitmask
+         (<em>default</em> zmq.EVENT_ALL)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        address used for monitoring
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="comment">-- create monitor socket
+</span> <span class="keyword">local</span> mon = ctx:socket{zmq.PAIR, connect = skt:monitor()}</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.0</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

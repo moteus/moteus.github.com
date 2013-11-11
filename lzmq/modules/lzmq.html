@@ -121,7 +121,7 @@
 <h2><a href="#Class_context">Class context </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#context:destroy">context:destroy ()</a></td>
+	<td class="name" nowrap><a href="#context:destroy">context:destroy ([linger])</a></td>
 	<td class="summary">Close all sockets associated with this context, and then terminate the context.</td>
 	</tr>
 	<tr>
@@ -149,7 +149,7 @@
 	<td class="summary">Return number of sockets associated with this context</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#context:shutdown">context:shutdown ()</a></td>
+	<td class="name" nowrap><a href="#context:shutdown">context:shutdown ([linger])</a></td>
 	<td class="summary">Shutdown a zmq Context</td>
 	</tr>
 	<tr>
@@ -168,7 +168,7 @@
 <h2><a href="#Class_socket">Class socket </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#socket:close">socket:close ()</a></td>
+	<td class="name" nowrap><a href="#socket:close">socket:close ([linger])</a></td>
 	<td class="summary">Close the socket</td>
 	</tr>
 	<tr>
@@ -693,11 +693,18 @@
     <dl class="function">
     <dt>
     <a name = "context:destroy"></a>
-    <strong>context:destroy ()</strong>
+    <strong>context:destroy ([linger])</strong>
     </dt>
     <dd>
     Close all sockets associated with this context, and then terminate the context.
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">linger</span>
+            <span class="types"><span class="type">number</span></span>
+         if present set zmq.LINGER option for socket before close it
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>
@@ -877,11 +884,18 @@
 </dd>
     <dt>
     <a name = "context:shutdown"></a>
-    <strong>context:shutdown ()</strong>
+    <strong>context:shutdown ([linger])</strong>
     </dt>
     <dd>
     Shutdown a zmq Context
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">linger</span>
+            <span class="types"><span class="type">number</span></span>
+         if present set zmq.LINGER option before shutdown
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>
@@ -1019,11 +1033,18 @@
     <dl class="function">
     <dt>
     <a name = "socket:close"></a>
-    <strong>socket:close ()</strong>
+    <strong>socket:close ([linger])</strong>
     </dt>
     <dd>
     Close the socket
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">linger</span>
+            <span class="types"><span class="type">number</span></span>
+         if present set zmq.LINGER option before close
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>

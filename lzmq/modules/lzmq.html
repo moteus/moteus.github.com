@@ -36,6 +36,7 @@
 <li><a href="#Class_error">Class error </a></li>
 <li><a href="#Class_context">Class context </a></li>
 <li><a href="#Class_socket">Class socket </a></li>
+<li><a href="#Class_message">Class message </a></li>
 </ul>
 
 
@@ -72,6 +73,34 @@
 	<tr>
 	<td class="name" nowrap><a href="#init_ctx">init_ctx ()</a></td>
 	<td class="summary">Create a zmq Context based on lightuserdata.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#device">device (device, frontend, backend)</a></td>
+	<td class="summary">Create ZMQ device</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#assert">assert (...)</a></td>
+	<td class="summary">Raise error if condition is false.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#error">error (errno)</a></td>
+	<td class="summary">Create new `error` object based on error number.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#strerror">strerror (errno)</a></td>
+	<td class="summary">Get string description for errno.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#msg_init">msg_init ()</a></td>
+	<td class="summary">Create new `message` object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#msg_init_size">msg_init_size (size)</a></td>
+	<td class="summary">Create new `message` object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#msg_init_data">msg_init_data (source)</a></td>
+	<td class="summary">Create new `message` object.</td>
 	</tr>
 </table>
 <h2><a href="#Class_error">Class error </a></h2>
@@ -235,6 +264,77 @@
 	<td class="summary">Start publishing socket events on inproc.</td>
 	</tr>
 </table>
+<h2><a href="#Class_message">Class message </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#message:close">message:close ()</a></td>
+	<td class="summary">Close message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:closed">message:closed ()</a></td>
+	<td class="summary">Check if this Message has been closed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:move">message:move ()</a></td>
+	<td class="summary">Move current message to new one.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:move">message:move (source)</a></td>
+	<td class="summary">Move source message to current one.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:copy">message:copy ()</a></td>
+	<td class="summary">Copy current message to new one.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:copy">message:copy (source)</a></td>
+	<td class="summary">Copy source message to current one.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:size">message:size ()</a></td>
+	<td class="summary">Get size of message in bytes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:set_size">message:set_size (size)</a></td>
+	<td class="summary">Set size of message in bytes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:pointer">message:pointer ()</a></td>
+	<td class="summary">Get internal pointer to zmq_msg_t data.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:data">message:data ()</a></td>
+	<td class="summary">Get data of message as string.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:set_data">message:set_data ([position=1], data)</a></td>
+	<td class="summary">Set data of message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:more">message:more ()</a></td>
+	<td class="summary">Check if this message is not last in multipart message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:get">message:get (property)</a></td>
+	<td class="summary">Get ZMQ message property.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:set">message:set (property, value)</a></td>
+	<td class="summary">Set ZMQ message property.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:send">message:send (socket[, flags=0])</a></td>
+	<td class="summary">Send message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:send_more">message:send_more (socket[, flags=zmq.SNDMORE])</a></td>
+	<td class="summary">Send message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#message:recv">message:recv (socket)</a></td>
+	<td class="summary">Receive message.</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
@@ -329,6 +429,198 @@
  For this context @{context.destroy} does not call `zmq_ctx_term`.
 
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "device"></a>
+    <strong>device (device, frontend, backend)</strong>
+    </dt>
+    <dd>
+    Create ZMQ device
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">device</span>
+            <span class="types"><span class="type">number</span></span>
+         type
+        </li>
+        <li><span class="parameter">frontend</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+        <li><span class="parameter">backend</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "assert"></a>
+    <strong>assert (...)</strong>
+    </dt>
+    <dd>
+    Raise error if condition is false.
+ This function could work with `error` objects on Lua 5.1.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+            <span class="types"><span class="type">...</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">...</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "error"></a>
+    <strong>error (errno)</strong>
+    </dt>
+    <dd>
+    Create new `error` object based on error number.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">errno</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        error object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "strerror"></a>
+    <strong>strerror (errno)</strong>
+    </dt>
+    <dd>
+    Get string description for errno.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">errno</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        description
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "msg_init"></a>
+    <strong>msg_init ()</strong>
+    </dt>
+    <dd>
+    Create new `message` object.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "msg_init_size"></a>
+    <strong>msg_init_size (size)</strong>
+    </dt>
+    <dd>
+    Create new `message` object.
+ This function allocate message to specific bytes.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">size</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "msg_init_data"></a>
+    <strong>msg_init_data (source)</strong>
+    </dt>
+    <dd>
+    Create new `message` object.
+ This function copy data to message from source string.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">source</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+
+    </ol>
 
 
 
@@ -1275,7 +1567,7 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">skt:send_multipart{<span class="string">"Hello"</span>,<span class="string">"World"</span>}</pre>
+        <pre class="example">skt:send_all{<span class="string">"Hello"</span>,<span class="string">"World"</span>}</pre>
     </ul>
 
 </dd>
@@ -1704,6 +1996,531 @@
  <span class="comment">-- create monitor socket
 </span> <span class="keyword">local</span> mon = ctx:socket{zmq.PAIR, connect = skt:monitor()}</pre>
     </ul>
+
+</dd>
+</dl>
+    <h2><a name="Class_message"></a>Class message </h2>
+
+ This is wrapper around zmq_msg_t.
+ But `message` object could reallocate and copy data to new zmq_msg_t object if needed.
+ So you always could use same object while you do not call close method.
+
+    <dl class="function">
+    <dt>
+    <a name = "message:close"></a>
+    <strong>message:close ()</strong>
+    </dt>
+    <dd>
+    Close message.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true - you can no longer use this Message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:closed"></a>
+    <strong>message:closed ()</strong>
+    </dt>
+    <dd>
+    Check if this Message has been closed.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true - you can no longer use this Message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:move"></a>
+    <strong>message:move ()</strong>
+    </dt>
+    <dd>
+    Move current message to new one.
+ Afetr that function current message has no data.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+        new created message.
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> new_msg = msg:move()
+ <span class="global">assert</span> (msg:data() == <span class="string">""</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "message:move"></a>
+    <strong>message:move (source)</strong>
+    </dt>
+    <dd>
+    Move source message to current one.
+ After a call of this function the source message has no data.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">source</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+        current message.
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ new_msg = zmq.msg_init():move(msg)
+ <span class="global">assert</span> (msg:data() == <span class="string">""</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "message:copy"></a>
+    <strong>message:copy ()</strong>
+    </dt>
+    <dd>
+    Copy current message to new one.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+        new created message.
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:copy"></a>
+    <strong>message:copy (source)</strong>
+    </dt>
+    <dd>
+    Copy source message to current one.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">source</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
+        current message.
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:size"></a>
+    <strong>message:size ()</strong>
+    </dt>
+    <dd>
+    Get size of message in bytes.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        size in bytes.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:set_size"></a>
+    <strong>message:set_size (size)</strong>
+    </dt>
+    <dd>
+    Set size of message in bytes.
+ This function create new zmq_msg_t and copy data from current message.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">size</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:pointer"></a>
+    <strong>message:pointer ()</strong>
+    </dt>
+    <dd>
+    Get internal pointer to zmq_msg_t data.
+ This pounter can be invalidate with some functions (e.g. message:set_size()).
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">lightuserdata</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:data"></a>
+    <strong>message:data ()</strong>
+    </dt>
+    <dd>
+    Get data of message as string.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:set_data"></a>
+    <strong>message:set_data ([position=1], data)</strong>
+    </dt>
+    <dd>
+    Set data of message.
+ This function can resize message if it is necessary.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+            <span class="types"><span class="type">number</span></span>
+         start position to data
+         (<em>default</em> 1)
+        </li>
+        <li><span class="parameter">data</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">true</span></span>
+
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ msg:set_data(<span class="string">"Hello"</span>)
+ msg:set_data(<span class="number">6</span>, <span class="string">", world!"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "message:more"></a>
+    <strong>message:more ()</strong>
+    </dt>
+    <dd>
+    Check if this message is not last in multipart message.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:get"></a>
+    <strong>message:get (property)</strong>
+    </dt>
+    <dd>
+    Get ZMQ message property.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">property</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        property value
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:set"></a>
+    <strong>message:set (property, value)</strong>
+    </dt>
+    <dd>
+    Set ZMQ message property.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">property</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:send"></a>
+    <strong>message:send (socket[, flags=0])</strong>
+    </dt>
+    <dd>
+    Send message.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+
+         (<em>default</em> 0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:send_more"></a>
+    <strong>message:send_more (socket[, flags=zmq.SNDMORE])</strong>
+    </dt>
+    <dd>
+    Send message.
+ This function always set zmq.SNDMORE flag.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">number</span></span>
+
+         (<em>default</em> zmq.SNDMORE)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "message:recv"></a>
+    <strong>message:recv (socket)</strong>
+    </dt>
+    <dd>
+    Receive message.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
 
 </dd>
 </dl>

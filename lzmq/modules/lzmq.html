@@ -90,7 +90,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#init_ctx">init_ctx ()</a></td>
-	<td class="summary">Create a zmq Context based on lightuserdata.</td>
+	<td class="summary">Create a zmq Context based on Lua representation of zmq context pointer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#init_socket">init_socket ()</a></td>
+	<td class="summary">Create a zmq Socket based on Lua representation of zmq socket pointer.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#device">device (device, frontend, backend)</a></td>
@@ -119,6 +123,22 @@
 	<tr>
 	<td class="name" nowrap><a href="#msg_init_data">msg_init_data (source)</a></td>
 	<td class="summary">Create new `message` object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#proxy">proxy (frontend, backend[, capture])</a></td>
+	<td class="summary">Start built-in ZMQ proxy.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#z85_encode">z85_encode (src)</a></td>
+	<td class="summary">Encode a binary data as Z85 printable text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#z85_decode">z85_decode (src)</a></td>
+	<td class="summary">Decode a binary data from Z85 printable text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#curve_keypair">curve_keypair ([binary=false])</a></td>
+	<td class="summary">Generate a new CURVE keypair.</td>
 	</tr>
 </table>
 <h2><a href="#Class_error">Class error </a></h2>
@@ -160,7 +180,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#context:lightuserdata">context:lightuserdata ()</a></td>
-	<td class="summary">Get internal value of zmq Context as lightuser data.</td>
+	<td class="summary">Get internal value of ZMQ Context as some Lua value.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#context:socket_count">context:socket_count ()</a></td>
@@ -210,6 +230,10 @@
 	<td class="summary">Disconnect Socket from a remote zmq Sockets.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#socket:lightuserdata">socket:lightuserdata ()</a></td>
+	<td class="summary">Get internal value of ZMQ Socket as some Lua value.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#socket:bind">socket:bind (address)</a></td>
 	<td class="summary">Bind Socket to a local address.</td>
 	</tr>
@@ -224,6 +248,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#socket:unbind">socket:unbind (addresses)</a></td>
 	<td class="summary">Unbind Socket from a local addresses.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:poll">socket:poll ([timeout=-1[, events=zmq.POLLIN]])</a></td>
+	<td class="summary">Poll specific ZMQ Socket.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#socket:send">socket:send (message[, flags=0])</a></td>
@@ -451,8 +479,22 @@
     <strong>init_ctx ()</strong>
     </dt>
     <dd>
-    Create a zmq Context based on lightuserdata.
+    Create a zmq Context based on Lua representation of zmq context pointer.
  For this context @{context.destroy} does not call `zmq_ctx_term`.
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "init_socket"></a>
+    <strong>init_socket ()</strong>
+    </dt>
+    <dd>
+    Create a zmq Socket based on Lua representation of zmq socket pointer.
+ For this socket @{socket.destroy} does not call `zmq_close`.
 
 
 
@@ -646,6 +688,127 @@
 
            <span class="types"><a class="type" href="../modules/lzmq.html#Class_message">message</a></span>
 
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "proxy"></a>
+    <strong>proxy (frontend, backend[, capture])</strong>
+    </dt>
+    <dd>
+    Start built-in ZMQ proxy.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">frontend</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+        <li><span class="parameter">backend</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+        <li><span class="parameter">capture</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "z85_encode"></a>
+    <strong>z85_encode (src)</strong>
+    </dt>
+    <dd>
+    Encode a binary data as Z85 printable text.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">src</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "z85_decode"></a>
+    <strong>z85_decode (src)</strong>
+    </dt>
+    <dd>
+    Decode a binary data from Z85 printable text.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">src</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "curve_keypair"></a>
+    <strong>curve_keypair ([binary=false])</strong>
+    </dt>
+    <dd>
+    Generate a new CURVE keypair.
+ This function avaliable only for ZeroMQ >= 4.0.1. Also you need build ZeroMQ with libsodium.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">binary</span>
+            <span class="types"><span class="type">bool</span></span>
+         if true thern keys return as binary string else they reuturn as Z85 encoded.
+         (<em>default</em> false)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        public key</li>
+        <li>
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        secret key</li>
     </ol>
 
 
@@ -869,16 +1032,16 @@
     <strong>context:lightuserdata ()</strong>
     </dt>
     <dd>
-    Get internal value of zmq Context as lightuser data.
- You can use this value to pass a zmq Context to another lua_State.
+    Get internal value of ZMQ Context as some Lua value.
+ You can use this value to pass a ZMQ Context to another lua_State.
 
 
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">lightuserdata</span></span>
-
+           <span class="types"><span class="type">lightuserdata</span>, <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
+        ZMQ Context.
     </ol>
 
 
@@ -1269,6 +1432,31 @@
 
 </dd>
     <dt>
+    <a name = "socket:lightuserdata"></a>
+    <strong>socket:lightuserdata ()</strong>
+    </dt>
+    <dd>
+    Get internal value of ZMQ Socket as some Lua value.
+ You can use this value to pass a ZMQ Socket to another lua_State.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">lightuserdata</span>, <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
+        ZMQ Socket.
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/lzmq.html#init_socket">lzmq.init_socket</a>
+    </ul>
+
+
+</dd>
+    <dt>
     <a name = "socket:bind"></a>
     <strong>socket:bind (address)</strong>
     </dt>
@@ -1423,6 +1611,54 @@
     <h3>Usage:</h3>
     <ul>
         <pre class="example">skt:bind{<span class="string">"tcp://*:5555"</span>,<span class="string">"ipc://test.pub.ipc"</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:poll"></a>
+    <strong>socket:poll ([timeout=-1[, events=zmq.POLLIN]])</strong>
+    </dt>
+    <dd>
+    Poll specific ZMQ Socket.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeout</span>
+            <span class="types"><span class="type">number</span></span>
+         timeout in milliseconds (-1 - infinity)
+         (<em>default</em> -1)
+        </li>
+        <li><span class="parameter">events</span>
+            <span class="types"><span class="type">number</span></span>
+         poll events.
+         (<em>default</em> zmq.POLLIN)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">bool</span></span>
+        poll result (false if timeout)</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        envents</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> skt:poll(<span class="number">100</span>) <span class="keyword">then</span> <span class="keyword">return</span> skt:recv() <span class="keyword">end</span></pre>
     </ul>
 
 </dd>

@@ -129,6 +129,10 @@
 	<td class="summary">Start built-in ZMQ proxy.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#proxy_steerable">proxy_steerable (frontend, backend[, capture[, control]])</a></td>
+	<td class="summary">Start built-in ZMQ proxy with control.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#z85_encode">z85_encode (src)</a></td>
 	<td class="summary">Encode a binary data as Z85 printable text.</td>
 	</tr>
@@ -240,6 +244,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#socket:bind">socket:bind (addresses)</a></td>
 	<td class="summary">Bind Socket to a local addresses.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:bind_to_random_port">socket:bind_to_random_port (address[, begin=0xC000[, number=128]])</a></td>
+	<td class="summary">Bind Socket to a local address and random port.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#socket:unbind">socket:unbind (address)</a></td>
@@ -712,6 +720,47 @@
 
         </li>
         <li><span class="parameter">capture</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "proxy_steerable"></a>
+    <strong>proxy_steerable (frontend, backend[, capture[, control]])</strong>
+    </dt>
+    <dd>
+    Start built-in ZMQ proxy with control.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">frontend</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+        <li><span class="parameter">backend</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+        <li><span class="parameter">capture</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+
+        </li>
+        <li><span class="parameter">control</span>
             <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
 
         </li>
@@ -1532,6 +1581,55 @@
     <h3>Usage:</h3>
     <ul>
         <pre class="example">skt:bind{<span class="string">"tcp://*:5555"</span>,<span class="string">"ipc://test.pub.ipc"</span>}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:bind_to_random_port"></a>
+    <strong>socket:bind_to_random_port (address[, begin=0xC000[, number=128]])</strong>
+    </dt>
+    <dd>
+    Bind Socket to a local address and random port.
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">address</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         zmq address
+        </li>
+        <li><span class="parameter">begin</span>
+            <span class="types"><span class="type">number</span></span>
+         port
+         (<em>default</em> 0xC000)
+        </li>
+        <li><span class="parameter">number</span>
+            <span class="types"><span class="type">number</span></span>
+         of tested ports
+         (<em>default</em> 128)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        port number
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">port = skt:bind_to_random_port(<span class="string">"tcp://127.0.0.1"</span>)</pre>
     </ul>
 
 </dd>

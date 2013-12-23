@@ -39,9 +39,9 @@
 
 
 <h2>Modules</h2>
-<ul class="nowrap">
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><strong>path.fs</strong></li>
   <li><a href="../modules/path.html">path</a></li>
-  <li><strong>fs</strong></li>
 </ul>
 
 </div>
@@ -49,21 +49,21 @@
 <div id="content">
 
 <h1>Module <code>path.fs</code></h1>
-
 <p>This is lowlevel module which implement
  system dependent operation.</p>
-<p> <br/> Can use LuaFileSystem or alien/ffi on Windows</p>
+<p>
+ <br/> Can use LuaFileSystem or alien/ffi on Windows</p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#currentdir">currentdir ()</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return current work directory path.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#attributes">attributes (P, name)</a></td>
-	<td class="summary">???</td>
+	<td class="name" nowrap><a href="#attributes">attributes (P[, name=nil])</a></td>
+	<td class="summary">Returns a table with the file attributes.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#flags">flags (P)</a></td>
@@ -71,67 +71,67 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#ctime">ctime (P)</a></td>
-	<td class="summary">???</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#atime">atime (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return creation file time.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#mtime">mtime (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return last modification file time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#atime">atime (P)</a></td>
+	<td class="summary">Return last access file time.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#size">size (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return size in bytes for file.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#exists">exists (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return path if path existing in file system.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#isdir">isdir (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return path if path refers to an existing directory.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#isfile">isfile (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return path if path refers to an existing file.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#islink">islink (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return path if path refers to an existing symbolic link.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#mkdir">mkdir (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Create new directory.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#rmdir">rmdir (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Remove empty directory.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#chdir">chdir (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Change current work directory path.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#copy">copy (src, dst, force)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Copy one existed file.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#move">move (src, dst, flags)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Rename (move) existed file.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#remove">remove (P)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Remove file.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#tmpdir">tmpdir ()</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Return path to system temp directory.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#touch">touch (P, atime, ctime)</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Set access and modification times of a file.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#dir">dir ()</a></td>
@@ -153,11 +153,11 @@
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#DIR_SEP">DIR_SEP</a></td>
-	<td class="summary">???</td>
+	<td class="summary">The character used by the operating system to separate pathname components.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#ANY_MASK">ANY_MASK</a></td>
-	<td class="summary">???</td>
+	<td class="summary">Mask used to search all files in some dir by `fs.each`.</td>
 	</tr>
 </table>
 
@@ -172,7 +172,8 @@
     <strong>currentdir ()</strong>
     </dt>
     <dd>
-    ???
+    Return current work directory path.
+
 
 
 
@@ -182,25 +183,37 @@
 </dd>
     <dt>
     <a name = "attributes"></a>
-    <strong>attributes (P, name)</strong>
+    <strong>attributes (P[, name=nil])</strong>
     </dt>
     <dd>
-    ???
+    Returns a table with the file attributes.
+
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
 
         </li>
         <li><span class="parameter">name</span>
-
-
-
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         attribute name
+         (<em>default</em> nil)
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        {attr1=value1, ...}
+    </ol>
+     <h3>Or</h3>
+    <ol>
+
+        value attribute value if attribute name was specify
+    </ol>
 
 
 
@@ -211,15 +224,13 @@
     <strong>flags (P)</strong>
     </dt>
     <dd>
-    Return file attributes. </p>
-
+    Return file attributes.
 <p> On Windows it is result of GetFileAttributesEx
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -234,34 +245,14 @@
     <strong>ctime (P)</strong>
     </dt>
     <dd>
-    ???
+    Return creation file time.
+ On *nix this is the time of the last metadata change.
+
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
-
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "atime"></a>
-    <strong>atime (P)</strong>
-    </dt>
-    <dd>
-    ???
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -276,13 +267,32 @@
     <strong>mtime (P)</strong>
     </dt>
     <dd>
-    ???
+    Return last modification file time.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
 
+        </li>
+    </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "atime"></a>
+    <strong>atime (P)</strong>
+    </dt>
+    <dd>
+    Return last access file time.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
 
         </li>
     </ul>
@@ -297,13 +307,12 @@
     <strong>size (P)</strong>
     </dt>
     <dd>
-    ???
+    Return size in bytes for file.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -318,13 +327,12 @@
     <strong>exists (P)</strong>
     </dt>
     <dd>
-    ???
+    Return path if path existing in file system.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -339,13 +347,12 @@
     <strong>isdir (P)</strong>
     </dt>
     <dd>
-    ???
+    Return path if path refers to an existing directory.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -360,13 +367,12 @@
     <strong>isfile (P)</strong>
     </dt>
     <dd>
-    ???
+    Return path if path refers to an existing file.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -381,13 +387,12 @@
     <strong>islink (P)</strong>
     </dt>
     <dd>
-    ???
+    Return path if path refers to an existing symbolic link.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -402,13 +407,14 @@
     <strong>mkdir (P)</strong>
     </dt>
     <dd>
-    ???
+    Create new directory.
+<p> This function can not create nested sub directories.
+
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -423,13 +429,12 @@
     <strong>rmdir (P)</strong>
     </dt>
     <dd>
-    ???
+    Remove empty directory.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -444,13 +449,12 @@
     <strong>chdir (P)</strong>
     </dt>
     <dd>
-    ???
+    Change current work directory path.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -465,23 +469,18 @@
     <strong>copy (src, dst, force)</strong>
     </dt>
     <dd>
-    ???
+    Copy one existed file.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">src</span>
 
-
-
         </li>
         <li><span class="parameter">dst</span>
 
-
-
         </li>
         <li><span class="parameter">force</span>
-
-
 
         </li>
     </ul>
@@ -496,23 +495,18 @@
     <strong>move (src, dst, flags)</strong>
     </dt>
     <dd>
-    ???
+    Rename (move) existed file.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">src</span>
 
-
-
         </li>
         <li><span class="parameter">dst</span>
 
-
-
         </li>
         <li><span class="parameter">flags</span>
-
-
 
         </li>
     </ul>
@@ -527,13 +521,12 @@
     <strong>remove (P)</strong>
     </dt>
     <dd>
-    ???
+    Remove file.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -548,7 +541,8 @@
     <strong>tmpdir ()</strong>
     </dt>
     <dd>
-    ???
+    Return path to system temp directory.
+
 
 
 
@@ -561,23 +555,18 @@
     <strong>touch (P, atime, ctime)</strong>
     </dt>
     <dd>
-    ???
+    Set access and modification times of a file.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
 
-
-
         </li>
         <li><span class="parameter">atime</span>
 
-
-
         </li>
         <li><span class="parameter">ctime</span>
-
-
 
         </li>
     </ul>
@@ -599,6 +588,7 @@
 
 
 
+
 </dd>
     <dt>
     <a name = "each"></a>
@@ -607,12 +597,11 @@
     <dd>
     Implimentation of afx.findfile
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">option</span>
             <span class="types"><a class="type" href="../modules/path.fs.html#each">each_options</a></span>
-
-
 
         </li>
     </ul>
@@ -630,11 +619,12 @@
     <strong>each_options</strong>
     </dt>
     <dd>
-    ??? </p>
-
+    ???
 <p> opt.file="./temp" -- match only this path
  <br/> opt.file="./temp/" -- match all files in this path
  <br/> This function do not expand filepath. So if we use "./*" mask and 'f' selector we get './some.file'.
+
+
 
     <h3>Fields:</h3>
     <ul>
@@ -646,18 +636,15 @@
         <li><span class="parameter">param</span>
             <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
 
-
-<pre><code>  - f fullpath and name
-  - p path
-  - n name
-  - m mode
-  - a attributes
-  - z size
-  - t atime
-  - c ctime
-  - l mtime
-</code></pre>
-
+      - f fullpath and name
+      - p path
+      - n name
+      - m mode
+      - a attributes
+      - z size
+      - t atime
+      - c ctime
+      - l mtime
          (<em>default</em> "f")
         </li>
         <li><span class="parameter">recurse</span>
@@ -667,13 +654,10 @@
         </li>
         <li><span class="parameter">reverse</span>
             <span class="types"><span class="type">boolean</span></span>
-
-<p> direction of recursion</p>
-<pre><code>  - true subdirs at first
-  - false subdirs at last
-  - nil order undefined
-</code></pre>
-
+         direction of recursion
+      - true subdirs at first
+      - false subdirs at last
+      - nil order undefined
          (<em>default</em> nil)
         </li>
         <li><span class="parameter">delay</span>
@@ -684,21 +668,15 @@
         <li><span class="parameter">skipdirs</span>
             <span class="types"><span class="type">boolean</span></span>
 
-
-
          (<em>default</em> false)
         </li>
         <li><span class="parameter">skipfiles</span>
             <span class="types"><span class="type">boolean</span></span>
 
-
-
          (<em>default</em> false)
         </li>
         <li><span class="parameter">skipdots</span>
             <span class="types"><span class="type">boolean</span></span>
-
-
 
          (<em>default</em> true)
         </li>
@@ -717,7 +695,8 @@
     <strong>DIR_SEP</strong>
     </dt>
     <dd>
-    ???
+    The character used by the operating system to separate pathname components.
+
 
 
 
@@ -730,7 +709,8 @@
     <strong>ANY_MASK</strong>
     </dt>
     <dd>
-    ???
+    Mask used to search all files in some dir by `fs.each`.
+
 
 
 

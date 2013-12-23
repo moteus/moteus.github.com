@@ -39,9 +39,9 @@
 
 
 <h2>Modules</h2>
-<ul class="nowrap">
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/path.fs.html">path.fs</a></li>
   <li><strong>path</strong></li>
-  <li><a href="../modules/path.fs.html">fs</a></li>
 </ul>
 
 </div>
@@ -49,13 +49,8 @@
 <div id="content">
 
 <h1>Module <code>path</code></h1>
-
-<p>
-
-</p>
-<p>
-
-</p>
+<p></p>
+<p></p>
     <h3>Usage:</h3>
     <ul>
         <pre class="example">
@@ -108,8 +103,16 @@
 	<td class="summary">Split the path into dirname and basename.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#split">split (P)</a></td>
+	<td class="summary">Alias to <a href="../modules/path.html#splitpath">splitpath</a>.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#splitroot">splitroot (P)</a></td>
 	<td class="summary">Split first path part for absolute path.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#splitdrive">splitdrive (P)</a></td>
+	<td class="summary">Split path into drive specification and path.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#basename">basename (P)</a></td>
@@ -129,7 +132,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#isfullpath">isfullpath (P)</a></td>
-	<td class="summary">Return <code>true</code> if path contain root part.</td>
+	<td class="summary">Return `true` if path contain root part.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isabs">isabs (P)</a></td>
+	<td class="summary">Alias to <a href="../modules/path.html#isfullpath">isfullpath</a></td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#user_home">user_home ()</a></td>
@@ -152,8 +159,16 @@
 	<td class="summary">Return size in bytes for file.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#getsize">getsize (P)</a></td>
+	<td class="summary">Alias to <a href="../modules/path.html#size">size</a></td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#fullpath">fullpath (P)</a></td>
 	<td class="summary">Return full normolized path.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#abspath">abspath (P)</a></td>
+	<td class="summary">Alias to <a href="../modules/path.html#fullpath">fullpath</a>.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#exists">exists (P)</a></td>
@@ -189,15 +204,27 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#cdate">cdate (P)</a></td>
-	<td class="summary">Return <a href="../modules/path.html#ctime">path.ctime</a>  as <code>date</code> object.</td>
+	<td class="summary">Return `path.ctime` as `date` object.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#mdate">mdate (P)</a></td>
-	<td class="summary">Return <a href="../modules/path.html#mtime">path.mtime</a>  as <code>date</code> object.</td>
+	<td class="summary">Return `path.mtime` as `date` object.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#adate">adate (P)</a></td>
-	<td class="summary">Return <a href="../modules/path.html#atime">path.atime</a>  as <code>date</code> object.</td>
+	<td class="summary">Return `path.atime` as `date` object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getctime">getctime (P)</a></td>
+	<td class="summary">Alias to <a href="../modules/path.html#ctime">ctime</a></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getmtime">getmtime (P)</a></td>
+	<td class="summary">Alias to <a href="../modules/path.html#mtime">mtime</a></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getatime">getatime (P)</a></td>
+	<td class="summary">Alias to <a href="../modules/path.html#atime">atime</a></td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#mkdir">mkdir (P)</a></td>
@@ -209,7 +236,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#remove">remove (P, opt)</a></td>
-	<td class="summary">Remove empty directory or file.</td>
+	<td class="summary">Remove file or empty directory.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#rename">rename (from, to, force)</a></td>
@@ -252,11 +279,11 @@
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#copy_opt">copy_opt</a></td>
-	<td class="summary">Option table for <a href="../modules/path.html#copy">path.copy</a>  function.</td>
+	<td class="summary">Option table for `path.copy` function.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#remove_opt">remove_opt</a></td>
-	<td class="summary">Option table for <a href="../modules/path.html#remove">path.remove</a>  function.</td>
+	<td class="summary">Option table for `path.remove` function.</td>
 	</tr>
 </table>
 <h2><a href="#Fields">Fields</a></h2>
@@ -284,11 +311,11 @@
     <dd>
     Returns true if path has trailing path name separator.
 
+
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -305,11 +332,10 @@
     <dd>
     Removes the path name separator from the end of path, if it has it.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -326,11 +352,10 @@
     <dd>
     Appends a path name separator to path if one does not exist.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -348,14 +373,13 @@
     Normalize a path.
  This function normolize path name separators and collaps
  redundant separators and up-level references.
- E.g. <code>/a/fred/../b</code>, <code>/a//b</code>,<code>/a\b</code>, <code>/a/./b</code> all normolize to <code>/a/b</code>
+ E.g. `/a/fred/../b`, `/a//b`,`/a\\b`, `/a/./b` all normolize to `/a/b`
+
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -376,11 +400,11 @@
  If last parameter is empty string then result path will
  have trailing path name separator.
 
+
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">...</span>
-
-
 
         </li>
     </ul>
@@ -399,11 +423,10 @@
  If there no extension then returns empty string as extension.
  If basename starts with dot then
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -426,11 +449,30 @@
     <dd>
     Split the path into dirname and basename.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
 
+        </li>
+    </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "split"></a>
+    <strong>split (P)</strong>
+    </dt>
+    <dd>
+    Alias to <a href="../modules/path.html#splitpath">splitpath</a>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
 
         </li>
     </ul>
@@ -447,11 +489,31 @@
     <dd>
     Split first path part for absolute path.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
 
+        </li>
+    </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "splitdrive"></a>
+    <strong>splitdrive (P)</strong>
+    </dt>
+    <dd>
+    Split path into drive specification and path.
+<p> On non Windows systems drive always empty string.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
 
         </li>
     </ul>
@@ -468,11 +530,10 @@
     <dd>
     Return the base name of path.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -489,11 +550,10 @@
     <dd>
     Return the directory name of path.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -510,11 +570,10 @@
     <dd>
     Return the extension of path.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -530,14 +589,14 @@
     </dt>
     <dd>
     Return first path part for absolute path.
- On Windows this is drive letter (e.g. "c:\some\path" => "c:").
+ On Windows this is drive letter (e.g. "c:\\some\path" => "c:").
  On *nix this is first directory name (e.g. "/usr/etc" => "/usr").
+
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -552,13 +611,32 @@
     <strong>isfullpath (P)</strong>
     </dt>
     <dd>
-    Return <code>true</code> if path contain root part.
+    Return `true` if path contain root part.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
 
+        </li>
+    </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isabs"></a>
+    <strong>isabs (P)</strong>
+    </dt>
+    <dd>
+    Alias to <a href="../modules/path.html#isfullpath">isfullpath</a>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
 
         </li>
     </ul>
@@ -580,6 +658,7 @@
 
 
 
+
 </dd>
     <dt>
     <a name = "flags"></a>
@@ -587,15 +666,13 @@
     </dt>
     <dd>
     Return file attributes.
- On Windows it is result of GetFileAttributesEx.</p>
+ On Windows it is result of GetFileAttributesEx.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -612,9 +689,9 @@
     <dd>
     Return path to temp directory.
  On Windows can use GetTempPath if Alien/FFI/afx have been found
- On Windows use TMP/TEMP environment variables</p>
+ On Windows use TMP/TEMP environment variables
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
 
 
@@ -627,9 +704,9 @@
     <strong>tmpname ()</strong>
     </dt>
     <dd>
-    Return full path for temp file. </p>
+    Return full path for temp file.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
 
 
@@ -643,13 +720,32 @@
     </dt>
     <dd>
     Return size in bytes for file.
- <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+<p> <br/>depends on `path.fs`
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
 
+        </li>
+    </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getsize"></a>
+    <strong>getsize (P)</strong>
+    </dt>
+    <dd>
+    Alias to <a href="../modules/path.html#size">size</a>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
 
         </li>
     </ul>
@@ -664,15 +760,33 @@
     <strong>fullpath (P)</strong>
     </dt>
     <dd>
-    Return full normolized path. </p>
+    Return full normolized path.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
 
+        </li>
+    </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "abspath"></a>
+    <strong>abspath (P)</strong>
+    </dt>
+    <dd>
+    Alias to <a href="../modules/path.html#fullpath">fullpath</a>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
 
         </li>
     </ul>
@@ -687,15 +801,13 @@
     <strong>exists (P)</strong>
     </dt>
     <dd>
-    Return path if path existing in file system.  </p>
+    Return path if path existing in file system.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -710,15 +822,13 @@
     <strong>isdir (P)</strong>
     </dt>
     <dd>
-    Return path if path refers to an existing directory. </p>
+    Return path if path refers to an existing directory.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -733,15 +843,13 @@
     <strong>isfile (P)</strong>
     </dt>
     <dd>
-    Return path if path refers to an existing file. </p>
+    Return path if path refers to an existing file.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -756,15 +864,13 @@
     <strong>islink (P)</strong>
     </dt>
     <dd>
-    Return path if path refers to an existing symbolic link. </p>
+    Return path if path refers to an existing symbolic link.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -779,15 +885,13 @@
     <strong>isempty (P)</strong>
     </dt>
     <dd>
-    Return true if directory is empty. </p>
+    Return true if directory is empty.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -803,15 +907,13 @@
     </dt>
     <dd>
     Return creation file time.
- On *nix this is the time of the last metadata change.</p>
+ On *nix this is the time of the last metadata change.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -826,15 +928,13 @@
     <strong>mtime (P)</strong>
     </dt>
     <dd>
-    Return last modification file time. </p>
+    Return last modification file time.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -849,15 +949,13 @@
     <strong>atime (P)</strong>
     </dt>
     <dd>
-    Return last access file time. </p>
+    Return last access file time.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -872,15 +970,13 @@
     <strong>cdate (P)</strong>
     </dt>
     <dd>
-    Return <a href="../modules/path.html#ctime">path.ctime</a>  as <code>date</code> object. </p>
+    Return `path.ctime` as `date` object.
+<p> <br/>depends on `path.fs` and LuaDate
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>  and LuaDate
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -895,15 +991,13 @@
     <strong>mdate (P)</strong>
     </dt>
     <dd>
-    Return <a href="../modules/path.html#mtime">path.mtime</a>  as <code>date</code> object. </p>
+    Return `path.mtime` as `date` object.
+<p> <br/>depends on `path.fs` and LuaDate
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>  and LuaDate
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -918,15 +1012,73 @@
     <strong>adate (P)</strong>
     </dt>
     <dd>
-    Return <a href="../modules/path.html#atime">path.atime</a>  as <code>date</code> object. </p>
+    Return `path.atime` as `date` object.
+<p> <br/>depends on `path.fs` and LuaDate
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>  and LuaDate
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
 
+        </li>
+    </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getctime"></a>
+    <strong>getctime (P)</strong>
+    </dt>
+    <dd>
+    Alias to <a href="../modules/path.html#ctime">ctime</a>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getmtime"></a>
+    <strong>getmtime (P)</strong>
+    </dt>
+    <dd>
+    Alias to <a href="../modules/path.html#mtime">mtime</a>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getatime"></a>
+    <strong>getatime (P)</strong>
+    </dt>
+    <dd>
+    Alias to <a href="../modules/path.html#atime">atime</a>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">P</span>
 
         </li>
     </ul>
@@ -942,15 +1094,13 @@
     </dt>
     <dd>
     Create new directory.
- This function also creates all nested directories if needed.</p>
+ This function also creates all nested directories if needed.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -965,15 +1115,13 @@
     <strong>rmdir (P)</strong>
     </dt>
     <dd>
-    Remove empty directory. </p>
+    Remove empty directory.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -988,19 +1136,19 @@
     <strong>remove (P, opt)</strong>
     </dt>
     <dd>
-    Remove empty directory or file.
+    Remove file or empty directory.
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
             <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
 
-
-
         </li>
         <li><span class="parameter">opt</span>
             <span class="types">optional <a class="type" href="../modules/path.html#remove">remove_opt</a></span>
-         <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+ <br/>depends on `path.fs`
         </li>
     </ul>
 
@@ -1014,25 +1162,19 @@
     <strong>rename (from, to, force)</strong>
     </dt>
     <dd>
-    Rename existed file. </p>
+    Rename existed file.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">from</span>
 
-
-
         </li>
         <li><span class="parameter">to</span>
 
-
-
         </li>
         <li><span class="parameter">force</span>
-
-
 
         </li>
     </ul>
@@ -1049,23 +1191,21 @@
     <dd>
     Copy file or directory tree.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">from</span>
             <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
 
-
-
         </li>
         <li><span class="parameter">to</span>
             <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
 
-
-
         </li>
         <li><span class="parameter">opt</span>
             <span class="types"><a class="type" href="../modules/path.html#copy">copy_opt</a> or <span class="type">boolean</span></span>
-         <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
+ <br/>depends on `path.fs`
         </li>
     </ul>
 
@@ -1079,9 +1219,9 @@
     <strong>currentdir ()</strong>
     </dt>
     <dd>
-    Return current work directory path. </p>
+    Return current work directory path.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
 
 
@@ -1094,15 +1234,13 @@
     <strong>chdir (P)</strong>
     </dt>
     <dd>
-    Change current work directory path. </p>
+    Change current work directory path.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">P</span>
-
-
 
         </li>
     </ul>
@@ -1117,30 +1255,23 @@
     <strong>each (str_file, str_params, func_callback, tbl_option)</strong>
     </dt>
     <dd>
-    Iterate over directory tree. </p>
+    Iterate over directory tree.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">str_file</span>
 
-
-
         </li>
         <li><span class="parameter">str_params</span>
-
-
 
         </li>
         <li><span class="parameter">func_callback</span>
 
-
-
         </li>
         <li><span class="parameter">tbl_option</span>
-
-
 
         </li>
     </ul>
@@ -1171,25 +1302,20 @@
     <strong>each (str_file, str_params, tbl_option)</strong>
     </dt>
     <dd>
-    Iterate over directory tree. </p>
+    Iterate over directory tree.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">str_file</span>
 
-
-
         </li>
         <li><span class="parameter">str_params</span>
 
-
-
         </li>
         <li><span class="parameter">tbl_option</span>
-
-
 
         </li>
     </ul>
@@ -1218,25 +1344,20 @@
     <strong>each (str_file, func_callback, tbl_option)</strong>
     </dt>
     <dd>
-    Iterate over directory tree. </p>
+    Iterate over directory tree.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">str_file</span>
 
-
-
         </li>
         <li><span class="parameter">func_callback</span>
 
-
-
         </li>
         <li><span class="parameter">tbl_option</span>
-
-
 
         </li>
     </ul>
@@ -1273,20 +1394,17 @@
     </dt>
     <dd>
     Iterate over directory tree.
- This is common version of function.</p>
+ This is common version of function.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">str_file</span>
 
-
-
         </li>
         <li><span class="parameter">tbl_option</span>
-
-
 
         </li>
     </ul>
@@ -1317,20 +1435,17 @@
     <strong>each (func_callback, tbl_option)</strong>
     </dt>
     <dd>
-    Iterate over directory tree. </p>
+    Iterate over directory tree.
+<p> <br/>depends on `path.fs`
 
-<p> <br/>depends on <a href="../modules/path.fs.html#">path.fs</a>
+
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">func_callback</span>
 
-
-
         </li>
         <li><span class="parameter">tbl_option</span>
-
-
 
         </li>
     </ul>
@@ -1353,49 +1468,38 @@
     <strong>copy_opt</strong>
     </dt>
     <dd>
-    Option table for <a href="../modules/path.html#copy">path.copy</a>  function.
+    Option table for `path.copy` function.
+
 
     <h3>Fields:</h3>
     <ul>
         <li><span class="parameter">delay</span>
             <span class="types"><span class="type">boolean</span></span>
 
-
-
          (<em>default</em> false)
         </li>
         <li><span class="parameter">recurse</span>
             <span class="types"><span class="type">boolean</span></span>
-
-
 
          (<em>default</em> false)
         </li>
         <li><span class="parameter">skipdirs</span>
             <span class="types"><span class="type">boolean</span></span>
 
-
-
          (<em>default</em> false)
         </li>
         <li><span class="parameter">skipfiles</span>
             <span class="types"><span class="type">boolean</span></span>
-
-
 
          (<em>default</em> false)
         </li>
         <li><span class="parameter">accept</span>
             <span class="types"><span class="type">callable</span></span>
 
-
-
          (<em>default</em> function(src)
         </li>
         <li><span class="parameter">error</span>
             <span class="types"><span class="type">callable</span></span>
-
-
 
          (<em>default</em> function(err)
         </li>
@@ -1415,49 +1519,38 @@
     <strong>remove_opt</strong>
     </dt>
     <dd>
-    Option table for <a href="../modules/path.html#remove">path.remove</a>  function.
+    Option table for `path.remove` function.
+
 
     <h3>Fields:</h3>
     <ul>
         <li><span class="parameter">delay</span>
             <span class="types"><span class="type">boolean</span></span>
 
-
-
          (<em>default</em> true)
         </li>
         <li><span class="parameter">recurse</span>
             <span class="types"><span class="type">boolean</span></span>
-
-
 
          (<em>default</em> false)
         </li>
         <li><span class="parameter">skipdirs</span>
             <span class="types"><span class="type">boolean</span></span>
 
-
-
          (<em>default</em> false)
         </li>
         <li><span class="parameter">skipfiles</span>
             <span class="types"><span class="type">boolean</span></span>
-
-
 
          (<em>default</em> false)
         </li>
         <li><span class="parameter">accept</span>
             <span class="types"><span class="type">callable</span></span>
 
-
-
          (<em>default</em> function(src)
         </li>
         <li><span class="parameter">error</span>
             <span class="types"><span class="type">callable</span></span>
-
-
 
          (<em>default</em> function(err)
         </li>
@@ -1487,6 +1580,7 @@
 
 
 
+
 </dd>
     <dt>
     <a name = "IS_WINDOWS"></a>
@@ -1494,6 +1588,7 @@
     </dt>
     <dd>
     ???
+
 
 
 

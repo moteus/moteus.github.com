@@ -30,11 +30,11 @@
 
 
 <h2>Modules</h2>
-<ul class="nowrap">
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="modules/lzmq.poller.html">lzmq.poller</a></li>
+  <li><a href="modules/lzmq.threads.html">lzmq.threads</a></li>
+  <li><a href="modules/lzmq.timer.html">lzmq.timer</a></li>
   <li><a href="modules/lzmq.html">lzmq</a></li>
-  <li><a href="modules/lzmq.poller.html">poller</a></li>
-  <li><a href="modules/lzmq.threads.html">threads</a></li>
-  <li><a href="modules/lzmq.timer.html">timer</a></li>
 </ul>
 
 </div>
@@ -43,13 +43,8 @@
 
 
 
-
 <h2>Modules</h2>
 <table class="module_list">
-	<tr>
-		<td class="name"  nowrap><a href="modules/lzmq.html">lzmq</a></td>
-		<td class="summary">lzmq is the Lua bindings for ZeroMQ.</td>
-	</tr>
 	<tr>
 		<td class="name"  nowrap><a href="modules/lzmq.poller.html">lzmq.poller</a></td>
 		<td class="summary">ZMQ Socket poller.</td>
@@ -61,6 +56,10 @@
 	<tr>
 		<td class="name"  nowrap><a href="modules/lzmq.timer.html">lzmq.timer</a></td>
 		<td class="summary">Working with time intervals.</td>
+	</tr>
+	<tr>
+		<td class="name"  nowrap><a href="modules/lzmq.html">lzmq</a></td>
+		<td class="summary">lzmq is the Lua bindings for ZeroMQ.</td>
 	</tr>
 </table>
 

@@ -38,11 +38,11 @@
 
 
 <h2>Modules</h2>
-<ul class="nowrap">
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><strong>lzmq.poller</strong></li>
+  <li><a href="../modules/lzmq.threads.html">lzmq.threads</a></li>
+  <li><a href="../modules/lzmq.timer.html">lzmq.timer</a></li>
   <li><a href="../modules/lzmq.html">lzmq</a></li>
-  <li><strong>poller</strong></li>
-  <li><a href="../modules/lzmq.threads.html">threads</a></li>
-  <li><a href="../modules/lzmq.timer.html">timer</a></li>
 </ul>
 
 </div>
@@ -50,7 +50,6 @@
 <div id="content">
 
 <h1>Module <code>lzmq.poller</code></h1>
-
 <p>ZMQ Socket poller.</p>
 <p></p>
 
@@ -104,6 +103,7 @@
     Create new poller object.
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">pre_alloc</span>
@@ -135,6 +135,7 @@
     <dd>
     Add a ZMQ Socket or fd to the poller.
  You can add one socket multiple times.
+
 
 
     <h3>Parameters:</h3>
@@ -174,6 +175,7 @@
     <dd>
     Change the events or callback for a socket/fd.
  Note. You can modify only `last` socket.
+
 
 
     <h3>Parameters:</h3>
@@ -217,6 +219,7 @@
  Note. You can remove only `last` socket.
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">socket</span>
@@ -246,6 +249,7 @@
     </dt>
     <dd>
     Wait for events on the registered sockets.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -288,6 +292,7 @@
 
 
 
+
 </dd>
     <dt>
     <a name = "poller:stop"></a>
@@ -295,6 +300,7 @@
     </dt>
     <dd>
     Stop the event loop.
+
 
 
 

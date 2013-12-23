@@ -41,11 +41,11 @@
 
 
 <h2>Modules</h2>
-<ul class="nowrap">
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/lzmq.poller.html">lzmq.poller</a></li>
+  <li><a href="../modules/lzmq.threads.html">lzmq.threads</a></li>
+  <li><a href="../modules/lzmq.timer.html">lzmq.timer</a></li>
   <li><strong>lzmq</strong></li>
-  <li><a href="../modules/lzmq.poller.html">poller</a></li>
-  <li><a href="../modules/lzmq.threads.html">threads</a></li>
-  <li><a href="../modules/lzmq.timer.html">timer</a></li>
 </ul>
 
 </div>
@@ -53,7 +53,6 @@
 <div id="content">
 
 <h1>Module <code>lzmq</code></h1>
-
 <p>lzmq is the Lua bindings for ZeroMQ.</p>
 <p>
 <p> lzmq supports ZMQ >=3.2.2, >=4.0.0.
@@ -75,7 +74,8 @@
  `obj:option_name(value)` and `obj:set_option_name(value)`<br/>
  For example:<br/>
  ZMQ_SUBSCRIBE => skt:subscribe("") / skt:set_subscribe("")
-</ul></p>
+</ul>
+</p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
@@ -98,7 +98,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#device">device (device, frontend, backend)</a></td>
-	<td class="summary">Create ZMQ device</td>
+	<td class="summary">Create ZMQ Device</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#assert">assert (...)</a></td>
@@ -168,7 +168,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#context:term">context:term ()</a></td>
-	<td class="summary">This is alias for @{context.destroy}</td>
+	<td class="summary">This is alias for <a href="../modules/lzmq.html#context:destroy">context:destroy</a></td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#context:closed">context:closed ()</a></td>
@@ -274,12 +274,12 @@
 	<td class="summary">Send message over Socket.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#socket:send_all">socket:send_all (message[, flags=0[, begin_pos=1[, end_pos=#message]]])</a></td>
+	<td class="name" nowrap><a href="#socket:send_all">socket:send_all (t[, flags=0[, begin_pos=1[, end_pos=#t]]])</a></td>
 	<td class="summary">Send a multipart message over Socket.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#socket:send_multipart">socket:send_multipart ()</a></td>
-	<td class="summary">This is alias for `socket:send_all`</td>
+	<td class="summary">This is alias for <a href="../modules/lzmq.html#socket:send_all">socket:send_all</a></td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#socket:sendx">socket:sendx (...)</a></td>
@@ -411,6 +411,7 @@
     <dd>
     return the version of libzmq as a array
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">unpack</span>
@@ -450,6 +451,7 @@
     <dd>
     Create a zmq Context  This function ignores unknown options.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">options</span>
@@ -488,11 +490,23 @@
     </dt>
     <dd>
     Create a zmq Context based on Lua representation of zmq context pointer.
- For this context @{context.destroy} does not call `zmq_ctx_term`.
+<p> For this context <a href="../modules/lzmq.html#context:destroy">context:destroy</a> does not call `zmq_ctx_term`.
 
 
 
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_context">context</a></span>
+        new zmq Context
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/lzmq.html#context:lightuserdata">context:lightuserdata</a>
+    </ul>
 
 
 </dd>
@@ -502,11 +516,23 @@
     </dt>
     <dd>
     Create a zmq Socket based on Lua representation of zmq socket pointer.
- For this socket @{socket.destroy} does not call `zmq_close`.
+<p> For this socket <a href="../modules/lzmq.html#socket:close">socket:close</a> does not call `zmq_close`.
 
 
 
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">socket</a></span>
+        new zmq Socket
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/lzmq.html#socket:lightuserdata">socket:lightuserdata</a>
+    </ul>
 
 
 </dd>
@@ -515,7 +541,8 @@
     <strong>device (device, frontend, backend)</strong>
     </dt>
     <dd>
-    Create ZMQ device
+    Create ZMQ Device
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -556,6 +583,7 @@
  This function could work with `error` objects on Lua 5.1.
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">...</span>
@@ -582,6 +610,7 @@
     <dd>
     Create new `error` object based on error number.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">errno</span>
@@ -607,6 +636,7 @@
     </dt>
     <dd>
     Get string description for errno.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -635,6 +665,7 @@
     Create new `message` object.
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -653,6 +684,7 @@
     <dd>
     Create new `message` object.
  This function allocate message to specific bytes.
+
 
 
     <h3>Parameters:</h3>
@@ -683,6 +715,7 @@
  This function copy data to message from source string.
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">source</span>
@@ -708,6 +741,7 @@
     </dt>
     <dd>
     Start built-in ZMQ proxy.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -745,6 +779,7 @@
     </dt>
     <dd>
     Start built-in ZMQ proxy with control.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -787,6 +822,7 @@
     <dd>
     Encode a binary data as Z85 printable text.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">src</span>
@@ -812,6 +848,7 @@
     </dt>
     <dd>
     Decode a binary data from Z85 printable text.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -839,6 +876,7 @@
     <dd>
     Generate a new CURVE keypair.
  This function avaliable only for ZeroMQ >= 4.0.1. Also you need build ZeroMQ with libsodium.
+
 
 
     <h3>Parameters:</h3>
@@ -876,6 +914,7 @@
     Get the number value of error
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -895,6 +934,7 @@
     Get the error name
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -912,6 +952,7 @@
     </dt>
     <dd>
     Get the error description
+
 
 
     <h3>Returns:</h3>
@@ -935,6 +976,7 @@
     </dt>
     <dd>
     Close all sockets associated with this context, and then terminate the context.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -968,7 +1010,8 @@
     <strong>context:term ()</strong>
     </dt>
     <dd>
-    This is alias for @{context.destroy}
+    This is alias for <a href="../modules/lzmq.html#context:destroy">context:destroy</a>
+
 
 
 
@@ -982,6 +1025,7 @@
     </dt>
     <dd>
     Check if this Context has been terminated
+
 
 
     <h3>Returns:</h3>
@@ -1001,6 +1045,7 @@
     </dt>
     <dd>
     Get the value of a Context option.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1040,6 +1085,7 @@
     </dt>
     <dd>
     Set the value of a Context option.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1086,10 +1132,11 @@
 
 
 
+
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">lightuserdata</span>, <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
+           <span class="types"><a class="type" href="../modules/lzmq.html#context:lightuserdata">lightuserdata</a>, <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
         ZMQ Context.
     </ol>
 
@@ -1109,6 +1156,7 @@
     Return number of sockets associated with this context
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -1126,6 +1174,7 @@
     </dt>
     <dd>
     Shutdown a zmq Context
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1162,6 +1211,7 @@
     Check if this Context has been shutdowned
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -1180,6 +1230,7 @@
     <dd>
     Create a Socket associated with this Context.
  Ignores unknown options.
+
 
 
     <h3>Parameters:</h3>
@@ -1230,6 +1281,7 @@
  Ignores unknown options.
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">socket_options</span>
@@ -1276,6 +1328,7 @@
     <dd>
     Close the socket
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">linger</span>
@@ -1311,6 +1364,7 @@
     Check if this Socket has been closed.
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -1328,6 +1382,7 @@
     </dt>
     <dd>
     Connect Socket to a remote zmq Socket.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1366,6 +1421,7 @@
     </dt>
     <dd>
     Connect Socket to a remote zmq Sockets.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1408,6 +1464,7 @@
     <dd>
     Disconnect Socket from a remote zmq Socket.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">address</span>
@@ -1445,6 +1502,7 @@
     </dt>
     <dd>
     Disconnect Socket from a remote zmq Sockets.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1490,10 +1548,11 @@
 
 
 
+
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">lightuserdata</span>, <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
+           <span class="types"><a class="type" href="../modules/lzmq.html#context:lightuserdata">lightuserdata</a>, <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <span class="type">number</span></span>
         ZMQ Socket.
     </ol>
 
@@ -1511,6 +1570,7 @@
     </dt>
     <dd>
     Bind Socket to a local address.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1549,6 +1609,7 @@
     </dt>
     <dd>
     Bind Socket to a local addresses.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1590,6 +1651,7 @@
     </dt>
     <dd>
     Bind Socket to a local address and random port.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1640,6 +1702,7 @@
     <dd>
     Unbind Socket from a local address.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">address</span>
@@ -1677,6 +1740,7 @@
     </dt>
     <dd>
     Unbind Socket from a local addresses.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1718,6 +1782,7 @@
     </dt>
     <dd>
     Poll specific ZMQ Socket.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -1767,6 +1832,7 @@
     <dd>
     Send message over Socket.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">message</span>
@@ -1814,6 +1880,7 @@
  This function always set flag zmq.SNDMORE to message
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">message</span>
@@ -1859,6 +1926,7 @@
     <dd>
     Send message over Socket.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">message</span>
@@ -1893,16 +1961,17 @@
 </dd>
     <dt>
     <a name = "socket:send_all"></a>
-    <strong>socket:send_all (message[, flags=0[, begin_pos=1[, end_pos=#message]]])</strong>
+    <strong>socket:send_all (t[, flags=0[, begin_pos=1[, end_pos=#t]]])</strong>
     </dt>
     <dd>
     Send a multipart message over Socket.
  This function always set flag zmq.SNDMORE to message
 
 
+
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">message</span>
+        <li><span class="parameter">t</span>
             <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
          {string,...} parts of message.
         </li>
@@ -1920,7 +1989,7 @@
         <li><span class="parameter">end_pos</span>
             <span class="types"><span class="type">number</span></span>
          position of last part in message
-         (<em>default</em> #message)
+         (<em>default</em> #t)
         </li>
     </ul>
 
@@ -1948,7 +2017,8 @@
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">skt:send_all{<span class="string">"Hello"</span>,<span class="string">"World"</span>}</pre>
+        <li><pre class="example">skt:send_all{<span class="string">"Hello"</span>,<span class="string">"World"</span>}</pre></li>
+        <li><pre class="example">skt:send_all({[-<span class="number">1</span>]=<span class="string">"Hello"</span>,[<span class="number">0</span>]=<span class="string">"World"</span>}, -<span class="number">1</span>, <span class="number">0</span>)</pre></li>
     </ul>
 
 </dd>
@@ -1957,7 +2027,8 @@
     <strong>socket:send_multipart ()</strong>
     </dt>
     <dd>
-    This is alias for `socket:send_all`
+    This is alias for <a href="../modules/lzmq.html#socket:send_all">socket:send_all</a>
+
 
 
 
@@ -1971,6 +2042,7 @@
     </dt>
     <dd>
     Send a multipart message over Socket.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -2014,6 +2086,7 @@
  This function always set flag zmq.SNDMORE to message
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">...</span>
@@ -2049,6 +2122,7 @@
     </dt>
     <dd>
     Receive a message.
+
 
 
     <h3>Parameters:</h3>
@@ -2099,6 +2173,7 @@
     <dd>
     Receive first bytes from message.
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">len</span>
@@ -2146,6 +2221,7 @@
     Receive a message.
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">number</span>
@@ -2191,6 +2267,7 @@
  This function create new `message` object.
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">flags</span>
@@ -2229,6 +2306,7 @@
     </dt>
     <dd>
     Receive multipart message.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -2274,6 +2352,7 @@
 
 
 
+
 </dd>
     <dt>
     <a name = "socket:recvx"></a>
@@ -2281,6 +2360,7 @@
     </dt>
     <dd>
     Receive multipart message.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -2320,6 +2400,7 @@
     </dt>
     <dd>
     Receive zmq event message.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -2364,6 +2445,7 @@
     Start publishing socket events on inproc.
  This function generate unique address if it not provided.
  Also you could provide only event bitmask.
+
 
 
     <h3>Parameters:</h3>
@@ -2421,6 +2503,7 @@
     Close message.
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -2438,6 +2521,7 @@
     </dt>
     <dd>
     Check if this Message has been closed.
+
 
 
     <h3>Returns:</h3>
@@ -2458,6 +2542,7 @@
     <dd>
     Move current message to new one.
  Afetr that function current message has no data.
+
 
 
 
@@ -2494,6 +2579,7 @@
     <dd>
     Move source message to current one.
  After a call of this function the source message has no data.
+
 
 
     <h3>Parameters:</h3>
@@ -2538,6 +2624,7 @@
     Copy current message to new one.
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -2564,6 +2651,7 @@
     </dt>
     <dd>
     Copy source message to current one.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -2601,6 +2689,7 @@
     Get size of message in bytes.
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -2619,6 +2708,7 @@
     <dd>
     Set size of message in bytes.
  This function create new zmq_msg_t and copy data from current message.
+
 
 
     <h3>Parameters:</h3>
@@ -2650,10 +2740,11 @@
 
 
 
+
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">lightuserdata</span></span>
+           <span class="types"><a class="type" href="../modules/lzmq.html#context:lightuserdata">lightuserdata</a></span>
 
     </ol>
 
@@ -2667,6 +2758,7 @@
     </dt>
     <dd>
     Get data of message as string.
+
 
 
     <h3>Returns:</h3>
@@ -2687,6 +2779,7 @@
     <dd>
     Set data of message.
  This function can resize message if it is necessary.
+
 
 
     <h3>Parameters:</h3>
@@ -2727,6 +2820,7 @@
     Check if this message is not last in multipart message.
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -2744,6 +2838,7 @@
     </dt>
     <dd>
     Get ZMQ message property.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -2779,6 +2874,7 @@
     </dt>
     <dd>
     Set ZMQ message property.
+
 
     <h3>Parameters:</h3>
     <ul>
@@ -2818,6 +2914,7 @@
     </dt>
     <dd>
     Send message.
+
 
 
     <h3>Parameters:</h3>
@@ -2862,6 +2959,7 @@
  This function always set zmq.SNDMORE flag.
 
 
+
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">socket</span>
@@ -2901,6 +2999,7 @@
     </dt>
     <dd>
     Receive message.
+
 
     <h3>Parameters:</h3>
     <ul>

@@ -38,11 +38,11 @@
 
 
 <h2>Modules</h2>
-<ul class="nowrap">
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><a href="../modules/lzmq.poller.html">lzmq.poller</a></li>
+  <li><strong>lzmq.threads</strong></li>
+  <li><a href="../modules/lzmq.timer.html">lzmq.timer</a></li>
   <li><a href="../modules/lzmq.html">lzmq</a></li>
-  <li><a href="../modules/lzmq.poller.html">poller</a></li>
-  <li><strong>threads</strong></li>
-  <li><a href="../modules/lzmq.timer.html">timer</a></li>
 </ul>
 
 </div>
@@ -50,7 +50,6 @@
 <div id="content">
 
 <h1>Module <code>lzmq.threads</code></h1>
-
 <p>Create threads and pass Context to it.</p>
 <p></p>
 
@@ -95,6 +94,7 @@
     <dd>
     Create new thread.
  This function create thread in suspended mode.
+
 
 
     <h3>Parameters:</h3>
@@ -147,6 +147,7 @@
     <dd>
     Create new thread and pipe.
  This function create thread in suspended mode.
+
 
 
     <h3>Parameters:</h3>
@@ -218,6 +219,7 @@
 
 
 
+
     <h3>Returns:</h3>
     <ol>
 
@@ -241,6 +243,7 @@
     Resume thread.
 <p> Warning: If you don't call thread:join() on a joinable child thread, it will be called
  by the garbage collector, which may cause random pauses/freeze of the parent thread.
+
 
 
     <h3>Parameters:</h3>
@@ -268,6 +271,7 @@
     </dt>
     <dd>
     Join to joinable thread.
+
 
 
     <h3>Returns:</h3>

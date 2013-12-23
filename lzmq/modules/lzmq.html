@@ -246,7 +246,7 @@
 	<td class="summary">Bind Socket to a local addresses.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#socket:bind_to_random_port">socket:bind_to_random_port (address[, begin=0xC000[, number=128]])</a></td>
+	<td class="name" nowrap><a href="#socket:bind_to_random_port">socket:bind_to_random_port (address[, begin=0xC000[, number]])</a></td>
 	<td class="summary">Bind Socket to a local address and random port.</td>
 	</tr>
 	<tr>
@@ -1647,7 +1647,7 @@
 </dd>
     <dt>
     <a name = "socket:bind_to_random_port"></a>
-    <strong>socket:bind_to_random_port (address[, begin=0xC000[, number=128]])</strong>
+    <strong>socket:bind_to_random_port (address[, begin=0xC000[, number]])</strong>
     </dt>
     <dd>
     Bind Socket to a local address and random port.
@@ -1666,8 +1666,7 @@
         </li>
         <li><span class="parameter">number</span>
             <span class="types"><span class="type">number</span></span>
-         of tested ports
-         (<em>default</em> 128)
+         of tested ports. By default tests all ports up to 0xFFFF.
         </li>
     </ul>
 

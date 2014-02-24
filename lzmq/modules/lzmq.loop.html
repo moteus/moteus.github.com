@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Class_loop">Class loop </a></li>
+<li><a href="#Class_time_event">Class time_event </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><strong>lzmq.loop</strong></li>
+  <li><a href="../modules/lzmq.poller.html">lzmq.poller</a></li>
+  <li><a href="../modules/lzmq.threads.html">lzmq.threads</a></li>
+  <li><a href="../modules/lzmq.timer.html">lzmq.timer</a></li>
+  <li><a href="../modules/lzmq.html">lzmq</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>lzmq.loop</code></h1>
+<p>ZMQ event loop.</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new ([pre_alloc[, ctx]])</a></td>
+	<td class="summary">Create new loop object.</td>
+	</tr>
+</table>
+<h2><a href="#Class_loop">Class loop </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#loop:add_socket">loop:add_socket (socket[, events=zmq.POLLIN], callback)</a></td>
+	<td class="summary">Add a ZMQ Socket or fd to the poller.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:add_time">loop:add_time (time, callback)</a></td>
+	<td class="summary">Add a time event.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:add_interval">loop:add_interval (interval, callback)</a></td>
+	<td class="summary">Add a time event.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:add_once">loop:add_once (interval, callback)</a></td>
+	<td class="summary">Add a time event.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:remove_socket">loop:remove_socket (socket)</a></td>
+	<td class="summary">Remove a socket/fd from the poller.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:start">loop:start ()</a></td>
+	<td class="summary">Start an event loop waiting for and dispatching events.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:sleep_ex">loop:sleep_ex (interval)</a></td>
+	<td class="summary">Whait some interval and dispatch events</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:flush">loop:flush (interval)</a></td>
+	<td class="summary">Proceed IO events.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:context">loop:context ()</a></td>
+	<td class="summary">Return internal ZMQ context</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:interrupt">loop:interrupt ()</a></td>
+	<td class="summary">Interrupt event loop</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:stop">loop:stop ()</a></td>
+	<td class="summary">Interrupt event loop</td>
+	</tr>
+</table>
+<h2><a href="#Class_time_event">Class time_event </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#time_event:set_time">time_event:set_time (time)</a></td>
+	<td class="summary">Set absolute time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#time_event:set_interval">time_event:set_interval (milliseconds)</a></td>
+	<td class="summary">Set interval.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#time_event:set_interval_once">time_event:set_interval_once (milliseconds)</a></td>
+	<td class="summary">Set interval.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#time_event:reset">time_event:reset ()</a></td>
+	<td class="summary">Reset time event.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#time_event:restart">time_event:restart ()</a></td>
+	<td class="summary">Restart event.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new ([pre_alloc[, ctx]])</strong>
+    </dt>
+    <dd>
+    Create new loop object.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pre_alloc</span>
+            <span class="types"><span class="type">number</span></span>
+         pre-size the poller for the number of sockets it will handle.
+  The size can grow dynamically as-needed.
+        </li>
+        <li><span class="parameter">ctx</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_context">lzmq.context</a></span>
+         ZMQ context.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.loop.html#Class_loop">loop</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_loop"></a>Class loop </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "loop:add_socket"></a>
+    <strong>loop:add_socket (socket[, events=zmq.POLLIN], callback)</strong>
+    </dt>
+    <dd>
+    Add a ZMQ Socket or fd to the poller.
+ You can add one socket multiple times.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a> or <span class="type">number)</span></span>
+         ZMQ socket or fd
+        </li>
+        <li><span class="parameter">events</span>
+            <span class="types"><span class="type">number</span></span>
+         zmq poll events bitmask
+         (<em>default</em> zmq.POLLIN)
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">callable</span></span>
+         called when event is raised
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">lzmq.socket</a></span>
+        socket
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ loop:add_socket(sock, <span class="keyword">function</span>(sock) <span class="global">print</span>(sock, <span class="string">" is readable."</span>) <span class="keyword">end</span>)
+ loop:add_socket(sock, zmq.POLLOUT, <span class="keyword">function</span>(sock) <span class="global">print</span>(sock, <span class="string">" is writable."</span>) <span class="keyword">end</span>)
+ loop:add_socket(sock, zmq.POLLIN+zmq.POLLOUT, <span class="keyword">function</span>(sock, revents)
+     <span class="global">print</span>(sock, <span class="string">" has events:"</span>, revents)
+ <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "loop:add_time"></a>
+    <strong>loop:add_time (time, callback)</strong>
+    </dt>
+    <dd>
+    Add a time event.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">time</span>
+            <span class="types"><span class="type">number</span></span>
+         UTC absolute time
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">callable</span></span>
+         called when event is raised
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">lzmq.time_event</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:add_interval"></a>
+    <strong>loop:add_interval (interval, callback)</strong>
+    </dt>
+    <dd>
+    Add a time event.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">interval</span>
+            <span class="types"><span class="type">number</span></span>
+         milliseconds to event scince now
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">callable</span></span>
+         called when event is raised
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">lzmq.time_event</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:add_once"></a>
+    <strong>loop:add_once (interval, callback)</strong>
+    </dt>
+    <dd>
+    Add a time event.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">interval</span>
+            <span class="types"><span class="type">number</span></span>
+         milliseconds to event scince now
+        </li>
+        <li><span class="parameter">callback</span>
+            <span class="types"><span class="type">callable</span></span>
+         called when event is raised
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">lzmq.time_event</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:remove_socket"></a>
+    <strong>loop:remove_socket (socket)</strong>
+    </dt>
+    <dd>
+    Remove a socket/fd from the poller.
+ Note. You can remove only `last` socket.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">socket</span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a> or <span class="type">number)</span></span>
+         ZMQ socket or fd
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:start"></a>
+    <strong>loop:start ()</strong>
+    </dt>
+    <dd>
+    Start an event loop waiting for and dispatching events.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:sleep_ex"></a>
+    <strong>loop:sleep_ex (interval)</strong>
+    </dt>
+    <dd>
+    Whait some interval and dispatch events
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">interval</span>
+            <span class="types"><span class="type">number</span></span>
+         milliseconds to event scince now
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:flush"></a>
+    <strong>loop:flush (interval)</strong>
+    </dt>
+    <dd>
+    Proceed IO events.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">interval</span>
+            <span class="types"><span class="type">number</span></span>
+         maximum interval in milliseconds to proceed events
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:context"></a>
+    <strong>loop:context ()</strong>
+    </dt>
+    <dd>
+    Return internal ZMQ context
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_context">lzmq.context</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:interrupt"></a>
+    <strong>loop:interrupt ()</strong>
+    </dt>
+    <dd>
+    Interrupt event loop
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:stop"></a>
+    <strong>loop:stop ()</strong>
+    </dt>
+    <dd>
+    Interrupt event loop
+
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_time_event"></a>Class time_event </h2>
+
+
+            <h3>Usage:</h3>
+            <pre class="example">
+ loop:add_interval(<span class="number">0</span>,<span class="keyword">function</span>(ev)
+   <span class="comment">-- do some work ...
+</span>   <span class="keyword">if</span> work_done <span class="keyword">then</span> <span class="comment">-- remove event
+</span>     <span class="keyword">return</span> ev:reset()
+   <span class="keyword">end</span>
+   <span class="comment">-- set new interval
+</span>   ev:set_interval(<span class="number">1000</span>)
+ <span class="keyword">end</span>)
+ </pre>
+    <dl class="function">
+    <dt>
+    <a name = "time_event:set_time"></a>
+    <strong>time_event:set_time (time)</strong>
+    </dt>
+    <dd>
+    Set absolute time.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">time</span>
+            <span class="types"><span class="type">number</span></span>
+         UTC absolute time
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "time_event:set_interval"></a>
+    <strong>time_event:set_interval (milliseconds)</strong>
+    </dt>
+    <dd>
+    Set interval.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">milliseconds</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "time_event:set_interval_once"></a>
+    <strong>time_event:set_interval_once (milliseconds)</strong>
+    </dt>
+    <dd>
+    Set interval.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">milliseconds</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "time_event:reset"></a>
+    <strong>time_event:reset ()</strong>
+    </dt>
+    <dd>
+    Reset time event.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "time_event:restart"></a>
+    <strong>time_event:restart ()</strong>
+    </dt>
+    <dd>
+    Restart event.
+
+
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> watch_dog_ev = loop:add_interval(TIMEOUT, watch_dog_fn)
+ <span class="comment">-- now we can periodically restart watch dog timer
+</span> watch_dog_ev:restart()</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.0</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

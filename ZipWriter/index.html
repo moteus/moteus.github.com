@@ -1,0 +1,634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Class_ZipWriter">Class ZipWriter </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><strong>ZipWriter</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>ZipWriter</code></h1>
+<p>Create zip archives.</p>
+<p>
+<p> Based on http://wiki.tcl.tk/15158
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (options)</a></td>
+	<td class="summary">Create new `ZipWriter` object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#co_writer">co_writer (fn)</a></td>
+	<td class="summary">Run coroutine and return writer function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#co_reader">co_reader (fn)</a></td>
+	<td class="summary">Run coroutine and return reader function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sink">sink (stream, fname, desc)</a></td>
+	<td class="summary">Create new sink that write result to `ZipWriter`</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#COMPRESSION_LEVEL">COMPRESSION_LEVEL</a></td>
+	<td class="summary">Supported compression levels.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#FILE_DESCRIPTION">FILE_DESCRIPTION</a></td>
+	<td class="summary">Params that describe file or directory</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#NIX_FILE_ATTR">NIX_FILE_ATTR</a></td>
+	<td class="summary">Extra file attributes for Unix</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DOS_FILE_ATTR">DOS_FILE_ATTR</a></td>
+	<td class="summary">Extra file attributes for Unix/FAT32</td>
+	</tr>
+</table>
+<h2><a href="#Class_ZipWriter">Class ZipWriter </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#ZipWriter:set_level">ZipWriter:set_level (lvl)</a></td>
+	<td class="summary">Set compression level</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ZipWriter:open_stream">ZipWriter:open_stream (stream[, autoclose])</a></td>
+	<td class="summary">Set stream as output</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ZipWriter:open_writer">ZipWriter:open_writer (writer[, seek])</a></td>
+	<td class="summary">Set writer as output</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ZipWriter:write">ZipWriter:write (fileName, fileDesc, reader, comment)</a></td>
+	<td class="summary">Add one file to archive.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ZipWriter:close">ZipWriter:close (comment)</a></td>
+	<td class="summary">Close archive.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (options)</strong>
+    </dt>
+    <dd>
+    Create new `ZipWriter` object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {utf8 = false, zip64 = false, level = DEFAULT}
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#COMPRESSION_LEVEL">COMPRESSION_LEVEL</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "co_writer"></a>
+    <strong>co_writer (fn)</strong>
+    </dt>
+    <dd>
+    Run coroutine and return writer function
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#co_reader">co_reader</a>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ writer = co_writer(<span class="keyword">function</span>(reader) ... <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "co_reader"></a>
+    <strong>co_reader (fn)</strong>
+    </dt>
+    <dd>
+    Run coroutine and return reader function
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#co_writer">co_writer</a>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">
+ reader = co_reader(<span class="keyword">function</span>(writer) ... <span class="keyword">end</span>)</pre></li>
+        <li><pre class="example">
+
+ <span class="keyword">local</span> <span class="keyword">function</span> put(reader)
+   <span class="keyword">local</span> chunk, err
+   <span class="keyword">while</span> <span class="keyword">true</span> <span class="keyword">do</span>
+     chunk, err = reader()
+     <span class="keyword">if</span> <span class="keyword">not</span> chunk <span class="keyword">then</span> <span class="keyword">break</span> <span class="keyword">end</span>
+     <span class="global">print</span>(chunk) <span class="comment">-- proceed data
+</span>   <span class="keyword">end</span>
+ <span class="keyword">end</span>
+
+ <span class="keyword">local</span> <span class="keyword">function</span> get(writer)
+   <span class="keyword">local</span> t = {<span class="number">1111</span>,<span class="number">2222</span>,<span class="number">3333</span>,<span class="number">4444</span>,<span class="number">5555</span>}
+   <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="global">ipairs</span>(t) <span class="keyword">do</span>
+     writer(<span class="global">tostring</span>(v)) <span class="comment">-- send data
+</span>   <span class="keyword">end</span>
+   writer() <span class="comment">-- EOS
+</span> <span class="keyword">end</span>
+
+ get(ZipWriter.co_writer(put))
+ put(ZipWriter.co_reader(get))</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "sink"></a>
+    <strong>sink (stream, fname, desc)</strong>
+    </dt>
+    <dd>
+    Create new sink that write result to `ZipWriter`
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">stream</span>
+
+        </li>
+        <li><span class="parameter">fname</span>
+
+        </li>
+        <li><span class="parameter">desc</span>
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> ZipStream = ZipWriter.new()
+
+ <span class="comment">-- write to ftp
+</span> <span class="comment">--[=[ lua 5.1 needs coco
+ ZipStream:open_writer(ZipWriter.co_writer(function(reader)
+   FTP.put{
+     path = 'test.zip';
+     src  = reader;
+   }
+ end))
+ --]=]</span>
+
+ <span class="comment">-- write to file
+</span> ZipStream:open_stream(<span class="global">assert</span>(<span class="global">io</span>.open(<span class="string">'test.zip'</span>, <span class="string">'wb+'</span>))
+
+ <span class="comment">-- read from FTP
+</span> FTP.get{
+   <span class="comment">-- ftp params ...
+</span>   path = <span class="string">'test.txt'</span>
+   sink = ZipWriter.sink(ZipStream, <span class="string">'test.txt'</span>, {isfile=<span class="keyword">true</span>;istext=<span class="number">1</span>})
+ }
+
+ ZipStream:close()</pre>
+    </ul>
+
+</dd>
+</dl>
+    <h2><a name="Tables"></a>Tables</h2>
+    <dl class="function">
+    <dt>
+    <a name = "COMPRESSION_LEVEL"></a>
+    <strong>COMPRESSION_LEVEL</strong>
+    </dt>
+    <dd>
+    Supported compression levels.
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">NO</span>
+
+        </li>
+        <li><span class="parameter">DEFAULT</span>
+
+        </li>
+        <li><span class="parameter">SPEED</span>
+
+        </li>
+        <li><span class="parameter">BEST</span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "FILE_DESCRIPTION"></a>
+    <strong>FILE_DESCRIPTION</strong>
+    </dt>
+    <dd>
+    Params that describe file or directory
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">isfile</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+        </li>
+        <li><span class="parameter">isdir</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+        </li>
+        <li><span class="parameter">istext</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+        </li>
+        <li><span class="parameter">mtime</span>
+            <span class="types"><span class="type">number</span></span>
+         last modification time. If nil then os.clock used.
+        </li>
+        <li><span class="parameter">ctime</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">atime</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">exattrib</span>
+            <span class="types"><span class="type">number</span> or <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         on Windows it can be result of GetFileAttributes. Also it can be array of flags.
+        </li>
+        <li><span class="parameter">platform</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+        <li><span class="parameter">data</span>
+            <span class="types">optional <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         file content
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <li><a href="index.html#DOS_FILE_ATTR">DOS_FILE_ATTR</a></li>
+         <li><a href="index.html#NIX_FILE_ATTR">NIX_FILE_ATTR</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "NIX_FILE_ATTR"></a>
+    <strong>NIX_FILE_ATTR</strong>
+    </dt>
+    <dd>
+    Extra file attributes for Unix
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">IFIFO</span>
+          named pipe (fifo)
+        </li>
+        <li><span class="parameter">IFCHR</span>
+          character special
+        </li>
+        <li><span class="parameter">IFDIR</span>
+          directory
+        </li>
+        <li><span class="parameter">IFBLK</span>
+          block special
+        </li>
+        <li><span class="parameter">IFREG</span>
+          regular
+        </li>
+        <li><span class="parameter">IFLNK</span>
+          symbolic link
+        </li>
+        <li><span class="parameter">IFSOCK</span>
+         socket
+        </li>
+        <li><span class="parameter">ISUID</span>
+          set user id on execution
+        </li>
+        <li><span class="parameter">ISGID</span>
+          set group id on execution
+        </li>
+        <li><span class="parameter">ISTXT</span>
+          sticky bit
+        </li>
+        <li><span class="parameter">IRWXU</span>
+          RWX mask for owner
+        </li>
+        <li><span class="parameter">IRUSR</span>
+          R for owner
+        </li>
+        <li><span class="parameter">IWUSR</span>
+          W for owner
+        </li>
+        <li><span class="parameter">IXUSR</span>
+          X for owner
+        </li>
+        <li><span class="parameter">IRWXG</span>
+          RWX mask for group
+        </li>
+        <li><span class="parameter">IRGRP</span>
+          R for group
+        </li>
+        <li><span class="parameter">IWGRP</span>
+          W for group
+        </li>
+        <li><span class="parameter">IXGRP</span>
+          X for group
+        </li>
+        <li><span class="parameter">IRWXO</span>
+          RWX mask for other
+        </li>
+        <li><span class="parameter">IROTH</span>
+          R for other
+        </li>
+        <li><span class="parameter">IWOTH</span>
+          W for other
+        </li>
+        <li><span class="parameter">IXOTH</span>
+          X for other
+        </li>
+        <li><span class="parameter">ISVTX</span>
+          save swapped text even after use
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "DOS_FILE_ATTR"></a>
+    <strong>DOS_FILE_ATTR</strong>
+    </dt>
+    <dd>
+    Extra file attributes for Unix/FAT32
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">NORMAL</span>
+         Normal file
+        </li>
+        <li><span class="parameter">RDONLY</span>
+         Read-only file
+        </li>
+        <li><span class="parameter">HIDDEN</span>
+         Hidden file
+        </li>
+        <li><span class="parameter">SYSTEM</span>
+         System file
+        </li>
+        <li><span class="parameter">VOLID</span>
+          Volume ID
+        </li>
+        <li><span class="parameter">SUBDIR</span>
+         Subdirectory
+        </li>
+        <li><span class="parameter">ARCH</span>
+           File changed since last archive
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_ZipWriter"></a>Class ZipWriter </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "ZipWriter:set_level"></a>
+    <strong>ZipWriter:set_level (lvl)</strong>
+    </dt>
+    <dd>
+    Set compression level
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lvl</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         {value=compression level, flag=compression flag, method=compression method }
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#COMPRESSION_LEVEL">COMPRESSION_LEVEL</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "ZipWriter:open_stream"></a>
+    <strong>ZipWriter:open_stream (stream[, autoclose])</strong>
+    </dt>
+    <dd>
+    Set stream as output
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">stream</span>
+         have to support write method.
+    Also strean can support seek method.
+        </li>
+        <li><span class="parameter">autoclose</span>
+            <span class="types"><span class="type">boolean</span></span>
+         if true then steam:close is called
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ZipWriter:open_writer"></a>
+    <strong>ZipWriter:open_writer (writer[, seek])</strong>
+    </dt>
+    <dd>
+    Set writer as output
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">writer</span>
+         callable object. This function called when there is a new chunk of data.
+        </li>
+        <li><span class="parameter">seek</span>
+         callable object.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ZipWriter:write"></a>
+    <strong>ZipWriter:write (fileName, fileDesc, reader, comment)</strong>
+    </dt>
+    <dd>
+    Add one file to archive.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fileName</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+        <li><span class="parameter">fileDesc</span>
+            <span class="types"><span class="type">FILE_DESCRIPTION</span></span>
+
+        </li>
+        <li><span class="parameter">reader</span>
+            <span class="types">optional <span class="type">callable</span></span>
+         must return nil on end of data
+        </li>
+        <li><span class="parameter">comment</span>
+            <span class="types">optional <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ZipWriter:close"></a>
+    <strong>ZipWriter:close (comment)</strong>
+    </dt>
+    <dd>
+    Close archive.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">comment</span>
+            <span class="types">optional <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.0</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -49,6 +49,52 @@
 <p>
 <p> Based on http://wiki.tcl.tk/15158
 </p>
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example">
+ local ZipWriter = require &quot;ZipWriter&quot;
+
+ local function make_reader(fname)
+   local f = assert(io.open(fname, &apos;rb&apos;))
+   local chunk_size = 1024
+   local desc = { -- `-rw-r-----` on Unix
+     istext   = true,
+     isfile   = true,
+     isdir    = false,
+     mtime    = 1348048902, -- lfs.attributes(&apos;modification&apos;)
+     platform = &apos;unix&apos;,
+     exattrib = {
+       ZipWriter.NIX_FILE_ATTR.IFREG,
+       ZipWriter.NIX_FILE_ATTR.IRUSR,
+       ZipWriter.NIX_FILE_ATTR.IWUSR,
+       ZipWriter.NIX_FILE_ATTR.IRGRP,
+       ZipWriter.DOS_FILE_ATTR.ARCH,
+     },
+   }
+   return desc, desc.isfile and function()
+     local chunk = f:read(chunk_size)
+     if chunk then return chunk end
+     f:close()
+   end
+ end
+
+ ZipStream = ZipWriter.new()
+ ZipStream:open_stream( assert(io.open(&apos;readme.zip&apos;, &apos;w+b&apos;)), true )
+ ZipStream:write(&apos;README.md&apos;, make_reader(&apos;README.md&apos;))
+ ZipStream:close()
+</pre></li>
+        <li><pre class="example">
+ -- Make encrypted archive
+ local ZipWriter  = require&quot;ZipWriter&quot;
+ local AesEncrypt = require&quot;ZipWriter.encrypt.aes&quot;
+
+ ZipStream = ZipWriter.new{
+   encrypt = AesEncrypt.new(&apos;password&apos;)
+ }
+
+ -- as before
+</pre></li>
+    </ul>
 
 
 <h2><a href="#Functions">Functions</a></h2>

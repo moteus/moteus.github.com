@@ -326,6 +326,10 @@
 	<td class="name" nowrap><a href="#socket:monitor">socket:monitor ([address[, enents=zmq.EVENT_ALL]])</a></td>
 	<td class="summary">Start publishing socket events on inproc.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:reset_monitor">socket:reset_monitor ()</a></td>
+	<td class="summary">Stop publishing socket events.</td>
+	</tr>
 </table>
 <h2><a href="#Class_message">Class message </a></h2>
 <table class="function_list">
@@ -2478,6 +2482,10 @@
     </ol>
 
 
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/lzmq.html#socket:reset_monitor">socket:reset_monitor</a>
+    </ul>
 
     <h3>Usage:</h3>
     <ul>
@@ -2485,6 +2493,39 @@
  <span class="comment">-- create monitor socket
 </span> <span class="keyword">local</span> mon = ctx:socket{zmq.PAIR, connect = skt:monitor()}</pre>
     </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:reset_monitor"></a>
+    <strong>socket:reset_monitor ()</strong>
+    </dt>
+    <dd>
+    Stop publishing socket events.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/lzmq.html#socket:monitor">socket:monitor</a>
+    </ul>
+
 
 </dd>
 </dl>

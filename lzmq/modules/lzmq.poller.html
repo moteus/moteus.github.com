@@ -34,6 +34,7 @@
 <ul>
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Class_poller">Class poller </a></li>
+<li><a href="#Class_Pollable">Class Pollable </a></li>
 </ul>
 
 
@@ -89,6 +90,17 @@
 	<td class="summary">Stop the event loop.</td>
 	</tr>
 </table>
+<h2><a href="#Class_Pollable">Class Pollable </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Pollable:socket">Pollable:socket ()</a></td>
+	<td class="summary">Return zmq socket for polling.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Pollable:close">Pollable:close ()</a></td>
+	<td class="summary">Close object.</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
@@ -142,7 +154,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">socket</span>
-            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a> or <span class="type">number)</span></span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a>, <span class="type">number</span> or <a class="type" href="../modules/lzmq.poller.html#Class_Pollable">Pollable)</a></span>
          ZMQ socket or fd
         </li>
         <li><span class="parameter">events</span>
@@ -182,7 +194,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">socket</span>
-            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a> or <span class="type">number)</span></span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a>, <span class="type">number</span> or <a class="type" href="../modules/lzmq.poller.html#Class_Pollable">Pollable)</a></span>
          ZMQ socket or fd
         </li>
         <li><span class="parameter">events</span>
@@ -224,7 +236,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">socket</span>
-            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a> or <span class="type">number)</span></span>
+            <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">(lzmq.socket</a>, <span class="type">number</span> or <a class="type" href="../modules/lzmq.poller.html#Class_Pollable">Pollable)</a></span>
          ZMQ socket or fd
         </li>
     </ul>
@@ -306,6 +318,50 @@
 
 
 
+
+
+</dd>
+</dl>
+    <h2><a name="Class_Pollable"></a>Class Pollable </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Pollable:socket"></a>
+    <strong>Pollable:socket ()</strong>
+    </dt>
+    <dd>
+    Return zmq socket for polling.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_socket">lzmq.socket</a> or <span class="type">number</span></span>
+        socket or socket fd
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Pollable:close"></a>
+    <strong>Pollable:close ()</strong>
+    </dt>
+    <dd>
+    Close object.
+ This method may be used by `lzmq.loop` to autoclose socket
+
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/lzmq.loop.html#loop:destroy">lzmq.loop:destroy</a>
+    </ul>
 
 
 </dd>

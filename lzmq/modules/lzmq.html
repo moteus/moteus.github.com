@@ -291,6 +291,14 @@
 	<td class="summary">Send a multipart message over Socket.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#socket:sendv">socket:sendv (...)</a></td>
+	<td class="summary">Send a message over Socket.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:sendv_more">socket:sendv_more (...)</a></td>
+	<td class="summary">Send a message over Socket.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#socket:recv">socket:recv ([flags=0])</a></td>
 	<td class="summary">Receive a message.</td>
 	</tr>
@@ -2088,6 +2096,89 @@
     <dd>
     Send a multipart message over Socket.
  This function always set flag zmq.SNDMORE to message
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         string parts of message.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        index of error part</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "socket:sendv"></a>
+    <strong>socket:sendv (...)</strong>
+    </dt>
+    <dd>
+    Send a message over Socket.
+ This function concatinate all parts and send result string.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         string parts of message.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        index of error part</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">skt:sendv(<span class="string">"Hello"</span>,<span class="string">"World"</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "socket:sendv_more"></a>
+    <strong>socket:sendv_more (...)</strong>
+    </dt>
+    <dd>
+    Send a message over Socket.
+ This function concatinate all parts and send result string.
+ This function always set flag zmq.SNDMORE to message.
 
 
 

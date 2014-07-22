@@ -109,6 +109,10 @@
 	<td class="name" nowrap><a href="#loop:stop">loop:stop ()</a></td>
 	<td class="summary">Interrupt event loop</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#loop:destroy">loop:destroy ([no_close=false])</a></td>
+	<td class="summary">Destroy loop object.</td>
+	</tr>
 </table>
 <h2><a href="#Class_time_event">Class time_event </a></h2>
 <table class="function_list">
@@ -439,6 +443,36 @@
 
 
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "loop:destroy"></a>
+    <strong>loop:destroy ([no_close=false])</strong>
+    </dt>
+    <dd>
+    Destroy loop object.
+ loop object can use only `close` method to close sockets object.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">no_close</span>
+            <span class="types"><span class="type">boolean</span></span>
+         by default close all sockets when destroy loop.
+         (<em>default</em> false)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/lzmq.loop.html#Class_loop">loop</a></span>
+
+    </ol>
 
 
 

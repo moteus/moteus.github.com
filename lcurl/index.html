@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Class_httppost">Class httppost </a></li>
+<li><a href="#Class_easy">Class easy </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><strong>lcurl</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>lcurl</code></h1>
+<p></p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#httppost">httppost ()</a></td>
+	<td class="summary">Create HTTP multipart object.</td>
+	</tr>
+</table>
+<h2><a href="#Class_httppost">Class httppost </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#httppost:add_content">httppost:add_content (name, content[, type[, headers]])</a></td>
+	<td class="summary">Add new part to form.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#httppost:add_buffer">httppost:add_buffer (name, filename, content[, type[, headers]])</a></td>
+	<td class="summary">Add new part to form.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#httppost:add_file">httppost:add_file (name, path[, type[, filename[, headers]]])</a></td>
+	<td class="summary">Add new part to form.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#httppost:get">httppost:get ()</a></td>
+	<td class="summary">Serialize multipart/formdata HTTP POST chain.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#httppost:get">httppost:get (writer[, context])</a></td>
+	<td class="summary">Serialize multipart/formdata HTTP POST chain.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#httppost:get">httppost:get (writer)</a></td>
+	<td class="summary">Serialize multipart/formdata HTTP POST chain.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#httppost:free">httppost:free ()</a></td>
+	<td class="summary">Free multipart/formdata.</td>
+	</tr>
+</table>
+<h2><a href="#Class_easy">Class easy </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_writefunction">easy:setopt_writefunction (writer[, context])</a></td>
+	<td class="summary">Set writer function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_writefunction">easy:setopt_writefunction (writer)</a></td>
+	<td class="summary">Set writer function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_readfunction">easy:setopt_readfunction (reader[, context])</a></td>
+	<td class="summary">Set reader function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_readfunction">easy:setopt_readfunction (reader)</a></td>
+	<td class="summary">Set reader function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_httppost">easy:setopt_httppost (data)</a></td>
+	<td class="summary">Set HTTP multipart/formdata</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_postfields">easy:setopt_postfields (data[, length=#data])</a></td>
+	<td class="summary">Set HTTP multipart/formdata</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:close">easy:close ()</a></td>
+	<td class="summary">End easy session</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "httppost"></a>
+    <strong>httppost ()</strong>
+    </dt>
+    <dd>
+    Create HTTP multipart object.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_httppost">httppost</a></span>
+        new curl HTTP Post object context
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_httppost"></a>Class httppost </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "httppost:add_content"></a>
+    <strong>httppost:add_content (name, content[, type[, headers]])</strong>
+    </dt>
+    <dd>
+    Add new part to form.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provide the name of this part
+        </li>
+        <li><span class="parameter">content</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         actual data to send
+        </li>
+        <li><span class="parameter">type</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provides the content-type for this part
+        </li>
+        <li><span class="parameter">headers</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         specifies extra headers for the form POST section
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "httppost:add_buffer"></a>
+    <strong>httppost:add_buffer (name, filename, content[, type[, headers]])</strong>
+    </dt>
+    <dd>
+    Add new part to form.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provide the name of this part
+        </li>
+        <li><span class="parameter">filename</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provides the filename field in the content header
+        </li>
+        <li><span class="parameter">content</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         actual data to send
+        </li>
+        <li><span class="parameter">type</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provides the content-type for this part
+        </li>
+        <li><span class="parameter">headers</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         specifies extra headers for the form POST section
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "httppost:add_file"></a>
+    <strong>httppost:add_file (name, path[, type[, filename[, headers]]])</strong>
+    </dt>
+    <dd>
+    Add new part to form.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provide the name of this part
+        </li>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         path to file that contain actual data to send
+        </li>
+        <li><span class="parameter">type</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provides the content-type for this part
+        </li>
+        <li><span class="parameter">filename</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provides the filename field in the content header.
+   By default it is basename of path.
+        </li>
+        <li><span class="parameter">headers</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         specifies extra headers for the form POST section
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "httppost:get"></a>
+    <strong>httppost:get ()</strong>
+    </dt>
+    <dd>
+    Serialize multipart/formdata HTTP POST chain.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string serialized data
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="global">print</span>(post:get())</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "httppost:get"></a>
+    <strong>httppost:get (writer[, context])</strong>
+    </dt>
+    <dd>
+    Serialize multipart/formdata HTTP POST chain.
+<p> Writer function can return true or number of written bytes.
+ Also if function does not return anything is considered as success.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">writer</span>
+            <span class="types"><span class="type">function</span></span>
+
+        </li>
+        <li><span class="parameter">context</span>
+         writer context
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ t = {}
+ post:get(<span class="global">table</span>.insert, t)
+ <span class="global">print</span>(<span class="global">table</span>.concat(t))</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "httppost:get"></a>
+    <strong>httppost:get (writer)</strong>
+    </dt>
+    <dd>
+    Serialize multipart/formdata HTTP POST chain.
+<p> This call same as httppost:get(writer.write, writer)
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">writer</span>
+            <span class="types"><span class="type">object</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ f = <span class="global">io</span>.open(...)
+ post:get(f)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "httppost:free"></a>
+    <strong>httppost:free ()</strong>
+    </dt>
+    <dd>
+    Free multipart/formdata.
+
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_easy"></a>Class easy </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "easy:setopt_writefunction"></a>
+    <strong>easy:setopt_writefunction (writer[, context])</strong>
+    </dt>
+    <dd>
+    Set writer function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">writer</span>
+            <span class="types"><span class="type">function</span></span>
+
+        </li>
+        <li><span class="parameter">context</span>
+         writer context
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:setopt_writefunction"></a>
+    <strong>easy:setopt_writefunction (writer)</strong>
+    </dt>
+    <dd>
+    Set writer function.
+<p> This call same as easy:set_writefunction(writer.write, writer)
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">writer</span>
+            <span class="types"><span class="type">object</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:setopt_readfunction"></a>
+    <strong>easy:setopt_readfunction (reader[, context])</strong>
+    </dt>
+    <dd>
+    Set reader function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">reader</span>
+            <span class="types"><span class="type">function</span></span>
+
+        </li>
+        <li><span class="parameter">context</span>
+         reader context
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:setopt_readfunction"></a>
+    <strong>easy:setopt_readfunction (reader)</strong>
+    </dt>
+    <dd>
+    Set reader function.
+<p> This call same as easy:set_readfunction(reader.read, reader)
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">reader</span>
+            <span class="types"><span class="type">object</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:setopt_httppost"></a>
+    <strong>easy:setopt_httppost (data)</strong>
+    </dt>
+    <dd>
+    Set HTTP multipart/formdata
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+            <span class="types"><a class="type" href="index.html#Class_httppost">httppost</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:setopt_postfields"></a>
+    <strong>easy:setopt_postfields (data[, length=#data])</strong>
+    </dt>
+    <dd>
+    Set HTTP multipart/formdata
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+        <li><span class="parameter">length</span>
+            <span class="types"><span class="type">number</span></span>
+
+         (<em>default</em> #data)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:close"></a>
+    <strong>easy:close ()</strong>
+    </dt>
+    <dd>
+    End easy session
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.0</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -55,6 +55,18 @@
 	<td class="name" nowrap><a href="#httppost">httppost ()</a></td>
 	<td class="summary">Create HTTP multipart object.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy">easy ()</a></td>
+	<td class="summary">Create Easy object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#version">version ()</a></td>
+	<td class="summary">Returns libcurl version as human readable string</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#version_info">version_info ([param])</a></td>
+	<td class="summary">Returns libcurl version as table</td>
+	</tr>
 </table>
 <h2><a href="#Class_httppost">Class httppost </a></h2>
 <table class="function_list">
@@ -98,6 +110,14 @@
 	<td class="summary">Set writer function.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_headerfunction">easy:setopt_headerfunction (writer[, context])</a></td>
+	<td class="summary">Set header function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_headerfunction">easy:setopt_headerfunction (writer)</a></td>
+	<td class="summary">Set header function.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#easy:setopt_readfunction">easy:setopt_readfunction (reader[, context])</a></td>
 	<td class="summary">Set reader function.</td>
 	</tr>
@@ -112,6 +132,18 @@
 	<tr>
 	<td class="name" nowrap><a href="#easy:setopt_postfields">easy:setopt_postfields (data[, length=#data])</a></td>
 	<td class="summary">Set HTTP multipart/formdata</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:perfom">easy:perfom ()</a></td>
+	<td class="summary">Perform a file transfer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:escape">easy:escape (url)</a></td>
+	<td class="summary">URL encodes the given string</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:unescape">easy:unescape (url)</a></td>
+	<td class="summary">URL decodes the given string</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#easy:close">easy:close ()</a></td>
@@ -143,6 +175,78 @@
 
 
 
+
+</dd>
+    <dt>
+    <a name = "easy"></a>
+    <strong>easy ()</strong>
+    </dt>
+    <dd>
+    Create Easy object
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+        new curl easy object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "version"></a>
+    <strong>version ()</strong>
+    </dt>
+    <dd>
+    Returns libcurl version as human readable string
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "version_info"></a>
+    <strong>version_info ([param])</strong>
+    </dt>
+    <dd>
+    Returns libcurl version as table
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         specific version info
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        full version into if `param` was not specify
+    </ol>
+     <h3>Or</h3>
+    <ol>
+
+        specific info parameter
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ proto = curl.version_info(<span class="string">'protocols'</span>)
+ <span class="keyword">if</span> proto.HTTP <span class="keyword">then</span> ... -- libcurl support http protocol</pre>
+    </ul>
 
 </dd>
 </dl>
@@ -444,6 +548,63 @@
 
 </dd>
     <dt>
+    <a name = "easy:setopt_headerfunction"></a>
+    <strong>easy:setopt_headerfunction (writer[, context])</strong>
+    </dt>
+    <dd>
+    Set header function.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">writer</span>
+            <span class="types"><span class="type">function</span></span>
+
+        </li>
+        <li><span class="parameter">context</span>
+         writer context
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:setopt_headerfunction"></a>
+    <strong>easy:setopt_headerfunction (writer)</strong>
+    </dt>
+    <dd>
+    Set header function.
+<p> This call same as easy:set_headerfunction(writer.header, writer)
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">writer</span>
+            <span class="types"><span class="type">object</span></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "easy:setopt_readfunction"></a>
     <strong>easy:setopt_readfunction (reader[, context])</strong>
     </dt>
@@ -551,6 +712,77 @@
     <ol>
 
         self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:perfom"></a>
+    <strong>easy:perfom ()</strong>
+    </dt>
+    <dd>
+    Perform a file transfer
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:escape"></a>
+    <strong>easy:escape (url)</strong>
+    </dt>
+    <dd>
+    URL encodes the given string
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">url</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        encoded url
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:unescape"></a>
+    <strong>easy:unescape (url)</strong>
+    </dt>
+    <dd>
+    URL decodes the given string
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">url</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        decoded url
     </ol>
 
 

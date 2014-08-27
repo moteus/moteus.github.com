@@ -102,6 +102,30 @@
 <h2><a href="#Class_easy">Class easy </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#easy:perfom">easy:perfom ()</a></td>
+	<td class="summary">Perform a file transfer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:escape">easy:escape (url)</a></td>
+	<td class="summary">URL encodes the given string</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:unescape">easy:unescape (url)</a></td>
+	<td class="summary">URL decodes the given string</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:close">easy:close ()</a></td>
+	<td class="summary">End easy session</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt">easy:setopt (opt, ...)</a></td>
+	<td class="summary">Set options.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:getinfo">easy:getinfo (info)</a></td>
+	<td class="summary">Get information.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#easy:setopt_writefunction">easy:setopt_writefunction (writer[, context])</a></td>
 	<td class="summary">Set writer function.</td>
 	</tr>
@@ -140,22 +164,6 @@
 	<tr>
 	<td class="name" nowrap><a href="#easy:setopt_postfields">easy:setopt_postfields (data[, length=#data])</a></td>
 	<td class="summary">Set HTTP multipart/formdata</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#easy:perfom">easy:perfom ()</a></td>
-	<td class="summary">Perform a file transfer</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#easy:escape">easy:escape (url)</a></td>
-	<td class="summary">URL encodes the given string</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#easy:unescape">easy:unescape (url)</a></td>
-	<td class="summary">URL decodes the given string</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#easy:close">easy:close ()</a></td>
-	<td class="summary">End easy session</td>
 	</tr>
 </table>
 
@@ -499,6 +507,163 @@
 
     <dl class="function">
     <dt>
+    <a name = "easy:perfom"></a>
+    <strong>easy:perfom ()</strong>
+    </dt>
+    <dd>
+    Perform a file transfer
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:escape"></a>
+    <strong>easy:escape (url)</strong>
+    </dt>
+    <dd>
+    URL encodes the given string
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">url</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        encoded url
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:unescape"></a>
+    <strong>easy:unescape (url)</strong>
+    </dt>
+    <dd>
+    URL decodes the given string
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">url</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        decoded url
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:close"></a>
+    <strong>easy:close ()</strong>
+    </dt>
+    <dd>
+    End easy session
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:setopt"></a>
+    <strong>easy:setopt (opt, ...)</strong>
+    </dt>
+    <dd>
+    Set options.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">opt</span>
+            <span class="types"><span class="type">number</span></span>
+         one of `curl.OPT_XXX` constant
+        </li>
+        <li><span class="parameter">...</span>
+         value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+        self
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ c:setopt(curl.OPT_URL, <span class="string">"http://example.com"</span>)
+ c:setopt(curl.OPT_READFUNCTION,
+    <span class="keyword">function</span>(t, n) <span class="keyword">return</span> <span class="global">table</span>.remove(t) <span class="keyword">end</span>,
+    {<span class="string">"1111"</span>, <span class="string">"2222"</span>}
+ )</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "easy:getinfo"></a>
+    <strong>easy:getinfo (info)</strong>
+    </dt>
+    <dd>
+    Get information.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">info</span>
+            <span class="types"><span class="type">number</span></span>
+         one of `curl.INFO_XXX` constant
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        value
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="global">print</span>(c:getinfo(curl.INFO_EFFECTIVE_URL))
+ <span class="global">print</span>(c:getinfo(curl.INFO_TOTAL_TIME))
+ <span class="global">print</span>(c:getinfo(curl.INFO_RESPONSE_CODE))</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "easy:setopt_writefunction"></a>
     <strong>easy:setopt_writefunction (writer[, context])</strong>
     </dt>
@@ -631,7 +796,7 @@
 <p> A callback accepting one or two parameters.
  The first is the reader context if any, and the second is the maximum amount of data to be read.
  You can ignore second argument and pass as mach data as you need. lcurl can split data.
- Function must return data to continue operation. To stop operation it must return empty string.
+ Function must return data to continue operation. To stop operation it must return empty string on nil.
  Otherwise the transfer will be aborted with an error.
 
 
@@ -803,91 +968,6 @@
 
         self
     </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "easy:perfom"></a>
-    <strong>easy:perfom ()</strong>
-    </dt>
-    <dd>
-    Perform a file transfer
-
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-        self
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "easy:escape"></a>
-    <strong>easy:escape (url)</strong>
-    </dt>
-    <dd>
-    URL encodes the given string
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">url</span>
-            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        encoded url
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "easy:unescape"></a>
-    <strong>easy:unescape (url)</strong>
-    </dt>
-    <dd>
-    URL decodes the given string
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">url</span>
-            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        decoded url
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <a name = "easy:close"></a>
-    <strong>easy:close ()</strong>
-    </dt>
-    <dd>
-    End easy session
-
-
-
 
 
 

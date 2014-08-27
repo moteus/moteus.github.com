@@ -32,6 +32,7 @@
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Class_httpform">Class httpform </a></li>
 <li><a href="#Class_easy">Class easy </a></li>
+<li><a href="#Class_multi">Class multi </a></li>
 </ul>
 
 
@@ -53,11 +54,15 @@
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#form">form ()</a></td>
-	<td class="summary">Create HTTP multipart object.</td>
+	<td class="summary">Create HTTP multipart/formdata object.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#easy">easy ()</a></td>
 	<td class="summary">Create Easy object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi">multi ()</a></td>
+	<td class="summary">Create Multi object</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#version">version ()</a></td>
@@ -158,8 +163,8 @@
 	<td class="summary">Set progress function.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#easy:setopt_readfunction">easy:setopt_readfunction (reader)</a></td>
-	<td class="summary">Set reader function.</td>
+	<td class="name" nowrap><a href="#easy:setopt_progressfunction">easy:setopt_progressfunction (progress)</a></td>
+	<td class="summary">Set progress function.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#easy:setopt_httpform">easy:setopt_httpform (data)</a></td>
@@ -168,6 +173,29 @@
 	<tr>
 	<td class="name" nowrap><a href="#easy:setopt_postfields">easy:setopt_postfields (data[, length=#data])</a></td>
 	<td class="summary">Set HTTP multipart/formdata</td>
+	</tr>
+</table>
+<h2><a href="#Class_multi">Class multi </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#multi:add_handle">multi:add_handle (handle)</a></td>
+	<td class="summary">Add Easy object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi:remove_handle">multi:remove_handle (handle)</a></td>
+	<td class="summary">Remove Easy object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi:perfom">multi:perfom ()</a></td>
+	<td class="summary">reads/writes available data from each easy handle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi:info_read">multi:info_read ()</a></td>
+	<td class="summary">Read multi stack informationals.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi:close">multi:close ()</a></td>
+	<td class="summary">End multi session.</td>
 	</tr>
 </table>
 
@@ -182,7 +210,7 @@
     <strong>form ()</strong>
     </dt>
     <dd>
-    Create HTTP multipart object.
+    Create HTTP multipart/formdata object.
 
 
 
@@ -211,6 +239,26 @@
 
            <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
         new curl easy object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi"></a>
+    <strong>multi ()</strong>
+    </dt>
+    <dd>
+    Create Multi object
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_multi">multi</a></span>
+        new curl multi object
     </ol>
 
 
@@ -727,7 +775,7 @@
     </dt>
     <dd>
     Set writer function.
-<p> This call same as easy:set_writefunction(writer.write, writer)
+<p> This call same as easy:setopt_writefunction(writer.write, writer)
 
 
 
@@ -789,7 +837,7 @@
     </dt>
     <dd>
     Set header function.
-<p> This call same as easy:set_headerfunction(writer.header, writer)
+<p> This call same as easy:setopt_headerfunction(writer.header, writer)
 
 
 
@@ -852,7 +900,7 @@
     </dt>
     <dd>
     Set reader function.
-<p> This call same as easy:set_readfunction(reader.read, reader)
+<p> This call same as easy:setopt_readfunction(reader.read, reader)
 
 
 
@@ -913,18 +961,18 @@
 
 </dd>
     <dt>
-    <a name = "easy:setopt_readfunction"></a>
-    <strong>easy:setopt_readfunction (reader)</strong>
+    <a name = "easy:setopt_progressfunction"></a>
+    <strong>easy:setopt_progressfunction (progress)</strong>
     </dt>
     <dd>
-    Set reader function.
-<p> This call same as easy:set_readfunction(reader.read, reader)
+    Set progress function.
+<p> This call same as easy:setopt_progressfunction(progress.progress, progress)
 
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">reader</span>
+        <li><span class="parameter">progress</span>
             <span class="types"><span class="type">object</span></span>
 
         </li>
@@ -945,7 +993,8 @@
     <strong>easy:setopt_httpform (data)</strong>
     </dt>
     <dd>
-    Set HTTP multipart/formdata
+    Set HTTP multipart/formdata  Caller does not have to save data.
+
 
 
     <h3>Parameters:</h3>
@@ -992,6 +1041,141 @@
 
         self
     </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_multi"></a>Class multi </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "multi:add_handle"></a>
+    <strong>multi:add_handle (handle)</strong>
+    </dt>
+    <dd>
+    Add Easy object.
+<p> Caller must ensure that easy object is alive until end of operation.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">handle</span>
+            <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_multi">multi</a></span>
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi:remove_handle"></a>
+    <strong>multi:remove_handle (handle)</strong>
+    </dt>
+    <dd>
+    Remove Easy object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">handle</span>
+            <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_multi">multi</a></span>
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi:perfom"></a>
+    <strong>multi:perfom ()</strong>
+    </dt>
+    <dd>
+    reads/writes available data from each easy handle.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        handles number of active easy handles
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi:info_read"></a>
+    <strong>multi:info_read ()</strong>
+    </dt>
+    <dd>
+    Read multi stack informationals.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        0 there no informationals
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+        handle</li>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        true</li>
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+        handle</li>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><span class="type">error</span></span>
+        error code</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi:close"></a>
+    <strong>multi:close ()</strong>
+    </dt>
+    <dd>
+    End multi session.
+
+
+
 
 
 

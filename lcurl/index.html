@@ -30,7 +30,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Class_httppost">Class httppost </a></li>
+<li><a href="#Class_httpform">Class httpform </a></li>
 <li><a href="#Class_easy">Class easy </a></li>
 </ul>
 
@@ -52,7 +52,7 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#httppost">httppost ()</a></td>
+	<td class="name" nowrap><a href="#form">form ()</a></td>
 	<td class="summary">Create HTTP multipart object.</td>
 	</tr>
 	<tr>
@@ -68,34 +68,34 @@
 	<td class="summary">Returns libcurl version as table</td>
 	</tr>
 </table>
-<h2><a href="#Class_httppost">Class httppost </a></h2>
+<h2><a href="#Class_httpform">Class httpform </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#httppost:add_content">httppost:add_content (name, content[, type[, headers]])</a></td>
+	<td class="name" nowrap><a href="#httpform:add_content">httpform:add_content (name, content[, type[, headers]])</a></td>
 	<td class="summary">Add new part to form.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#httppost:add_buffer">httppost:add_buffer (name, filename, content[, type[, headers]])</a></td>
+	<td class="name" nowrap><a href="#httpform:add_buffer">httpform:add_buffer (name, filename, content[, type[, headers]])</a></td>
 	<td class="summary">Add new part to form.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#httppost:add_file">httppost:add_file (name, path[, type[, filename[, headers]]])</a></td>
+	<td class="name" nowrap><a href="#httpform:add_file">httpform:add_file (name, path[, type[, filename[, headers]]])</a></td>
 	<td class="summary">Add new part to form.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#httppost:get">httppost:get ()</a></td>
+	<td class="name" nowrap><a href="#httpform:get">httpform:get ()</a></td>
 	<td class="summary">Serialize multipart/formdata HTTP POST chain.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#httppost:get">httppost:get (writer[, context])</a></td>
+	<td class="name" nowrap><a href="#httpform:get">httpform:get (writer[, context])</a></td>
 	<td class="summary">Serialize multipart/formdata HTTP POST chain.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#httppost:get">httppost:get (writer)</a></td>
+	<td class="name" nowrap><a href="#httpform:get">httpform:get (writer)</a></td>
 	<td class="summary">Serialize multipart/formdata HTTP POST chain.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#httppost:free">httppost:free ()</a></td>
+	<td class="name" nowrap><a href="#httpform:free">httpform:free ()</a></td>
 	<td class="summary">Free multipart/formdata.</td>
 	</tr>
 </table>
@@ -112,6 +112,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#easy:unescape">easy:unescape (url)</a></td>
 	<td class="summary">URL decodes the given string</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:reset">easy:reset ()</a></td>
+	<td class="summary">Re-initializes all options previously set.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#easy:close">easy:close ()</a></td>
@@ -158,7 +162,7 @@
 	<td class="summary">Set reader function.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#easy:setopt_httppost">easy:setopt_httppost (data)</a></td>
+	<td class="name" nowrap><a href="#easy:setopt_httpform">easy:setopt_httpform (data)</a></td>
 	<td class="summary">Set HTTP multipart/formdata</td>
 	</tr>
 	<tr>
@@ -174,8 +178,8 @@
     <h2><a name="Functions"></a>Functions</h2>
     <dl class="function">
     <dt>
-    <a name = "httppost"></a>
-    <strong>httppost ()</strong>
+    <a name = "form"></a>
+    <strong>form ()</strong>
     </dt>
     <dd>
     Create HTTP multipart object.
@@ -185,7 +189,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="index.html#Class_httppost">httppost</a></span>
+           <span class="types"><a class="type" href="index.html#Class_httpform">httpform</a></span>
         new curl HTTP Post object context
     </ol>
 
@@ -266,12 +270,12 @@
 
 </dd>
 </dl>
-    <h2><a name="Class_httppost"></a>Class httppost </h2>
+    <h2><a name="Class_httpform"></a>Class httpform </h2>
 
     <dl class="function">
     <dt>
-    <a name = "httppost:add_content"></a>
-    <strong>httppost:add_content (name, content[, type[, headers]])</strong>
+    <a name = "httpform:add_content"></a>
+    <strong>httpform:add_content (name, content[, type[, headers]])</strong>
     </dt>
     <dd>
     Add new part to form.
@@ -308,8 +312,8 @@
 
 </dd>
     <dt>
-    <a name = "httppost:add_buffer"></a>
-    <strong>httppost:add_buffer (name, filename, content[, type[, headers]])</strong>
+    <a name = "httpform:add_buffer"></a>
+    <strong>httpform:add_buffer (name, filename, content[, type[, headers]])</strong>
     </dt>
     <dd>
     Add new part to form.
@@ -350,8 +354,8 @@
 
 </dd>
     <dt>
-    <a name = "httppost:add_file"></a>
-    <strong>httppost:add_file (name, path[, type[, filename[, headers]]])</strong>
+    <a name = "httpform:add_file"></a>
+    <strong>httpform:add_file (name, path[, type[, filename[, headers]]])</strong>
     </dt>
     <dd>
     Add new part to form.
@@ -393,8 +397,8 @@
 
 </dd>
     <dt>
-    <a name = "httppost:get"></a>
-    <strong>httppost:get ()</strong>
+    <a name = "httpform:get"></a>
+    <strong>httpform:get ()</strong>
     </dt>
     <dd>
     Serialize multipart/formdata HTTP POST chain.
@@ -416,8 +420,8 @@
 
 </dd>
     <dt>
-    <a name = "httppost:get"></a>
-    <strong>httppost:get (writer[, context])</strong>
+    <a name = "httpform:get"></a>
+    <strong>httpform:get (writer[, context])</strong>
     </dt>
     <dd>
     Serialize multipart/formdata HTTP POST chain.
@@ -455,12 +459,12 @@
 
 </dd>
     <dt>
-    <a name = "httppost:get"></a>
-    <strong>httppost:get (writer)</strong>
+    <a name = "httpform:get"></a>
+    <strong>httpform:get (writer)</strong>
     </dt>
     <dd>
     Serialize multipart/formdata HTTP POST chain.
-<p> This call same as httppost:get(writer.write, writer)
+<p> This call same as httpform:get(writer.write, writer)
 
 
 
@@ -489,8 +493,8 @@
 
 </dd>
     <dt>
-    <a name = "httppost:free"></a>
-    <strong>httppost:free ()</strong>
+    <a name = "httpform:free"></a>
+    <strong>httpform:free ()</strong>
     </dt>
     <dd>
     Free multipart/formdata.
@@ -571,6 +575,26 @@
     <ol>
 
         decoded url
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:reset"></a>
+    <strong>easy:reset ()</strong>
+    </dt>
+    <dd>
+    Re-initializes all options previously set.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+        self
     </ol>
 
 
@@ -917,8 +941,8 @@
 
 </dd>
     <dt>
-    <a name = "easy:setopt_httppost"></a>
-    <strong>easy:setopt_httppost (data)</strong>
+    <a name = "easy:setopt_httpform"></a>
+    <strong>easy:setopt_httpform (data)</strong>
     </dt>
     <dd>
     Set HTTP multipart/formdata
@@ -927,7 +951,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">data</span>
-            <span class="types"><a class="type" href="index.html#Class_httppost">httppost</a></span>
+            <span class="types"><a class="type" href="index.html#Class_httpform">httpform</a></span>
 
         </li>
     </ul>

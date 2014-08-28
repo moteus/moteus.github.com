@@ -67,6 +67,10 @@
 	<td class="summary">Create Multi object</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#share">share ()</a></td>
+	<td class="summary">Create Share object</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#version">version ()</a></td>
 	<td class="summary">Returns libcurl version as human readable string</td>
 	</tr>
@@ -231,7 +235,7 @@
 	<td class="summary">Set timer callback.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#multi:wait">multi:wait (timeout)</a></td>
+	<td class="name" nowrap><a href="#multi:wait">multi:wait ([timeout])</a></td>
 	<td class="summary">Polls on all easy objects in a multi object.</td>
 	</tr>
 	<tr>
@@ -315,6 +319,26 @@
 
            <span class="types"><a class="type" href="index.html#Class_multi">multi</a></span>
         new curl multi object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "share"></a>
+    <strong>share ()</strong>
+    </dt>
+    <dd>
+    Create Share object
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_share">share</a></span>
+        new curl share object
     </ol>
 
 
@@ -1433,7 +1457,7 @@
 </dd>
     <dt>
     <a name = "multi:wait"></a>
-    <strong>multi:wait (timeout)</strong>
+    <strong>multi:wait ([timeout])</strong>
     </dt>
     <dd>
     Polls on all easy objects in a multi object.
@@ -1443,7 +1467,7 @@
     <ul>
         <li><span class="parameter">timeout</span>
             <span class="types"><span class="type">number</span></span>
-         millisecnds timeout
+         milliseconds timeout. By default it is `multi:timeout()`.
         </li>
     </ul>
 
@@ -1471,7 +1495,7 @@
     <ol>
 
            <span class="types"><span class="type">number</span></span>
-        timeout millisecnds timeout
+        timeout milliseconds timeout
     </ol>
 
 

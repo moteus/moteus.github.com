@@ -194,6 +194,26 @@
 	<td class="summary">Read multi stack informationals.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#multi:setopt">multi:setopt (opt, ...)</a></td>
+	<td class="summary">Set options.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi:setopt_timerfunction">multi:setopt_timerfunction (timer[, context])</a></td>
+	<td class="summary">Set timer callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi:setopt_timerfunction">multi:setopt_timerfunction (timer)</a></td>
+	<td class="summary">Set timer callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi:wait">multi:wait (timeout)</a></td>
+	<td class="summary">Polls on all easy objects in a multi object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#multi:timeout">multi:timeout ()</a></td>
+	<td class="summary">How long to wait for action before proceeding.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#multi:close">multi:close ()</a></td>
 	<td class="summary">End multi session.</td>
 	</tr>
@@ -1161,6 +1181,146 @@
         <li>
            <span class="types"><span class="type">error</span></span>
         error code</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi:setopt"></a>
+    <strong>multi:setopt (opt, ...)</strong>
+    </dt>
+    <dd>
+    Set options.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">opt</span>
+            <span class="types"><span class="type">number</span></span>
+         one of `curl.OPT_MULTI_XXX` constant
+        </li>
+        <li><span class="parameter">...</span>
+         value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+        self
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">c:setopt(curl.OPT_MULTI_MAXCONNECTS, <span class="number">10</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "multi:setopt_timerfunction"></a>
+    <strong>multi:setopt_timerfunction (timer[, context])</strong>
+    </dt>
+    <dd>
+    Set timer callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timer</span>
+            <span class="types"><span class="type">function</span></span>
+         timer callback
+        </li>
+        <li><span class="parameter">context</span>
+         timer context
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_multi">multi</a></span>
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi:setopt_timerfunction"></a>
+    <strong>multi:setopt_timerfunction (timer)</strong>
+    </dt>
+    <dd>
+    Set timer callback.
+<p> This call same as easy:setopt_writefunction(timer.timer, timer)
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timer</span>
+            <span class="types"><span class="type">userdata</span> or <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         timer object
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_multi">multi</a></span>
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi:wait"></a>
+    <strong>multi:wait (timeout)</strong>
+    </dt>
+    <dd>
+    Polls on all easy objects in a multi object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeout</span>
+            <span class="types"><span class="type">number</span></span>
+         millisecnds timeout
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        number of affected objects
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "multi:timeout"></a>
+    <strong>multi:timeout ()</strong>
+    </dt>
+    <dd>
+    How long to wait for action before proceeding.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        timeout millisecnds timeout
     </ol>
 
 

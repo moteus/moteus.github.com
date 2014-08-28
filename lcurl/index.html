@@ -31,8 +31,10 @@
 <ul>
 <li><a href="#Functions">Functions</a></li>
 <li><a href="#Class_httpform">Class httpform </a></li>
+<li><a href="#Class_error">Class error </a></li>
 <li><a href="#Class_easy">Class easy </a></li>
 <li><a href="#Class_multi">Class multi </a></li>
+<li><a href="#Class_share">Class share </a></li>
 </ul>
 
 
@@ -104,6 +106,25 @@
 	<td class="summary">Free multipart/formdata.</td>
 	</tr>
 </table>
+<h2><a href="#Class_error">Class error </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#error:no">error:no ()</a></td>
+	<td class="summary">Get the number value of error.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#error:name">error:name ()</a></td>
+	<td class="summary">Get the error name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#error:msg">error:msg ()</a></td>
+	<td class="summary">Get the error description.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#error:__tostring">error:__tostring ()</a></td>
+	<td class="summary">Get the full error description.</td>
+	</tr>
+</table>
 <h2><a href="#Class_easy">Class easy </a></h2>
 <table class="function_list">
 	<tr>
@@ -167,12 +188,16 @@
 	<td class="summary">Set progress function.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#easy:setopt_httpform">easy:setopt_httpform (data)</a></td>
-	<td class="summary">Set HTTP multipart/formdata</td>
+	<td class="name" nowrap><a href="#easy:setopt_httppost">easy:setopt_httppost (data)</a></td>
+	<td class="summary">Set HTTP multipart/formdata.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#easy:setopt_postfields">easy:setopt_postfields (data[, length=#data])</a></td>
-	<td class="summary">Set HTTP multipart/formdata</td>
+	<td class="summary">Set HTTP multipart/formdata.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:setopt_share">easy:setopt_share (data)</a></td>
+	<td class="summary">Set curl share object.</td>
 	</tr>
 </table>
 <h2><a href="#Class_multi">Class multi </a></h2>
@@ -216,6 +241,17 @@
 	<tr>
 	<td class="name" nowrap><a href="#multi:close">multi:close ()</a></td>
 	<td class="summary">End multi session.</td>
+	</tr>
+</table>
+<h2><a href="#Class_share">Class share </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#share:setopt">share:setopt (opt, ...)</a></td>
+	<td class="summary">Set options.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#share:close">share:close ()</a></td>
+	<td class="summary">End share session.</td>
 	</tr>
 </table>
 
@@ -569,6 +605,92 @@
 
 
 
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_error"></a>Class error </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "error:no"></a>
+    <strong>error:no ()</strong>
+    </dt>
+    <dd>
+    Get the number value of error.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        number of error (curl.E_XXX constants)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "error:name"></a>
+    <strong>error:name ()</strong>
+    </dt>
+    <dd>
+    Get the error name.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        error name (e.g. "UNSUPPORTED_PROTOCOL", "BAD_OPTION")
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "error:msg"></a>
+    <strong>error:msg ()</strong>
+    </dt>
+    <dd>
+    Get the error description.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        error description (e.g. "Login denied")
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "error:__tostring"></a>
+    <strong>error:__tostring ()</strong>
+    </dt>
+    <dd>
+    Get the full error description.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        string that contain name, message and number of error
+    </ol>
 
 
 
@@ -1009,11 +1131,12 @@
 
 </dd>
     <dt>
-    <a name = "easy:setopt_httpform"></a>
-    <strong>easy:setopt_httpform (data)</strong>
+    <a name = "easy:setopt_httppost"></a>
+    <strong>easy:setopt_httppost (data)</strong>
     </dt>
     <dd>
-    Set HTTP multipart/formdata  Caller does not have to save data.
+    Set HTTP multipart/formdata.
+<p> Caller does not have to save data.
 
 
 
@@ -1040,7 +1163,7 @@
     <strong>easy:setopt_postfields (data[, length=#data])</strong>
     </dt>
     <dd>
-    Set HTTP multipart/formdata
+    Set HTTP multipart/formdata.
 
 
     <h3>Parameters:</h3>
@@ -1053,6 +1176,34 @@
             <span class="types"><span class="type">number</span></span>
 
          (<em>default</em> #data)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "easy:setopt_share"></a>
+    <strong>easy:setopt_share (data)</strong>
+    </dt>
+    <dd>
+    Set curl share object.
+<p> Caller does not have to save data.
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+            <span class="types"><a class="type" href="index.html#Class_share">share</a></span>
+
         </li>
     </ul>
 
@@ -1179,7 +1330,7 @@
            <span class="types"><span class="type">nil</span></span>
         </li>
         <li>
-           <span class="types"><span class="type">error</span></span>
+           <span class="types"><a class="type" href="index.html#Class_error">error</a></span>
         error code</li>
     </ol>
 
@@ -1209,7 +1360,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+           <span class="types"><a class="type" href="index.html#Class_multi">multi</a></span>
         self
     </ol>
 
@@ -1333,6 +1484,58 @@
     </dt>
     <dd>
     End multi session.
+
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2><a name="Class_share"></a>Class share </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "share:setopt"></a>
+    <strong>share:setopt (opt, ...)</strong>
+    </dt>
+    <dd>
+    Set options.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">opt</span>
+            <span class="types"><span class="type">number</span></span>
+         one of `curl.OPT_SHARE_XXX` constant
+        </li>
+        <li><span class="parameter">...</span>
+         value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_share">share</a></span>
+        self
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">c:setopt(curl.OPT_SHARE_SHARE, curl.LOCK_DATA_COOKIE)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "share:close"></a>
+    <strong>share:close ()</strong>
+    </dt>
+    <dd>
+    End share session.
 
 
 

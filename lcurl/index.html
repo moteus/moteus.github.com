@@ -113,6 +113,10 @@
 <h2><a href="#Class_error">Class error </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#error:category">error:category ()</a></td>
+	<td class="summary">Get the error category.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#error:no">error:no ()</a></td>
 	<td class="summary">Get the number value of error.</td>
 	</tr>
@@ -219,7 +223,7 @@
 	<td class="summary">reads/writes available data from each easy handle.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#multi:info_read">multi:info_read ()</a></td>
+	<td class="name" nowrap><a href="#multi:info_read">multi:info_read ([remove])</a></td>
 	<td class="summary">Read multi stack informationals.</td>
 	</tr>
 	<tr>
@@ -638,6 +642,34 @@
     <h2><a name="Class_error"></a>Class error </h2>
 
     <dl class="function">
+    <dt>
+    <a name = "error:category"></a>
+    <strong>error:category ()</strong>
+    </dt>
+    <dd>
+    Get the error category.
+
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        number of error category (curl.ERROR_XXX constants)
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">if</span> err:category() == curl.ERROR_EASY <span class="keyword">then</span>
+ <span class="comment">-- proceed easy error
+</span> <span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
     <dt>
     <a name = "error:no"></a>
     <strong>error:no ()</strong>
@@ -1323,12 +1355,21 @@
 </dd>
     <dt>
     <a name = "multi:info_read"></a>
-    <strong>multi:info_read ()</strong>
+    <strong>multi:info_read ([remove])</strong>
     </dt>
     <dd>
     Read multi stack informationals.
+<p> Note. If curl_multi_remove_handle fail then there no error occure but handle jast stay in multi handle.
 
 
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">remove</span>
+            <span class="types"><span class="type">remove</span></span>
+         easy handle if it done.
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>

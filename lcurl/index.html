@@ -63,11 +63,11 @@
 	<td class="summary">Create Easy object</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#multi">multi ()</a></td>
+	<td class="name" nowrap><a href="#multi">multi ([options])</a></td>
 	<td class="summary">Create Multi object</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#share">share ()</a></td>
+	<td class="name" nowrap><a href="#share">share ([options])</a></td>
 	<td class="summary">Create Share object</td>
 	</tr>
 	<tr>
@@ -326,12 +326,19 @@
 </dd>
     <dt>
     <a name = "multi"></a>
-    <strong>multi ()</strong>
+    <strong>multi ([options])</strong>
     </dt>
     <dd>
     Create Multi object
 
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>
@@ -346,12 +353,19 @@
 </dd>
     <dt>
     <a name = "share"></a>
-    <strong>share ()</strong>
+    <strong>share ([options])</strong>
     </dt>
     <dd>
     Create Share object
 
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>
@@ -1433,7 +1447,7 @@ c:setopt{
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">opt</span>
-            <span class="types"><span class="type">number</span></span>
+            <span class="types"><span class="type">number</span> or <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
          one of `curl.OPT_MULTI_XXX` constant
         </li>
         <li><span class="parameter">...</span>
@@ -1452,7 +1466,9 @@ c:setopt{
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">c:setopt(curl.OPT_MULTI_MAXCONNECTS, <span class="number">10</span>)</pre>
+        <pre class="example">
+ c:setopt(curl.OPT_MULTI_MAXCONNECTS, <span class="number">10</span>)
+ c:setopt{maxconnects = <span class="number">10</span>}</pre>
     </ul>
 
 </dd>
@@ -1591,7 +1607,7 @@ c:setopt{
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">opt</span>
-            <span class="types"><span class="type">number</span></span>
+            <span class="types"><span class="type">number</span> or <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
          one of `curl.OPT_SHARE_XXX` constant
         </li>
         <li><span class="parameter">...</span>
@@ -1610,7 +1626,9 @@ c:setopt{
 
     <h3>Usage:</h3>
     <ul>
-        <pre class="example">c:setopt(curl.OPT_SHARE_SHARE, curl.LOCK_DATA_COOKIE)</pre>
+        <pre class="example">
+ c:setopt(curl.OPT_SHARE_SHARE, curl.LOCK_DATA_COOKIE)
+ c:setopt{share =  curl.LOCK_DATA_COOKIE}</pre>
     </ul>
 
 </dd>

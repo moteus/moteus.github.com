@@ -59,7 +59,7 @@
 	<td class="summary">Create HTTP multipart/formdata object.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#easy">easy ()</a></td>
+	<td class="name" nowrap><a href="#easy">easy ([options])</a></td>
 	<td class="summary">Create Easy object</td>
 	</tr>
 	<tr>
@@ -291,12 +291,19 @@
 </dd>
     <dt>
     <a name = "easy"></a>
-    <strong>easy ()</strong>
+    <strong>easy ([options])</strong>
     </dt>
     <dd>
     Create Easy object
 
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+        </li>
+    </ul>
 
     <h3>Returns:</h3>
     <ol>
@@ -307,6 +314,14 @@
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ c = curl.easy{
+   url = <span class="string">'http://example.com'</span>,
+   [curl.OPT_VERBOSE] = <span class="keyword">true</span>,
+ }</pre>
+    </ul>
 
 </dd>
     <dt>
@@ -872,8 +887,8 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">opt</span>
-            <span class="types"><span class="type">number</span></span>
-         one of `curl.OPT_XXX` constant
+            <span class="types"><span class="type">number</span> or <a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         one of `curl.OPT_XXX` constant or options table
         </li>
         <li><span class="parameter">...</span>
          value
@@ -896,7 +911,11 @@
  c:setopt(curl.OPT_READFUNCTION,
     <span class="keyword">function</span>(t, n) <span class="keyword">return</span> <span class="global">table</span>.remove(t) <span class="keyword">end</span>,
     {<span class="string">"1111"</span>, <span class="string">"2222"</span>}
- )</pre>
+ )
+c:setopt{
+   url = <span class="string">'http://example.com'</span>,
+   [curl.OPT_VERBOSE] = <span class="keyword">true</span>,
+ }</pre>
     </ul>
 
 </dd>

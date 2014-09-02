@@ -94,6 +94,10 @@
 	<td class="summary">Add new part to form.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#httpform:add_stream">httpform:add_stream (name[, filename][, type][, headers], size, reader[, context])</a></td>
+	<td class="summary">Add new part to form.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#httpform:get">httpform:get ()</a></td>
 	<td class="summary">Serialize multipart/formdata HTTP POST chain.</td>
 	</tr>
@@ -554,6 +558,59 @@
     </ol>
 
 
+
+
+</dd>
+    <dt>
+    <a name = "httpform:add_stream"></a>
+    <strong>httpform:add_stream (name[, filename][, type][, headers], size, reader[, context])</strong>
+    </dt>
+    <dd>
+    Add new part to form.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provide the name of this part
+        </li>
+        <li><span class="parameter">filename</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provides the filename field in the content header.
+        </li>
+        <li><span class="parameter">type</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         provides the content-type for this part
+        </li>
+        <li><span class="parameter">headers</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         specifies extra headers for the form POST section
+        </li>
+        <li><span class="parameter">size</span>
+            <span class="types"><span class="type">number</span></span>
+         stream size in bytes
+        </li>
+        <li><span class="parameter">reader</span>
+            <span class="types"><span class="type">function/object</span></span>
+
+        </li>
+        <li><span class="parameter">context</span>
+         reader context
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        self
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#easy:setopt_readfunction">easy:setopt_readfunction</a>
+    </ul>
 
 
 </dd>

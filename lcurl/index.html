@@ -156,12 +156,20 @@
 	<td class="summary">Re-initializes all options previously set.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#easy:pause">easy:pause (mask)</a></td>
+	<td class="summary">Pause and unpause a connection.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#easy:close">easy:close ()</a></td>
 	<td class="summary">End easy session</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#easy:setopt">easy:setopt (opt, ...)</a></td>
 	<td class="summary">Set options.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#easy:unsetopt">easy:unsetopt (opt)</a></td>
+	<td class="summary">Reset option to default value.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#easy:getinfo">easy:getinfo (info)</a></td>
@@ -934,6 +942,33 @@
 
 </dd>
     <dt>
+    <a name = "easy:pause"></a>
+    <strong>easy:pause (mask)</strong>
+    </dt>
+    <dd>
+    Pause and unpause a connection.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">mask</span>
+            <span class="types"><span class="type">number</span></span>
+         set of bits that sets the new state of the connection (one of PAUSE_XXX constant)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+        self
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "easy:close"></a>
     <strong>easy:close ()</strong>
     </dt>
@@ -987,6 +1022,39 @@ c:setopt{
    url = <span class="string">'http://example.com'</span>,
    [curl.OPT_VERBOSE] = <span class="keyword">true</span>,
  }</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "easy:unsetopt"></a>
+    <strong>easy:unsetopt (opt)</strong>
+    </dt>
+    <dd>
+    Reset option to default value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">opt</span>
+            <span class="types"><span class="type">number</span></span>
+         one of `curl.OPT_XXX` constant or options table
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="index.html#Class_easy">easy</a></span>
+        self
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ c:unsetopt(curl.OPT_URL)
+ c:unsetopt(curl.OPT_READFUNCTION)</pre>
     </ul>
 
 </dd>
@@ -1222,8 +1290,11 @@ c:setopt{
  the third is the number of bytes downloaded so far,
  the fourth is the total number of bytes expected to be uploaded
  in this transfer, and the fifth is the number of bytes uploaded so far.
- Function must return `true` or or nothing to continue operation.
- Otherwise the transfer will be aborted with an error.
+ Function must return `true` or `1` or nothing to continue operation.
+ Otherwise the transfer will be aborted with an error `ABORTED_BY_CALLBACK`.<br/>
+<p> !!! NOTE !!! This is differents form libcurl API. In libcurl returning a non-zero
+ value from this callback will cause libcurl to abort the transfer and return.
+ This done to be consisted with writefunction that should return `true` to continue.
 
 
 

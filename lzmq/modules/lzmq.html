@@ -338,6 +338,10 @@
 	<td class="name" nowrap><a href="#socket:reset_monitor">socket:reset_monitor ()</a></td>
 	<td class="summary">Stop publishing socket events.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#socket:has_event">socket:has_event (mask)</a></td>
+	<td class="summary">Check if socket has specific event state.</td>
+	</tr>
 </table>
 <h2><a href="#Class_message">Class message </a></h2>
 <table class="function_list">
@@ -2617,6 +2621,56 @@
          <a href="../modules/lzmq.html#socket:monitor">socket:monitor</a>
     </ul>
 
+
+</dd>
+    <dt>
+    <a name = "socket:has_event"></a>
+    <strong>socket:has_event (mask)</strong>
+    </dt>
+    <dd>
+    Check if socket has specific event state.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">mask</span>
+            <span class="types"><span class="type">number</span></span>
+         event mask (zmq.POLLIN, zmq.POLLOUT)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+
+    </ol>
+     <h3>Or</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">nil</span></span>
+        </li>
+        <li>
+           <span class="types"><a class="type" href="../modules/lzmq.html#Class_error">error</a></span>
+        </li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="comment">-- Polling zmq socket using libuv (use lua-lluv binding)
+</span>
+ <span class="comment">-- start polling zmq socket (e.g. ZMQ_SUB)
+</span> uv.poll_socket(sock:fd()):start(<span class="keyword">function</span>(handle, err)
+   <span class="comment">-- We need read all messages from zmq socket
+</span>   <span class="keyword">while</span> sock:has_event(zmq.POLLIN) <span class="keyword">do</span>
+     <span class="keyword">local</span> msg, err = sock:recv() <span class="comment">-- we have no need use zmq.DONTWAIT
+</span>     ...
+   <span class="keyword">end</span>
+ <span class="keyword">end</span>)</pre>
+    </ul>
 
 </dd>
 </dl>

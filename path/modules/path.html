@@ -40,8 +40,8 @@
 
 <h2>Modules</h2>
 <ul class="$(kind=='Topics' and '' or 'nowrap'">
-  <li><a href="../modules/path.fs.html">path.fs</a></li>
   <li><strong>path</strong></li>
+  <li><a href="../modules/path.fs.html">path.fs</a></li>
 </ul>
 
 </div>
@@ -87,7 +87,7 @@
 	<td class="summary">Appends a path name separator to path if one does not exist.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#normolize">normolize (P)</a></td>
+	<td class="name" nowrap><a href="#normalize">normalize (P)</a></td>
 	<td class="summary">Normalize a path.</td>
 	</tr>
 	<tr>
@@ -164,7 +164,7 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#fullpath">fullpath (P)</a></td>
-	<td class="summary">Return full normolized path.</td>
+	<td class="summary">Return full normalized path.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#abspath">abspath (P)</a></td>
@@ -366,14 +366,14 @@
 
 </dd>
     <dt>
-    <a name = "normolize"></a>
-    <strong>normolize (P)</strong>
+    <a name = "normalize"></a>
+    <strong>normalize (P)</strong>
     </dt>
     <dd>
     Normalize a path.
- This function normolize path name separators and collaps
+ This function normalize path name separators and collaps
  redundant separators and up-level references.
- E.g. `/a/fred/../b`, `/a//b`,`/a\\b`, `/a/./b` all normolize to `/a/b`
+ E.g. `/a/fred/../b`, `/a//b`,`/a\\b`, `/a/./b` all normalize to `/a/b`
 
 
 
@@ -760,7 +760,7 @@
     <strong>fullpath (P)</strong>
     </dt>
     <dd>
-    Return full normolized path.
+    Return full normalized path.
 <p> <br/>depends on `path.fs`
 
 
